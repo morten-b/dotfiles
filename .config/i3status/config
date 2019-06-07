@@ -1,0 +1,41 @@
+general {
+  colors = true
+  interval = 5
+  colors = true
+  color_good = "#36E592"
+  color_degraded = "#CE9726"
+  color_bad = "#CE4B4F"
+  color_separator = "#B3BEFF"
+  interval = 5
+}
+
+
+order += "disk /"
+order += "battery 0"
+order += "volume master"
+order += "time"
+
+battery 0 {
+  last_full_capacity = true
+  format = "  %percentage"
+}
+
+time {
+  format = " %a, %d %b %H:%M"
+}
+
+cpu_usage {
+  format = " %usage"
+}
+
+disk "/" {
+  format = " %avail"
+}
+
+volume master {
+  format = " %volume"
+  format_muted = " %volume"
+  device = "default"
+  mixer = "Master"
+  mixer_idx = 0
+}
