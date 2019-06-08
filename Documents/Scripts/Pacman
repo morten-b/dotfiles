@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# pacman -Qqm lists foreign packages (AUR)
+# pacman -Qqe lists packages that were explicitely installed. 
+
+# Create list
+pacman -Qqe | grep -vx "$(pacman -Qqm)" > pacman.lst
+pacman -Qqm > aur.lst
+
+# restore from list
+# cat pacman.lst | xargs pacman -S --needed --noconfirm
+# cat aur.lst | xargs pacman -S --needed --noconfirm
