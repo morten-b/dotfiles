@@ -1,4 +1,6 @@
 # Setup  
+https://gist.github.com/mattiaslundberg/8620837
+https://tutos.readthedocs.io/en/latest/source/Arch.html
 
 ## Remove  
 
@@ -39,3 +41,4 @@ Option "NaturalScrolling" "true"
 
 ## Autologin
 https://wiki.archlinux.org/index.php/LightDM#Enabling_autologin
+
