@@ -14,6 +14,8 @@ order += "disk /"
 order += "battery 0"
 order += "volume master"
 order += "time"
+order += "external_script"
+order += "online_status"
 
 battery 0 {
   last_full_capacity = true
@@ -38,4 +40,10 @@ volume master {
   device = "default"
   mixer = "Master"
   mixer_idx = 0
+}
+
+external_script {
+	format = "{output}"
+	script_path = "/home/morten/Documents/Scripts/updates.sh"
+	cache_timeout = 3600
 }

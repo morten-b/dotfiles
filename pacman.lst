@@ -19,7 +19,6 @@ dhcpcd
 dialog
 diffutils
 dmenu
-duplicati2-beta
 e2fsprogs
 efibootmgr
 exfat-utils
@@ -47,7 +46,6 @@ gvfs-smb
 gzip
 i3-gaps
 i3blocks
-i3lock-blur
 i3status
 inetutils
 iproute2
@@ -57,9 +55,6 @@ keepassxc
 kvantum-qt5
 less
 licenses
-lightdm
-lightdm-gtk-greeter
-lightdm-gtk-greeter-settings
 linux
 linux-firmware
 linux-headers
@@ -72,10 +67,8 @@ man-db
 man-pages
 mdadm
 mesa
-micro
 mono
 mono-tools
-msbuild-stable
 netctl
 network-manager-applet
 networkmanager
@@ -135,19 +128,16 @@ qt5-xmlpatterns
 qt5ct
 ranger
 reiserfsprogs
-rider
 s-nail
 screenfetch
 sed
 shadow
-signal
 sudo
 sysfsutils
 systemd-sysvcompat
 tar
 texinfo
 ttf-dejavu
-ttf-font-awesome-4
 udiskie
 unzip
 usbutils
@@ -201,7 +191,5 @@ xorg-xvinfo
 xorg-xwd
 xorg-xwininfo
 xorg-xwud
-yadm-git
-yay
 zathura
 zathura-pdf-mupdf

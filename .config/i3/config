@@ -36,8 +36,8 @@ set $mode_system (l)ock, (e)xit, (r)eboot, ($mod+s)hutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id i3lock --fuzzy, mode "default"
     bindsym e exec --no-startup-id i3-msg exit, mode "default"
-    bindsym r exec --no-startup-id systemctl reboot, mode "default"
-    bindsym $mod+s exec --no-startup-id systemctl shutdown, mode "default"
+    bindsym r exec --no-startup-id reboot, mode "default"
+    bindsym $mod+s exec --no-startup-id shutdown now, mode "default"
 
     # exit system mode: "Enter" or "Escape"
     bindsym Return mode "default"
@@ -131,6 +131,7 @@ bindsym $mod+r mode "resize"
 exec --no-startup-id keepassxc
 exec --no-startup-id compton
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd
 exec --no-startup-id nm-applet
 exec --no-startup-id volumeicon
 exec --no-startup-id signal-desktop --start-in-tray
@@ -143,7 +144,7 @@ exec --no-startup-id udiskie -Ns2
 bar {
 	font pango:monospace 10, FontAwesome 10
 	i3bar_command i3bar
-	status_command i3status -t
+	status_command py3status -c ~/.config/i3status/config #i3status -t
 	position top
 	separator_symbol " | "
 }
