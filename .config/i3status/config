@@ -1,49 +1,44 @@
-general {
-  colors = true
-  interval = 5
-  colors = true
-  color_good = "#36E592"
-  color_degraded = "#CE9726"
-  color_bad = "#CE4B4F"
-  color_separator = "#B3BEFF"
-  interval = 5
-}
-
-
-order += "disk /"
-order += "battery 0"
-order += "volume master"
-order += "time"
 order += "external_script"
+order += "clock"
+order += "sysdata"
+order += "diskdata"
+order += "battery_level"
+order += "volume_status"
 order += "online_status"
+order += "hueshift"
+order += "backlight"
 
-battery 0 {
-  last_full_capacity = true
-  format = "  %percentage"
-}
-
-time {
-  format = " %a, %d %b %H:%M"
-}
-
-cpu_usage {
-  format = " %usage"
-}
-
-disk "/" {
-  format = " %avail"
-}
-
-volume master {
-  format = " %volume"
-  format_muted = " %volume"
-  device = "default"
-  mixer = "Master"
-  mixer_idx = 0
+clock {
+   format_time = "%Y-%m-%d %H:%M"
 }
 
 external_script {
 	format = "{output}"
 	script_path = "/home/morten/Documents/Scripts/updates.sh"
 	cache_timeout = 3600
+}
+
+battery_level {
+	notify_low_level = True
+	threshold_bad = 5
+	notification = True
+}
+
+diskdata {
+	format = " {free} GB"
+}
+
+sysdata {
+	format = "[CPU: {cpu_used_percent}%] [Mem: {mem_used_percent}%]"	
+}
+
+hueshift {
+	format = "[{color_temperature}K]"
+}
+
+volume_status {
+	thresholds = [
+	        (0, "#FFFFFF"),
+	        (1, "#00FF00")
+	    ]
 }
