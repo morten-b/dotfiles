@@ -24,5 +24,10 @@ Add the following to /etc/X11/xorg.conf.d/30-touchpad.conf
 Option "NaturalScrolling" "true"  
 
 ## Autologin
-https://wiki.archlinux.org/index.php/LightDM#Enabling_autologin
+systemctl edit getty@tty1
 
+## and add:
+[Service]
+Type=simple
+ExecStart=
+ExecStart=-/usr/bin/agetty --autologin morten --noclear %I $TERM
