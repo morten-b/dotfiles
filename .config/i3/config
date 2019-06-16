@@ -138,7 +138,8 @@ exec --no-startup-id volumeicon
 exec --no-startup-id signal-desktop --start-in-tray
 exec --no-startup-id feh --bg-center ~/Pictures/Baggrund.png
 exec --no-startup-id pamac-tray
-exec --no-startup-id autocutsel -selection PRIMARY -fork
+exec --no-startup-id clipster -d
+exec --no-startup-id xclip
 exec --no-startup-id udiskie -Ns2
 
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
@@ -180,3 +181,6 @@ for_window [Class="Signal"] move window to scratchpad, scratchpad show
 
 # floating windows
 for_window [class="mono-sgen"] floating enable
+
+# shortcut to selection widget (primary)
+bindsym $mod+c exec clipster -sp
