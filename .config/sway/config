@@ -20,54 +20,29 @@ set $term xfce4-terminal
 
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
-#set $menu dmenu_run #dmenu_path | dmenu | xargs swaymsg exec /usr/bin/dmenu
 set $menu j4-dmenu-desktop --dmenu="bemenu -i" --no-generic --term=xfce4-terminal
 
 ### Output configuration
-#
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-#output * bg /home/morten/Pictures/Baggrund.png fill
-#
-# Example configuration:
-#
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
-#
-# You can get the names of your outputs by running: swaymsg -t get_outputs
+output * bg /home/morten/Pictures/Baggrund.png fill
 
 ### Idle configuration
-#
-# Example configuration:
-#
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * dpms off"' \
-#               resume 'swaymsg "output * dpms on"' \
-#          before-sleep 'swaylock -f -c 000000'
-#
+exec swayidle -w \
+          timeout 300 'swaylock -f -c 000000' \
+          timeout 600 'swaymsg "output * dpms off"' \
+               resume 'swaymsg "output * dpms on"' \
+          before-sleep 'swaylock -f -c 000000'
+
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
 
 ### Input configuration
-#
-# Example configuration:
-#
-#   input "2:14:SynPS/2_Synaptics_TouchPad" {
-#       dwt enabled
-#       tap enabled
-#       natural_scroll enabled
-#       middle_emulation enabled
-#   }
-#
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
 
 input "1:1:AT_Translated_Set_2_keyboard" {
     xkb_layout "dk"
 }
-
-# change focus between tiling / floating windows
-# bindsym $mod+space focus mode_toggle
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left move left
@@ -94,8 +69,8 @@ set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
-set $ws9 "9"
-set $ws0 "10"
+set $ws9 "9:KeePassXC"
+set $ws0 "10:Signal"
 
 # switch to workspace
 bindsym $mod+1 workspace 1:web; exec [ $(ps h -C firefox | wc -l) = 0 ] && /usr/bin/firefox -s
@@ -106,8 +81,8 @@ bindsym $mod+5 workspace $ws5
 bindsym $mod+6 workspace $ws6
 bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
-bindsym $mod+9 workspace $ws9
-bindsym $mod+0 workspace $ws10
+bindsym $mod+9 workspace 9:KeePassXC; exec [ $(ps h -C keepassxc | wc -l) = 0 ] && /usr/bin/keepassxc
+bindsym $mod+0 workspace 10:signal; exec [ $(ps h -C signal | wc -l) = 0 ] && /usr/bin/signal-desktop --start-in-tray
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
@@ -200,25 +175,20 @@ bar {
    	separator_symbol " | "    
 }
 
-include /etc/sway/config.d/*
-
-default_border pixel
-
 # Autostart applications
 exec keepassxc
-#exec nm-applet
 exec signal-desktop --start-in-tray
 exec udiskie -Ns2
 exec clipman -d
 exec mako
 
 # volume keys
-bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer set Master 5%+ && killall -s USR1 py3status"
-bindsym XF86AudioLowerVolume exec --no-startup-id "amixer set Master 5%- && killall -s USR1 py3status"
-bindsym XF86AudioMute exec --no-startup-id "amixer set Master 0"
+bindsym XF86AudioRaiseVolume exec "amixer set Master 5%+ && killall -s USR1 py3status"
+bindsym XF86AudioLowerVolume exec "amixer set Master 5%- && killall -s USR1 py3status"
+bindsym XF86AudioMute exec "amixer set Master 0"
 
 # gaps
-#gaps inner 10
+default_border pixel
 
 # Cycle through active workspaces
 bindsym $mod+Tab workspace next
@@ -231,23 +201,17 @@ bindsym --release Print exec grim screenshot.png
 exec amixer set Master 0
 
 # open applications
-bindsym $mod+Shift+s exec --no-startup-id signal-desktop --start-in-tray
-#bindsym $mod+Shift+k exec --no-startup-id keepassxc
-bindsym $mod+Shift+f exec --no-startup-id xfce4-terminal -e 'ranger'
+bindsym $mod+Shift+s exec signal-desktop --start-in-tray; focus workspace 10:Signal
+bindsym $mod+Shift+k exec keepassxc; focus workspace 9:KeePassXC
+bindsym $mod+Shift+f exec xfce4-terminal -e 'ranger'
 
 # create scratchpads
-#for_window [Class="keepassxc"] move window to scratchpad, scratchpad show
-#for_window [Class="Signal"] move window to scratchpad, scratchpad show
-
-# floating windows
-for_window [class="mono-sgen"] floating enable
+#for_window [title="KeePassXC"] move scratchpad show scratchpad
+#for_window [title="Signal"] floating enable
 
 # Screen brightness controls
 bindsym XF86MonBrightnessUp exec light -A 10
 bindsym XF86MonBrightnessDown exec light -U 10
 
-set $gnome-schema org.gnome.desktop.interface gtk
-
-exec_always {
-    gsettings set $gnome-schema gtk-theme Arc-Dark-solid
-}
+assign [class="keepassxc"] workspace 9:KeePassXC
+assign [class="Signal"] workspace 10:Signal

@@ -1,9 +1,0 @@
-#!/bin/bash
-
-# Create lists
-pacman -Qqen > pacman.lst
-pacman -Qqem > aur.lst
-
-# restore from list
-# sudo pacman -S --needed --noconfirm < pacman.lst
-# yay -S --needed < aur.lst

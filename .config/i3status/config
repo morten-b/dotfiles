@@ -1,21 +1,20 @@
-order += "external_script"
+order += "arch_updates"
 order += "clock"
 order += "sysdata"
 order += "diskdata"
 order += "battery_level"
 order += "volume_status"
 order += "online_status"
-order += "hueshift"
+#order += "hueshift"
 order += "backlight"
 
 clock {
    format_time = "%d-%m-%Y %H:%M"
 }
 
-external_script {
-	format = "{output}"
-	script_path = "/home/morten/Documents/Scripts/updates.sh"
-	cache_timeout = 3600
+
+arch_updates {
+	cache_timeout = 1
 }
 
 battery_level {
