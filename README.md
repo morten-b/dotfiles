@@ -34,3 +34,7 @@ ExecStart=-/usr/bin/agetty --autologin morten --noclear %I $TERM
 
 #Sync clock
 systemctl enable ntpdate.service
+
+#Syncthing
+systemctl --user enable syncthing.service
+systemctl --user start syncthing.service
