@@ -14,7 +14,8 @@ clock {
 
 
 arch_updates {
-	cache_timeout = 1
+	cache_timeout = 3600
+	hide_if_zero = True
 }
 
 battery_level {
@@ -26,6 +27,7 @@ battery_level {
 	color_charging = "#FFFFFF"
 	color_good = "#FFFFFF"
 	hide_when_full = True
+	charging_character = ""
 }
 
 diskdata {

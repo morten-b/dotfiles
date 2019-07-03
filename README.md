@@ -31,3 +31,6 @@ systemctl edit getty@tty1
 Type=simple
 ExecStart=
 ExecStart=-/usr/bin/agetty --autologin morten --noclear %I $TERM
+
+#Sync clock
+systemctl enable ntpdate.service

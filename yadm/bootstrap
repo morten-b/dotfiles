@@ -1,0 +1,4 @@
+#!/bin/bash
+
+echo "Updating the yadm repo origin url"
+yadm remote set-url origin "git@github.com:morten-b/dotfiles.git"
