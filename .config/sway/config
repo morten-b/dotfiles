@@ -21,7 +21,7 @@ set $term xfce4-terminal
 
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
-set $menu j4-dmenu-desktop# --dmenu="bemenu -i" --no-generic --term=xfce4-terminal
+set $menu j4-dmenu-desktop --dmenu="bemenu -i" --no-generic --term=xfce4-terminal
 
 ### Output configuration
 output * bg /home/morten/Pictures/Baggrund.png fill
