@@ -1,4 +1,3 @@
-
 # Default config for sway
 #
 # Copy this to ~/.config/sway/config and edit it to your liking.
@@ -165,11 +164,11 @@ bar {
     # The default just shows the current date and time.
     status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
 
-    colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
+#    colors {
+#        statusline #ffffff
+#        background #323232
+#        inactive_workspace #32323200 #32323200 #5c5c5c
+#    }
 	position top
   	font pango:monospace 10, FontAwesome 10
    	status_command py3status -bs
@@ -206,16 +205,9 @@ bindsym $mod+Shift+s exec signal-desktop --start-in-tray; focus workspace 10:Sig
 bindsym $mod+Shift+k exec keepassxc; focus workspace 9:KeePassXC
 bindsym $mod+Shift+f exec xfce4-terminal -e 'ranger'
 
-# create scratchpads
-#for_window [title="KeePassXC"] move scratchpad show scratchpad
-#for_window [title="Signal"] floating enable
-
 # Screen brightness controls
 bindsym XF86MonBrightnessUp exec light -A 10
 bindsym XF86MonBrightnessDown exec light -U 10
-
-#assign [class="keepassxc"] workspace 9:KeePassXC
-#assign [class="Signal"] workspace 10:Signal
 
 exec /home/morten/Documents/Scripts/bookmarkBackup.sh
 exec /home/morten/Documents/Scripts/CameraBackup.sh
@@ -223,3 +215,4 @@ exec rsync -a --delete pi@mbendtsen.dk:/home/pi/radicale/ /home/morten/Radicale/
 exec /home/morten/Documents/Scripts/KeePassBackup.sh
 exec /home/morten/Documents/Scripts/pacman.sh
 exec /home/morten/Documents/Scripts/yadm.sh
+exec /home/morten/Documents/Scripts/restic.sh
