@@ -206,4 +206,4 @@ exec rsync -a --delete pi@mbendtsen.dk:/home/pi/radicale/ /home/morten/Radicale/
 exec /home/morten/Documents/Scripts/KeePassBackup.sh
 exec /home/morten/Documents/Scripts/pacman.sh
 exec /home/morten/Documents/Scripts/yadm.sh
-#exec /home/morten/Documents/Scripts/restic.sh
+exec /home/morten/Documents/Scripts/restic.sh
