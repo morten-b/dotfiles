@@ -6,6 +6,7 @@ notify-send "Restic backup started."
 
 echo "Creating incremental backup ..."
 ### Backup new stuff
+restic check
 restic backup \
         --verbose \
         --files-from /home/morten/.config/restic/backup.files \
@@ -17,7 +18,8 @@ restic forget \
         --keep-last 7 \
         --keep-daily 14 \
         --keep-weekly 4 \
-        --keep-monthly 6
+        --keep-monthly 6 \
+        --prune
 
 # restic -r $BACKARCH check
 echo "Don't forget to run \"restic check\" from time to time"
