@@ -104,7 +104,7 @@ set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) re
 mode "$mode_system" {
     bindsym l exec swaylock -e -c 4f4f4f, mode "default"
     bindsym e exec swaymsg exit, mode "default"
-    bindsym s exec systemctl suspend, mode "default"
+    bindsym s exec swaylock -f -e -c 4f4f4f && exec systemctl suspend, mode "default"
     bindsym r exec systemctl reboot, mode "default"
     bindsym Shift+s exec systemctl poweroff, mode "default"
 
