@@ -134,11 +134,7 @@ bindsym $mod+Escape mode "$mode_system"
     floating_modifier $mod normal
 
     # reload the configuration file
-    bindsym $mod+Shift+r reload
-
-    # exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
-
+    # bindsym $mod+Shift+r reload
 
 #
 # Scratchpad:
@@ -147,11 +143,11 @@ bindsym $mod+Escape mode "$mode_system"
     # You can send windows there and get them back later.
 
     # Move the currently focused window to the scratchpad
-    bindsym $mod+Shift+minus move scratchpad
+    # bindsym $mod+Shift+minus move scratchpad
 
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
-    bindsym $mod+minus scratchpad show
+    # bindsym $mod+minus scratchpad show
 
 
 #
@@ -163,11 +159,6 @@ bar {
     # The default just shows the current date and time.
     status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
 
-#    colors {
-#        statusline #ffffff
-#        background #323232
-#        inactive_workspace #32323200 #32323200 #5c5c5c
-#    }
 	position top
   	font pango:monospace 10, FontAwesome 10
    	status_command py3status -bs
@@ -186,6 +177,9 @@ bindsym XF86AudioRaiseVolume exec "amixer set Master 5%+ && killall -s USR1 py3s
 bindsym XF86AudioLowerVolume exec "amixer set Master 5%- && killall -s USR1 py3status"
 bindsym XF86AudioMute exec "amixer set Master 0"
 
+# mute boot volume
+exec amixer set Master 0
+
 # gaps
 default_border pixel
 
@@ -196,8 +190,6 @@ bindsym $mod+Shift+Tab workspace prev
 # print screen
 bindsym --release Print exec grim screenshot.png
 
-# mute boot volume
-exec amixer set Master 0
 
 # open applications
 bindsym $mod+Shift+s exec signal-desktop --start-in-tray; focus workspace 10:Signal
@@ -214,4 +206,4 @@ exec rsync -a --delete pi@mbendtsen.dk:/home/pi/radicale/ /home/morten/Radicale/
 exec /home/morten/Documents/Scripts/KeePassBackup.sh
 exec /home/morten/Documents/Scripts/pacman.sh
 exec /home/morten/Documents/Scripts/yadm.sh
-exec /home/morten/Documents/Scripts/restic.sh
+#exec /home/morten/Documents/Scripts/restic.sh

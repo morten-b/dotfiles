@@ -2,8 +2,6 @@
 
 source /home/morten/.config/restic/environment.sh
 
-notify-send "Restic backup started."
-
 echo "Creating incremental backup ..."
 ### Backup new stuff
 restic check
