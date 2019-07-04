@@ -6,5 +6,6 @@ sct
 signal-desktop-bin
 ttf-font-awesome-4
 ttf-ms-fonts
+wl-clipboard-x11
 yadm-git
 yay
