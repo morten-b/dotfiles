@@ -4,7 +4,6 @@ source /home/morten/.config/restic/environment.sh
 
 echo "Creating incremental backup ..."
 ### Backup new stuff
-restic check
 restic backup \
         --verbose \
         --files-from /home/morten/.config/restic/backup.files \
