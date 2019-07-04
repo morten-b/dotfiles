@@ -102,10 +102,10 @@ for_window [urgent=latest] focus
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
-    bindsym l exec swaylock -e -c C9C4AF, mode "default"
-    bindsym e exec ~/.config/sway/swayexit logout, mode "default"
-    bindsym s exec ~/.config/sway/swayexit suspend, mode "default"
-    bindsym r exec reboot, mode "default"
+    bindsym l exec swaylock -e -c 4f4f4f, mode "default"
+    bindsym e exec swaymsg exit, mode "default"
+    bindsym s exec swaylock -e -c 4f4f4f && exec systemctl suspend, mode "default"
+    bindsym r exec systemctl reboot, mode "default"
     bindsym Shift+s exec shutdown now, mode "default"
 
     # back to normal: Enter or Escape
