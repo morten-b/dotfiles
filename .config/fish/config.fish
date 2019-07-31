@@ -4,6 +4,7 @@ if status is-login
 	    export MOZ_ENABLE_WAYLAND=1
 	    export QT_QPA_PLATFORMTHEME=qt5ct
 	    export GTK_THEME=Arc-Dark-solid
+	    export _JAVA_AWT_WM_NONREPARENTING=1 idea
         exec sway
     end
 end
