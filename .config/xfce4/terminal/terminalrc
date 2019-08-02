@@ -32,4 +32,7 @@ MiscSlimTabs=FALSE
 MiscNewTabAdjacent=FALSE
 TabActivityColor=#dc322f
 FontUseSystem=TRUE
+MiscSearchDialogOpacity=100
+MiscShowUnsafePasteDialog=TRUE
+ScrollingUnlimited=TRUE
 
