@@ -173,7 +173,6 @@ bar {
 }
 
 # Autostart applications
-exec keepassxc
 exec signal-desktop --start-in-tray
 exec udiskie -Ns2
 exec clipman -d
@@ -197,7 +196,6 @@ bindsym $mod+Shift+Tab workspace prev
 # print screen
 bindsym --release Print exec grim screenshot.png
 
-
 # open applications
 bindsym $mod+Shift+s exec signal-desktop --start-in-tray; focus workspace 10:Signal
 bindsym $mod+Shift+k exec keepassxc; focus workspace 9:KeePassXC
@@ -207,7 +205,6 @@ bindsym $mod+Shift+f exec xfce4-terminal -e 'ranger'
 bindsym XF86MonBrightnessUp exec light -A 10
 bindsym XF86MonBrightnessDown exec light -U 10
 
-exec /home/morten/Documents/Scripts/bookmarkBackup.sh
 exec /home/morten/Documents/Scripts/CameraBackup.sh
 exec rsync -a --delete pi@mbendtsen.dk:/home/pi/radicale/ /home/morten/Radicale/
 exec /home/morten/Documents/Scripts/KeePassBackup.sh
