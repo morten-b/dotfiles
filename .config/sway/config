@@ -47,6 +47,8 @@ input "1:1:AT_Translated_Set_2_keyboard" {
 input "2:7:SynPS/2_Synaptics_TouchPad" {
 	dwt enabled
 	natural_scroll disabled
+	scroll_method two_finger
+    accel_profile adaptive
 }
 
 
