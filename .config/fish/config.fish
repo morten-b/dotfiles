@@ -5,6 +5,7 @@ if status is-login
 	    export QT_QPA_PLATFORMTHEME=qt5ct
 	    export GTK_THEME=Arc-Dark-solid
 	    export _JAVA_AWT_WM_NONREPARENTING=1 idea
+	    export XDG_CURRENT_DESKTOP=Unity
         exec sway
     end
 end
