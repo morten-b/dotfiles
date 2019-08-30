@@ -6,6 +6,6 @@ if status is-login
 	    export GTK_THEME=Arc-Dark-solid
 	    export _JAVA_AWT_WM_NONREPARENTING=1 idea
 	    export XDG_CURRENT_DESKTOP=Unity
-        exec sway
+        exec sway -d 2> ~/sway.log
     end
 end
