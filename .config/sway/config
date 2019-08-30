@@ -21,7 +21,6 @@ set $term xfce4-terminal
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
 # set $menu dmenu-wl_run -i
-# set $menu dmenu_path | mauncher | sh
 set $menu j4-dmenu-desktop --dmenu 'mauncher -i'
 
 ### Output configuration
@@ -177,6 +176,7 @@ bar {
   	font pango:monospace 10, FontAwesome 10
    	status_command py3status -bs
    	separator_symbol " | "    
+	swaybar_command waybar
 }
 
 # Autostart applications
