@@ -20,8 +20,8 @@ set $term xfce4-terminal
 
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
-set $menu dmenu-wl_run -i
-#set $menu j4-dmenu-desktop --dmenu 'mauncher -i'
+#set $menu dmenu-wl_run -i
+set $menu j4-dmenu-desktop --dmenu 'mauncher -i'
 
 ### Output configuration
 output * bg /home/morten/Pictures/Baggrund.png fill
@@ -170,13 +170,13 @@ bindsym $mod+r mode "resize"
 bar {
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
+    #status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
 
-	position top
-  	font pango:monospace 10, FontAwesome 10
-   	status_command py3status -bs
-   	separator_symbol " | "    
-	# swaybar_command waybar
+#	position top
+ # 	font pango:monospace 10, FontAwesome 10
+  # 	status_command py3status -bs
+   #	separator_symbol " | "    
+  swaybar_command waybar
 }
 
 # Autostart applications
