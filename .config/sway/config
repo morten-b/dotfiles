@@ -182,8 +182,8 @@ bar {
 # Autostart applications
 exec signal-desktop --start-in-tray
 exec udiskie -Ns2
-exec clipman -d
-exec mako
+#exec clipman -d
+#exec mako
 
 # volume keys
 bindsym XF86AudioRaiseVolume exec "amixer set Master 5%+ && killall -s USR1 py3status"
