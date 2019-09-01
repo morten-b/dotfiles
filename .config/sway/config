@@ -180,7 +180,7 @@ bar {
 }
 
 # Autostart applications
-exec signal-desktop --start-in-tray
+# exec signal-desktop --start-in-tray
 exec udiskie -Ns2
 exec clipman -d
 exec mako
