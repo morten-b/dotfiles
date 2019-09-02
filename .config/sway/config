@@ -180,7 +180,7 @@ bar {
 }
 
 # Autostart applications
-# exec signal-desktop --start-in-tray
+exec signal-desktop --start-in-tray
 exec udiskie -Ns2
 exec clipman -d
 exec mako
@@ -204,7 +204,7 @@ bindsym $mod+Shift+Tab workspace prev
 bindsym --release Print exec grim screenshot.png
 
 # open applications
-#bindsym $mod+Shift+s exec signal-desktop --start-in-tray; focus workspace 10:Signal
+bindsym $mod+Shift+s exec signal-desktop --start-in-tray; focus workspace 10:Signal
 bindsym $mod+Shift+k exec keepassxc; focus workspace 9:KeePassXC
 bindsym $mod+Shift+f exec xfce4-terminal -e 'ranger'
 
