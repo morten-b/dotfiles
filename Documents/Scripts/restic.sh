@@ -10,16 +10,19 @@ restic backup \
 #        --exclude-file /home/morten/.config/restic/exclude.files
         
 ### Remove old stuff
-echo "Deleting old backups ..."
-restic forget \
-        --keep-last 7 \
-        --keep-daily 14 \
-        --keep-weekly 4 \
-        --keep-monthly 6 \
-        --prune
+#echo "Deleting old backups ..."
+#restic forget \
+#        --keep-last 7 \
+#        --keep-daily 14 \
+#        --keep-weekly 4 \
+#        --keep-monthly 6 \
+#        --prune
 
-# restic -r $BACKARCH check
-echo "Don't forget to run \"restic check\" from time to time"
-echo "Backup finished."
-        
-notify-send "Restic backup finished."
+no_errors=$(restic check | grep -c "no errors were found")
+
+if [ "$no_errors" = "1" ]
+then
+	notify-send "Backup succesful"
+else
+	notify-send "Backup error"		
+fi
