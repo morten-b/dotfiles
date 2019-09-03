@@ -35,4 +35,5 @@ MiscSearchDialogOpacity=100
 MiscShowUnsafePasteDialog=TRUE
 ScrollingUnlimited=TRUE
 FontName=Source Code Variable Light 12
+FontUseSystem=TRUE
 
