@@ -1,5 +1,4 @@
-order += "arch_updates"
-order += "clock"
+#order += "clock"
 order += "sysdata"
 order += "diskdata"
 order += "battery_level"
@@ -9,13 +8,7 @@ order += "online_status"
 order += "backlight"
 
 clock {
-   format_time = "%d-%m-%Y %H:%M"
-}
-
-
-arch_updates {
-	cache_timeout = 3600
-	hide_if_zero = True
+   #format_time = "%d-%m-%Y %H:%M"
 }
 
 battery_level {

@@ -34,6 +34,6 @@ TabActivityColor=#dc322f
 MiscSearchDialogOpacity=100
 MiscShowUnsafePasteDialog=TRUE
 ScrollingUnlimited=TRUE
-FontName=Noto Sans Devanagari Light 12
+FontName=FontAwesome 12
 FontUseSystem=TRUE
 
