@@ -223,4 +223,4 @@ exec /home/morten/Documents/Scripts/pacman.sh
 exec /home/morten/Documents/Scripts/yadm.sh
 exec /home/morten/Documents/Scripts/restic.sh
 
-exec_always  flashfocus
+exec_always ~/.local/bin/flashfocus
