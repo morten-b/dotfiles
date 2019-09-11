@@ -22,7 +22,7 @@ no_errors=$(restic check | grep -c "no errors were found")
 
 if [ "$no_errors" = "1" ]
 then
-	notify-send "Backup succesful"
+	notify-send -t 1000 "Restic" "Succesful"
 else
-	notify-send "Backup error"		
+	notify-send -t 0 "Restic" "error"		
 fi
