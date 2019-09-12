@@ -32,7 +32,7 @@ flash-on-focus: true
 #      another window was just closed. 
 #   'on_switch':
 #      Lone windows will be flashed only upon switching desktops.
-flash-lone-windows: 'always'
+flash-lone-windows: 'never'
 
 # Defining window-specific flash rules
 #

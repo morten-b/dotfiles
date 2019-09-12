@@ -26,7 +26,7 @@ set $menu dmenu-wl_run -i -h 30 -nb '#383B4A'
 #set $menu rofi -show drun
 
 ### Output configuration
-# output * bg /home/morten/Pictures/Baggrund.png fill
+output * bg /home/morten/Pictures/Baggrund.png fill
 
 ### Idle configuration
 exec swayidle -w \
