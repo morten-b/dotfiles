@@ -9,9 +9,9 @@
     "sway/mode"
   ],
   "modules-right": [
+  	"custom/yay",
     "pulseaudio",
 	"backlight",
-  	"custom/yay",
     "memory",
     "cpu",
     "network",
@@ -33,7 +33,7 @@
   },
   "custom/yay": {
 	"format": "{}",
-	"interval": 1,
+	"interval": 3600,
 	"exec": "/home/morten/Documents/Scripts/update.sh",
     "on-click": "xfce4-terminal -e 'yay -Syu'; pkill -RTMIN+8 waybar",
     "tooltip": false,
