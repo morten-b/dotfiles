@@ -24,7 +24,7 @@ set $term xfce4-terminal
 set $menu dmenu-wl_run -i -h 30 -nb '#383B4A' -fn 'Source Code Pro'
 
 ### Output configuration
-#output * bg /home/morten/Pictures/Baggrund.png fill
+output * bg /home/morten/Pictures/Baggrund.png fill
 
 ### Idle configuration
 exec swayidle -w \
