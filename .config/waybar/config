@@ -33,8 +33,8 @@
   },
   "custom/yay": {
 	"format": "{}",
-	"interval": 3600,
-	"exec": "u='$(yay -Qu | wc -l)'; if [[ ${u} > 0 ]] ; then echo ${u}''; fi",
+	"interval": 1,
+	"exec": "/home/morten/Documents/Scripts/update",
     "on-click": "xfce4-terminal -e 'yay -Syu'; pkill -RTMIN+8 waybar",
     "tooltip": false,
     "signal": 8
