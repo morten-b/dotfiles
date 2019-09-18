@@ -95,7 +95,8 @@
     "interval": 1
   },
   "pulseaudio": {
-    "format": "{volume}% {icon}",
+    "format": "",
+    "format-unmuted": "{volume}% {icon}",
     "format-bluetooth": "{volume}% {icon} {format_source}",
     "format-muted": "<span font=\"IcoFont\"></span>   {format_source}",
     "format-source": "{volume}% ",
