@@ -38,3 +38,6 @@ systemctl enable ntpdate.service
 #Syncthing
 systemctl --user enable syncthing.service
 systemctl --user start syncthing.service
+
+#Fix clang in Code:
+sudo ln -sf /usr/lib/libncursesw.so.6 /usr/lib/libtinfo.so.5

@@ -34,6 +34,5 @@ TabActivityColor=#dc322f
 MiscSearchDialogOpacity=100
 MiscShowUnsafePasteDialog=TRUE
 ScrollingUnlimited=TRUE
-FontName=FontAwesome 12
-FontUseSystem=TRUE
+FontName=Source Code Pro 10
 

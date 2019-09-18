@@ -2,13 +2,16 @@
   "layer": "top",
   "height": 30,
   "modules-center": [
-    "sway/mode"
+    "sway/window"
   ],
   "modules-left": [
-    "sway/workspaces"
+    "sway/workspaces",
+    "sway/mode"
   ],
   "modules-right": [
     "pulseaudio",
+	"backlight",
+  	"custom/yay",
     "memory",
     "cpu",
     "network",
@@ -28,9 +31,18 @@
   "tray": {
     "spacing": 10
   },
+  "custom/yay": {
+	"format": "{}",
+	"interval": 3600,
+	"exec": "u='$(yay -Qu | wc -l)'; if [[ ${u} > 0 ]] ; then echo ${u}''; fi",
+    "on-click": "xfce4-terminal -e 'yay -Syu'; pkill -RTMIN+8 waybar",
+    "tooltip": false,
+    "signal": 8
+  },
   "clock": {
-    "tooltip-format": "{:%Y-%m-%d | %H:%M}",
-    "format-alt": "{:%Y-%m-%d}"
+    "format": "{:%Y-%m-%d | %H:%M}",
+    "format-alt": "{:%H-%M}",
+    "tooltip": false
   },
   "cpu": {
     "format": "{usage}% ",
@@ -52,19 +64,17 @@
   "backlight": {
     "format": "{percent}% {icon}",
     "format-icons": [
-      "",
-      ""
+      ""
     ]
   },
   "battery": {
     "states": {
       "warning": 30,
-      "critical": 15
+      "critical": 10
     },
     "format": "{capacity}% {icon}",
     "format-charging": "{capacity}% ",
-    "format-plugged": "{capacity}% ",
-    "format-alt": "{time} {icon}",
+    "format-not": "",
     "format-icons": [
       "",
       "",
@@ -72,14 +82,17 @@
       "",
       ""
     ],
-    "bat": "BAT0"
+    "interval": 1,
+    "tooltip": false
   },
   "network": {
     "format-wifi": "{signalStrength}% ",
     "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
     "format-linked": "{ifname} (No IP) ",
     "format-disconnected": "Disconnected ⚠",
-    "format-alt": "{essid} {signalStrength}%"
+    "format-alt": "{essid} {signalStrength}%",
+    "tooltip": false,
+    "interval": 1
   },
   "pulseaudio": {
     "format": "{volume}% {icon}",
@@ -100,7 +113,10 @@
         ""
       ]
     },
-    "on-click": "pavucontrol",
-    "tooltip": false    
+    "on-click": "alsamixer",
+    "tooltip": false,
+    "states": {
+    	"unmuted": 1
+    }
   }
 }

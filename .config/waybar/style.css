@@ -2,7 +2,7 @@
 	border: none;
 	border-radius: 0;
 	font-family: "Font Awesome", Roboto, Helvetica, Arial, sans-serif;
-	font-size: 14px;
+	font-size: 15px;
 	min-height: 0;
 }
 window#waybar {
@@ -34,6 +34,7 @@ window#waybar {
 }
 #battery {
 	color: white;
+	
 }
 #battery.charging {
 	color: white;
@@ -74,6 +75,12 @@ window#waybar {
 	background: transparent;
 	color: white;
 }
+
+#pulseaudio.unmuted {
+	color: white;
+	border-bottom: 3px solid @color1
+}
+
 #pulseaudio.muted {
 	border-bottom: 3px solid @color1
 }
