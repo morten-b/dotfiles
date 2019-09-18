@@ -34,7 +34,7 @@
   "custom/yay": {
 	"format": "{}",
 	"interval": 1,
-	"exec": "/home/morten/Documents/Scripts/update",
+	"exec": "/home/morten/Documents/Scripts/update.sh",
     "on-click": "xfce4-terminal -e 'yay -Syu'; pkill -RTMIN+8 waybar",
     "tooltip": false,
     "signal": 8
