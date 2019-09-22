@@ -168,14 +168,6 @@ bindsym $mod+r mode "resize"
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    #status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
-
-	#position top
- 	#font pango:monospace 10, FontAwesome 10
-   	#status_command py3status -bs -c ~/.config/py3status/config
-   	#separator_symbol " | "    
    	swaybar_command waybar
 }
 
@@ -184,9 +176,6 @@ exec signal-desktop --start-in-tray
 exec udiskie -Ns2
 exec clipman -d
 exec mako
-
-# Environment
-exec ~/.config/environment.sh
 
 # volume keys
 bindsym XF86AudioRaiseVolume exec "amixer -D pulse sset Master 5%+"
@@ -207,7 +196,7 @@ bindsym $mod+Shift+Tab workspace prev
 bindsym --release Print exec grim screenshot.png
 
 # open applications
-bindsym $mod+Shift+s exec signal-desktop --start-in-tray; focus workspace 10:Signal
+bindsym $mod+Shift+s exec signal-desktop --start-in-tray
 bindsym $mod+Shift+f exec xfce4-terminal -e 'ranger'
 
 # Screen brightness controls
@@ -221,4 +210,4 @@ exec /home/morten/Documents/Scripts/pacman.sh
 exec /home/morten/Documents/Scripts/yadm.sh
 exec /home/morten/Documents/Scripts/restic.sh
 
-exec_always ~/.local/bin/flashfocus
+#exec_always ~/.local/bin/flashfocus
