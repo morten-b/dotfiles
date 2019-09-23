@@ -10,3 +10,6 @@ if status is-login
         exec sway -d 2> ~/sway.log
     end
 end
+
+# opam configuration
+source /home/morten/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
