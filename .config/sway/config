@@ -28,10 +28,10 @@ output * bg /home/morten/Pictures/Baggrund.png fill
 
 ### Idle configuration
 exec swayidle -w \
-          timeout 300 'swaylock -f -c 000000' \
+          timeout 300 '/home/morten/Documents/Scripts/blurlock.sh' \
           timeout 600 'swaymsg "output * dpms off"' \
                resume 'swaymsg "output * dpms on"' \
-          before-sleep 'swaylock -f -c 000000'
+          before-sleep '/home/morten/Documents/Scripts/blurlock.sh'
 
 ### Disable sleep on fullscreen
 for_window [class="^.*"] inhibit_idle fullscreen
@@ -108,7 +108,7 @@ for_window [urgent=latest] focus
 
 set $mode_system System (l) lock, (e) logout, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
-    bindsym l exec swaylock -e -c 4f4f4f, mode "default"
+    bindsym l exec /home/morten/Documents/Scripts/blurlock.sh, mode "default"
     bindsym e exec swaymsg exit, mode "default"
     bindsym r exec systemctl reboot, mode "default"
     bindsym Shift+s exec systemctl poweroff, mode "default"
@@ -174,7 +174,6 @@ bar {
 # Autostart applications
 exec signal-desktop --start-in-tray
 exec udiskie -Ns2
-exec clipman -d
 exec mako
 
 # volume keys
@@ -209,5 +208,3 @@ exec /home/morten/Documents/Scripts/bitwarden_backup.sh
 exec /home/morten/Documents/Scripts/pacman.sh
 exec /home/morten/Documents/Scripts/yadm.sh
 exec /home/morten/Documents/Scripts/restic.sh
-
-#exec_always ~/.local/bin/flashfocus

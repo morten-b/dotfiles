@@ -32,7 +32,7 @@ MiscSlimTabs=FALSE
 MiscNewTabAdjacent=FALSE
 TabActivityColor=#dc322f
 MiscSearchDialogOpacity=100
-MiscShowUnsafePasteDialog=TRUE
+MiscShowUnsafePasteDialog=FALSE
 ScrollingUnlimited=TRUE
 FontName=Source Code Pro 10
 
