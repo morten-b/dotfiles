@@ -10,8 +10,6 @@
   ],
   "modules-right": [
   	"custom/yay",
-    #"pulseaudio",
-	#"backlight",
     "memory",
     "cpu",
     "network",
