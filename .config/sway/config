@@ -176,7 +176,8 @@ exec signal-desktop --start-in-tray
 exec udiskie -Ns2
 exec mako
 exec autotiling
-exec mkfifo /tmp/wobpipe && tail -f /tmp/wobpipe | wob
+exec mkfifo /tmp/wobpipe
+exec tail -f /tmp/wobpipe | wob
 
 # volume keys
 #bindsym XF86AudioRaiseVolume exec "amixer -D pulse sset Master 5%+"
