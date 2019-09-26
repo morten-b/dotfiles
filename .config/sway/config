@@ -175,6 +175,7 @@ bar {
 exec signal-desktop --start-in-tray
 exec udiskie -Ns2
 exec mako
+exec autotiling
 
 # volume keys
 bindsym XF86AudioRaiseVolume exec "amixer -D pulse sset Master 5%+"
