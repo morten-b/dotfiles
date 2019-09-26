@@ -217,4 +217,4 @@ exec /home/morten/Documents/Scripts/bitwarden_backup.sh
 exec /home/morten/Documents/Scripts/pacman.sh
 exec /home/morten/Documents/Scripts/yadm.sh
 exec /home/morten/Documents/Scripts/restic.sh
-export MANPATH=/usr/share/man
+exec export MANPATH=/usr/share/man
