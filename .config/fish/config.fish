@@ -7,9 +7,7 @@ if status is-login
 	export XDG_CURRENT_DESKTOP=Unity
 	export MANPATH=/usr/share/man
 	export PATH=/home/morten/.opam/default/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/morten/x86prime/bin
-#	export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/var/lib/snapd/desktop/applications
-#	export XDG_DATA_DIRS=/usr/share/:/usr/local/share/:/var/lib/snapd/desktop
-        exec sway -d 2> ~/sway.log
+    exec sway -d 2> ~/sway.log
     end
 end
 
