@@ -5,7 +5,6 @@ if status is-login
 	export GTK_THEME=Arc-Dark-solid
 	export _JAVA_AWT_WM_NONREPARENTING=1 idea
 	export XDG_CURRENT_DESKTOP=Unity
-    MANPATH=/usr/share/man:$MANPATH; export MANPATH
 	export PATH=/home/morten/.opam/default/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/morten/x86prime/bin
     exec sway -d 2> ~/sway.log
     end
