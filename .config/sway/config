@@ -176,14 +176,22 @@ exec signal-desktop --start-in-tray
 exec udiskie -Ns2
 exec mako
 exec autotiling
+exec mkfifo /tmp/wobpipe && tail -f /tmp/wobpipe | wob
 
 # volume keys
-bindsym XF86AudioRaiseVolume exec "amixer -D pulse sset Master 5%+"
-bindsym XF86AudioLowerVolume exec "amixer -D pulse sset Master 5%-"
+#bindsym XF86AudioRaiseVolume exec "amixer -D pulse sset Master 5%+"
+#bindsym XF86AudioLowerVolume exec "amixer -D pulse sset Master 5%-"
 bindsym XF86AudioMute exec "amixer -D pulse sset Master 0"
+
+bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute && amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print substr($2, 0, length($2)-1) }' > /tmp/wobpipe
+bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- unmute && amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print substr($2, 0, length($2)-1) }' > /tmp/wobpipe
+bindsym XF86AudioLowerVolume exec amixer -q set Master 0 unmute && amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print substr($2, 0, length($2)-1) }' > /tmp/wobpipe
 
 # mute boot volume
 exec amixer -D pulse sset Master 0
+
+# screen light at max on boot
+exec light -S 100
 
 # gaps
 default_border pixel
@@ -200,8 +208,11 @@ bindsym $mod+Shift+s exec signal-desktop --start-in-tray
 bindsym $mod+Shift+f exec xfce4-terminal -e 'ranger'
 
 # Screen brightness controls
-bindsym XF86MonBrightnessUp exec light -A 10
-bindsym XF86MonBrightnessDown exec light -U 10
+#bindsym XF86MonBrightnessUp exec light -A 10
+#bindsym XF86MonBrightnessDown exec light -U 10
+
+bindsym XF86MonBrightnessUp exec light -A 5 && light -G | cut -d'.' -f1 > /tmp/wobpipe
+bindsym XF86MonBrightnessDown exec light -U 5 && light -G | cut -d'.' -f1 > /tmp/wobpipe
 
 exec /home/morten/Documents/Scripts/CameraBackup.sh
 exec rsync -a --delete pi@mbendtsen.dk:/home/pi/radicale/ /home/morten/Radicale/
