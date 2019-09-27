@@ -113,7 +113,7 @@ mode "$mode_system" {
     bindsym Escape mode "default"
 }
 bindsym $mod+Escape mode "$mode_system"
-bindsym $mod+l /home/morten/Documents/Scripts/blurlock.sh
+bindsym $mod+l exec /home/morten/Documents/Scripts/blurlock.sh
 
 ### Key bindings
 #
@@ -135,8 +135,8 @@ bindsym $mod+l /home/morten/Documents/Scripts/blurlock.sh
     # mouse button for dragging.
     floating_modifier $mod normal
 
-    # reload the configuration file
-    # bindsym $mod+Shift+r reload
+# reload the configuration file
+bindsym $mod+Shift+r reload
 
 #
 # Resizing containers:
@@ -176,10 +176,6 @@ exec mkfifo /tmp/wobpipe
 exec tail -f /tmp/wobpipe | wob
 
 # volume keys
-#bindsym XF86AudioRaiseVolume exec "amixer -D pulse sset Master 5%+"
-#bindsym XF86AudioLowerVolume exec "amixer -D pulse sset Master 5%-"
-#bindsym XF86AudioMute exec "amixer -D pulse sset Master 0"
-
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute && amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print substr($2, 0, length($2)-1) }' > /tmp/wobpipe
 bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- unmute && amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print substr($2, 0, length($2)-1) }' > /tmp/wobpipe
 bindsym XF86AudioMute exec amixer -q set Master 0 unmute && amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print substr($2, 0, length($2)-1) }' > /tmp/wobpipe
@@ -205,9 +201,6 @@ bindsym $mod+Shift+s exec signal-desktop --start-in-tray
 bindsym $mod+Shift+f exec xfce4-terminal -e 'ranger'
 
 # Screen brightness controls
-#bindsym XF86MonBrightnessUp exec light -A 10
-#bindsym XF86MonBrightnessDown exec light -U 10
-
 bindsym XF86MonBrightnessUp exec light -A 5 && light -G | cut -d'.' -f1 > /tmp/wobpipe
 bindsym XF86MonBrightnessDown exec light -U 5 && light -G | cut -d'.' -f1 > /tmp/wobpipe
 
@@ -217,4 +210,3 @@ exec /home/morten/Documents/Scripts/bitwarden_backup.sh
 exec /home/morten/Documents/Scripts/pacman.sh
 exec /home/morten/Documents/Scripts/yadm.sh
 exec /home/morten/Documents/Scripts/restic.sh
-exec export MANPATH=/usr/share/man
