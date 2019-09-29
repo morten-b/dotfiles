@@ -41,3 +41,6 @@ systemctl --user start syncthing.service
 
 #Fix clang in Code:
 sudo ln -sf /usr/lib/libncursesw.so.6 /usr/lib/libtinfo.so.5
+
+#Udiski2
+systemctl enable udisks2
