@@ -175,8 +175,8 @@ exec autotiling
 exec mkfifo /tmp/wobpipe
 exec tail -f /tmp/wobpipe | wob
 exec redshift -m wayland
-exec wl-paste -t text --watch clipman store
-exec wl-paste -p -t text --watch clipman store --histpath="~/.local/share/clipman-primary.json
+#exec wl-paste -t text --watch clipman store
+#exec wl-paste -p -t text --watch clipman store --histpath="~/.local/share/clipman-primary.json
 
 # volume keys
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute && amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print substr($2, 0, length($2)-1) }' > /tmp/wobpipe
