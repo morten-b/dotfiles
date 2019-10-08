@@ -13,7 +13,8 @@ set $up k
 set $right l
 
 # Your preferred terminal emulator
-set $term xfce4-terminal
+#set $term xfce4-terminal
+set $term termite
 
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
@@ -201,7 +202,7 @@ bindsym --release Print exec grim screenshot.png
 
 # open applications
 bindsym $mod+Shift+s exec signal-desktop --start-in-tray
-bindsym $mod+Shift+f exec xfce4-terminal -e 'ranger'
+bindsym $mod+Shift+f exec $term -e 'ranger'
 
 # Screen brightness controls
 bindsym XF86MonBrightnessUp exec light -A 5 && light -G | cut -d'.' -f1 > /tmp/wobpipe
