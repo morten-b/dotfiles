@@ -6,6 +6,7 @@ if status is-login
 	export _JAVA_AWT_WM_NONREPARENTING=1 idea
 	export XDG_CURRENT_DESKTOP=Unity
 	export PATH=/home/morten/.opam/default/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/morten/x86prime/bin
+	export TERM=xterm-256color
     exec sway -d 2> ~/sway.log
     end
 end
