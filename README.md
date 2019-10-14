@@ -19,10 +19,6 @@ echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
 ## Lock on lid close
 See file under .config
 
-## Natural scrolling
-Add the following to /etc/X11/xorg.conf.d/30-touchpad.conf  
-Option "NaturalScrolling" "true"  
-
 ## Autologin
 systemctl edit getty@tty1
 
@@ -34,10 +30,6 @@ ExecStart=-/usr/bin/agetty --autologin morten --noclear %I $TERM
 
 #Sync clock
 systemctl enable ntpdate.service
-
-#Syncthing
-systemctl --user enable syncthing.service
-systemctl --user start syncthing.service
 
 #Fix clang in Code:
 sudo ln -sf /usr/lib/libncursesw.so.6 /usr/lib/libtinfo.so.5

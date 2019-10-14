@@ -2,7 +2,6 @@
     "editor.minimap.enabled": false,
     "C_Cpp.clang_format_style": "LLVM",
     "editor.formatOnSave": true,
-    "workbench.colorTheme": "Solarized Dark",
     "git.autofetch": true,
     "git.enableSmartCommit": true,
     "editor.fontFamily": "'Source Code Pro', 'monospace', monospace, 'Droid Sans Fallback'",
