@@ -1,3 +1,5 @@
 [user]
 	email = mail@mbendtsen.dk
 	name = morten-b
+[core]
+	editor = micro
