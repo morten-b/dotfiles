@@ -12,8 +12,7 @@ set $down j
 set $up k
 set $right l
 
-# Your preferred terminal emulator
-#set $term xfce4-terminal
+# Terminal emulator
 set $term termite
 
 # Your preferred application launcher
@@ -103,18 +102,6 @@ bindsym $mod+Shift+0 move container to workspace $ws0
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
 
-set $mode_system (e) logout, (r) reboot, (Shift+s) shutdown
-mode "$mode_system" {
-    bindsym e exec swaymsg exit, mode "default"
-    bindsym r exec systemctl reboot, mode "default"
-    bindsym Shift+s exec systemctl poweroff, mode "default"
-
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-bindsym $mod+Escape mode "$mode_system"
-bindsym $mod+l exec /home/morten/Documents/Scripts/blurlock.sh
 
 ### Key bindings
 #
@@ -136,8 +123,14 @@ bindsym $mod+l exec /home/morten/Documents/Scripts/blurlock.sh
     # mouse button for dragging.
     floating_modifier $mod normal
 
-# reload the configuration file
-bindsym $mod+Shift+r reload
+    # log out
+    bindsym $mod+e exec swaymsg exit
+    
+    # lock
+    bindsym $mod+l exec /home/morten/Documents/Scripts/blurlock.sh
+
+	# reload the configuration file
+	bindsym $mod+Shift+r reload
 
 #
 # Resizing containers:
@@ -175,7 +168,7 @@ exec mako
 exec autotiling
 exec mkfifo /tmp/wobpipe
 exec tail -f /tmp/wobpipe | wob
-exec redshift -m wayland
+#exec redshift -m wayland
 exec wl-paste -t text --watch clipman store
 exec wl-paste -p -t text --watch clipman store --histpath="~/.local/share/clipman-primary.json
 
@@ -208,9 +201,9 @@ bindsym $mod+Shift+f exec $term -e 'ranger'
 bindsym XF86MonBrightnessUp exec light -A 5 && light -G | cut -d'.' -f1 > /tmp/wobpipe
 bindsym XF86MonBrightnessDown exec light -U 5 && light -G | cut -d'.' -f1 > /tmp/wobpipe
 
-exec /home/morten/Documents/Scripts/CameraBackup.sh
+#exec /home/morten/Documents/Scripts/CameraBackup.sh
 exec rsync -a --delete pi@mbendtsen.dk:/home/pi/radicale/ /home/morten/Radicale/
-exec /home/morten/Documents/Scripts/bitwarden_backup.sh
+#exec /home/morten/Documents/Scripts/bitwarden_backup.sh
 exec /home/morten/Documents/Scripts/pacman.sh
 exec /home/morten/Documents/Scripts/yadm.sh
 exec /home/morten/Documents/Scripts/restic.sh
