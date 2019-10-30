@@ -165,6 +165,7 @@ bar {
 exec signal-desktop --use-tray-icon
 exec udiskie -Ns2
 exec mako
+exec nextcloud
 exec autotiling
 exec mkfifo /tmp/wobpipe
 exec tail -f /tmp/wobpipe | wob
@@ -202,7 +203,7 @@ bindsym XF86MonBrightnessUp exec light -A 5 && light -G | cut -d'.' -f1 > /tmp/w
 bindsym XF86MonBrightnessDown exec light -U 5 && light -G | cut -d'.' -f1 > /tmp/wobpipe
 
 #exec /home/morten/Documents/Scripts/CameraBackup.sh
-exec rsync -a --delete pi@mbendtsen.dk:/home/pi/radicale/ /home/morten/Radicale/
+#exec rsync -a --delete pi@mbendtsen.dk:/home/pi/radicale/ /home/morten/Radicale/
 #exec /home/morten/Documents/Scripts/bitwarden_backup.sh
 exec /home/morten/Documents/Scripts/pacman.sh
 exec /home/morten/Documents/Scripts/yadm.sh
