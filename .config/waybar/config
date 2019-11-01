@@ -31,7 +31,7 @@
   },
   "custom/yay": {
 	"format": "{}",
-	"interval": 60,
+	"interval": 1440,
 	"exec": "/home/morten/Documents/Scripts/update.sh",
     "on-click": "termite -e 'yay -Syu'; pkill -RTMIN+8 waybar",
     "tooltip": false,
