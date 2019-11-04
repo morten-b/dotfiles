@@ -165,7 +165,7 @@ bar {
 exec signal-desktop --use-tray-icon
 exec udiskie -Ns2
 exec mako
-#exec nextcloud
+exec sleep 5 && nextcloud
 exec autotiling
 exec mkfifo /tmp/wobpipe
 exec tail -f /tmp/wobpipe | wob
