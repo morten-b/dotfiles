@@ -7,6 +7,9 @@
       uncrustify:
         path: "/usr/bin/uncrustify"
   core:
+    disabledPackages: [
+      "atom-beautify"
+    ]
     telemetryConsent: "no"
     themes: [
       "one-dark-ui"
