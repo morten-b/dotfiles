@@ -170,6 +170,7 @@ exec autotiling
 exec mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob | wob
 exec wl-paste -t text --watch clipman store
 exec wl-paste -p -t text --watch clipman store --histpath="~/.local/share/clipman-primary.json
+exec swaynag-battery --threshold 5
 
 # volume keys
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 2%+ unmute && amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print substr($2, 0, length($2)-1) }' > $SWAYSOCK.wob
