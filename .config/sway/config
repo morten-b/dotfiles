@@ -162,7 +162,7 @@ bar {
 }
 
 # Autostart applications
-exec signal-desktop --use-tray-icon
+exec signal-desktop --use-tray-icon --start-in-tray
 exec udiskie -Ns2
 exec mako
 exec sleep 5 && nextcloud
@@ -173,8 +173,8 @@ exec wl-paste -p -t text --watch clipman store --histpath="~/.local/share/clipma
 exec swaynag-battery --threshold 5
 
 # volume keys
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 2%+ unmute && amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print substr($2, 0, length($2)-1) }' > $SWAYSOCK.wob
-bindsym XF86AudioLowerVolume exec amixer -q set Master 2%- unmute && amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print substr($2, 0, length($2)-1) }' > $SWAYSOCK.wob
+bindsym XF86AudioRaiseVolume exec amixer -q set Master 4%+ unmute && amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print substr($2, 0, length($2)-1) }' > $SWAYSOCK.wob
+bindsym XF86AudioLowerVolume exec amixer -q set Master 4%- unmute && amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print substr($2, 0, length($2)-1) }' > $SWAYSOCK.wob
 bindsym XF86AudioMute exec (amixer get Master | grep off > /dev/null && amixer -q set Master unmute && amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print substr($2, 0, length($2)-1) }' > $SWAYSOCK.wob) || (amixer -q set Master mute && echo 0 > $SWAYSOCK.wob)
 
 # mute boot volume
