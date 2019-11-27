@@ -12,7 +12,7 @@ if status is-login
 	export TERM=xterm-256color
 	export EDITOR=micro
 	export QT_QPA_PLATFORM=wayland
-	export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+	export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
 	export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
     exec sway -d 2> ~/.sway.log
     end
