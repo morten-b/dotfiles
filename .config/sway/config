@@ -17,7 +17,7 @@ set $term termite
 
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
-set $menu dmenu-wl_run -i -h 30 -nb '#383B4A' -fn 'Source Code Pro'
+set $menu dmenu-wl_run -i -h 30 -nb '#000000' -fn 'Source Code Pro'
 
 ### Output configuration
 output * bg /home/morten/Pictures/Baggrund.png fill
