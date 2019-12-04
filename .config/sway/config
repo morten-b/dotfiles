@@ -162,7 +162,7 @@ bar {
 }
 
 # Autostart applications
-exec signal-desktop --use-tray-icon --start-in-tray
+exec /home/morten/Documents/Scripts/signal-desktop.sh
 exec udiskie -Ns2
 exec mako
 exec sleep 5 && nextcloud
@@ -194,7 +194,7 @@ bindsym $mod+Shift+Tab workspace prev
 bindsym --release Print exec grim screenshot.png
 
 # open applications
-bindsym $mod+Shift+s exec signal-desktop --start-in-tray
+bindsym $mod+Shift+s exec /home/morten/Documents/Scripts/signal-desktop.sh
 bindsym $mod+Shift+f exec $term -e 'ranger'
 
 # Screen brightness controls
