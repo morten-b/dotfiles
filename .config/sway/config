@@ -72,7 +72,7 @@ set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
-set $ws0 "10"
+set $ws0 "Signal"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -162,7 +162,8 @@ bar {
 }
 
 # Autostart applications
-exec /home/morten/Documents/Scripts/signal-desktop.sh
+exec signal-desktop --start-in-tray
+#exec /home/morten/Documents/Scripts/signal-desktop.sh
 exec udiskie -Ns2
 exec mako
 exec sleep 5 && nextcloud
@@ -196,6 +197,7 @@ bindsym --release Print exec grim screenshot.png
 # open applications
 bindsym $mod+Shift+s exec /home/morten/Documents/Scripts/signal-desktop.sh
 bindsym $mod+Shift+f exec $term -e 'ranger'
+bindsym $mod+Shift+b exec firefox
 
 # Screen brightness controls
 bindsym XF86MonBrightnessUp exec light -A 5 && light -G | cut -d'.' -f1 > $SWAYSOCK.wob
@@ -204,3 +206,6 @@ bindsym XF86MonBrightnessDown exec light -U 5 && light -G | cut -d'.' -f1 > $SWA
 exec /home/morten/Documents/Scripts/pacman.sh
 exec /home/morten/Documents/Scripts/yadm.sh
 exec /home/morten/Documents/Scripts/restic.sh
+
+assign [class="Signal"] workspace $ws0
+assign [app_id="firefox"] workspace $ws1
