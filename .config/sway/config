@@ -207,5 +207,6 @@ exec /home/morten/Documents/Scripts/pacman.sh
 exec /home/morten/Documents/Scripts/yadm.sh
 exec /home/morten/Documents/Scripts/restic.sh
 
-assign [class="Signal"] workspace $ws0
 assign [app_id="firefox"] workspace $ws1
+assign [class="Atom"] workspace $ws2
+assign [class="Signal"] workspace $ws0
