@@ -33,6 +33,8 @@ exec swayidle -w \
 for_window [class="^.*"] inhibit_idle fullscreen
 for_window [app_id="^.*"] inhibit_idle fullscreen
 
+
+
 ### Input configuration
 input "1:1:AT_Translated_Set_2_keyboard" {
     xkb_layout "dk"
@@ -163,7 +165,6 @@ bar {
 
 # Autostart applications
 exec signal-desktop --start-in-tray
-#exec /home/morten/Documents/Scripts/signal-desktop.sh
 exec udiskie -Ns2
 exec mako
 exec sleep 5 && nextcloud
@@ -210,3 +211,10 @@ exec /home/morten/Documents/Scripts/restic.sh
 assign [app_id="firefox"] workspace $ws1
 assign [class="Atom"] workspace $ws2
 assign [class="Signal"] workspace $ws0
+
+# Picture in picture
+for_window [app_id="firefox" title="^Picture-in-Picture$"] floating enable, move position 877 450, sticky enable
+
+for_window [app_id="gnome-calculator"] move container to scratchpad, scratchpad show
+
+bindsym $mod+minus scratchpad show
