@@ -165,7 +165,7 @@ bar {
 
 # Autostart applications
 exec signal-desktop --start-in-tray
-exec udiskie -Ns2
+exec udiskie -s
 exec mako
 exec sleep 5 && nextcloud
 exec autotiling
