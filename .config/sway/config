@@ -44,7 +44,7 @@ input "2:7:SynPS/2_Synaptics_TouchPad" {
 	dwt enabled
 	natural_scroll disabled
 	scroll_method two_finger
-    accel_profile adaptive
+    	accel_profile adaptive
 }
 
 
@@ -167,7 +167,7 @@ bar {
 exec signal-desktop --start-in-tray
 exec udiskie -s
 exec mako
-exec sleep 0 && nextcloud
+exec nextcloud
 exec autotiling
 exec mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob | wob
 exec wl-paste -t text --watch clipman store
@@ -214,8 +214,8 @@ assign [class="Atom"] workspace $ws2
 assign [class="Signal"] workspace $ws0
 
 # Picture in picture
-for_window [app_id="firefox" title="^Picture-in-Picture$"] floating enable, move position 877 450, sticky enable
+#for_window [app_id="firefox" title="^Picture-in-Picture$"] floating enable, move position 877 450, sticky enable
 
-for_window [app_id="gnome-calculator"] move container to scratchpad, scratchpad show
+#for_window [app_id="gnome-calculator"] move container to scratchpad, scratchpad show
 
-bindsym $mod+minus scratchpad show
+#bindsym $mod+minus scratchpad show
