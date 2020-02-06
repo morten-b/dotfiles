@@ -167,7 +167,7 @@ bar {
 exec signal-desktop --start-in-tray
 exec udiskie -s
 exec mako
-exec sleep 5 && nextcloud
+exec sleep 0 && nextcloud
 exec autotiling
 exec mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob | wob
 exec wl-paste -t text --watch clipman store
@@ -199,7 +199,7 @@ bindsym --release Print exec grim screenshot.png
 # open applications
 bindsym $mod+Shift+s exec /home/morten/Documents/Scripts/signal-desktop.sh
 bindsym $mod+Shift+f exec $term -e 'ranger'
-bindsym $mod+Shift+b exec brave #firefox
+bindsym $mod+Shift+b exec brave
 
 # Screen brightness controls
 bindsym XF86MonBrightnessUp exec light -A 5 && light -G | cut -d'.' -f1 > $SWAYSOCK.wob
