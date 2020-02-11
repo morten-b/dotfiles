@@ -166,7 +166,7 @@ bar {
 # Autostart applications
 exec signal-desktop --start-in-tray
 exec udiskie -s
-exec mako
+exec mako -c /home/morten/.config/make/config
 exec nextcloud
 exec autotiling
 exec mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob | wob
