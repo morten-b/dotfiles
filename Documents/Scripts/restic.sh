@@ -10,13 +10,13 @@ restic backup \
 #        --exclude-file /home/morten/.config/restic/exclude.files
         
 ### Remove old stuff
-#echo "Deleting old backups ..."
-#restic forget \
-#        --keep-last 7 \
-#        --keep-daily 14 \
-#        --keep-weekly 4 \
-#        --keep-monthly 6 \
-#        --prune
+echo "Deleting old backups ..."
+restic forget \
+        --keep-last 7 \
+        --keep-daily 14 \
+        --keep-weekly 4 \
+        --keep-monthly 6 \
+        --prune
 
 no_errors=$(restic check | grep -c "no errors were found")
 
