@@ -1,6 +1,5 @@
 #!/bin/sh
 
-echo "Updating the yadm repo origin URL"
 yadm remote set-url origin "git@github.com:morten-b/sway-dotfiles.git"
 
 sudo pacman -S --noconfirm - < $HOME/.config/yadm/pacman.lst
