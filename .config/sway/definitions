@@ -217,5 +217,3 @@ set $help $term_float "man $HOME/.config/sway/help.man"
 
 # onscreen bar
 set $onscreen_bar bash $HOME/.config/sway/scripts/wob.sh
-
-
