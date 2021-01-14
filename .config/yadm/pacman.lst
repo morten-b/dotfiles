@@ -1,7 +1,5 @@
 alacritty
 antiword
-bemenu
-bemenu-wlroots
 blueman
 cdrtools
 docx2txt
@@ -36,3 +34,4 @@ udiskie
 waybar
 wf-recorder
 nautilus
+termite
