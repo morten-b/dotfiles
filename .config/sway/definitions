@@ -9,6 +9,8 @@
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
 
+font pango:Source Code Pro, FontAwesome, 12
+
 # Home row direction keys, like vim
 set $left h
 set $down j
