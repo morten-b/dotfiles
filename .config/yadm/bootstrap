@@ -6,4 +6,4 @@ sudo pacman -S --noconfirm - < $HOME/.config/yadm/pacman.lst
 
 yay -S --noconfirm - < $HOME/.config/yadm/aur.lst
 
-chsh -s /usr/local/bin/fish
+chsh -s /usr/bin/fish
