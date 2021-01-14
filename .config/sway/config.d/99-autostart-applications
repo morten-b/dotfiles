@@ -8,8 +8,8 @@ exec mako
 # optional autostarts
 #
 exec {
-    '[ -x "$(command -v flashfocus)" ] && flashfocus || /usr/share/sway/scripts/inactive-windows-transparency.py'
-    '[ -x "$(command -v wlsunset)" ] && /usr/share/sway/scripts/sunset.sh'
+    '[ -x "$(command -v flashfocus)" ] && flashfocus || $HOME/.config/sway/scripts/inactive-windows-transparency.py'
+    '[ -x "$(command -v wlsunset)" ] && $HOME/.config/sway/scripts/sunset.sh'
     '[ -x "$(command -v autotiling)" ] && autotiling'
 }
 exec_always {
