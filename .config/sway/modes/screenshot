@@ -7,15 +7,13 @@ set $mode_screenshot "<span foreground='$base0A'></span>  \
 
 mode --pango_markup $mode_screenshot {
 
-    # screen = all outputs
-    bindsym e exec $grimshot --notify copy screen
+    # all outputs
     bindsym Shift+e exec grimshot --notify save screen
-
-    bindsym w exec $grimshot --notify copy window
+    
+    # window
     bindsym Shift+w exec grimshot --notify save window
 
-    # output = currently active output
-    bindsym s exec $grimshot --notify copy output
+    # currently active output
     bindsym Shift+s exec grimshot --notify save output
 
     # Return to default mode.
