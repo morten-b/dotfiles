@@ -6,7 +6,7 @@ set $gtk-theme Arc-Dark
 set $icon-theme Papirus-Dark-Maia
 set $cursor-theme xcursor-breeze
 set $gui-font Source Code Pro 11
-set $term-font Source Code Pro 14
+set $term-font Source Code Pro 12
 set $kvantum-theme Matchama-Dark
 
 # a theme specific color map
