@@ -10,6 +10,7 @@ for_window [title="Picture in picture"] floating enable, sticky enable
 for_window [title="nmtui"] floating enable
 for_window [app_id="xsensors"] floating enable
 for_window [title="Save File"] floating enable
+for_window [app_id="^launcher$"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 5
 
 # inhibit idle
 for_window [app_id="firefox"] inhibit_idle fullscreen
