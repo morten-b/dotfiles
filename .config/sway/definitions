@@ -28,6 +28,8 @@ set $theme $HOME/.config/sway/themes/matcha-green
 ### Lockscreen configuration
 set $locking swaylock --daemonize --config $theme/swaylock
 
+    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+
 ### Idle configuration
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
