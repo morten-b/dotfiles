@@ -1,6 +1,3 @@
-# based on Base16 Seti UI
-# Author: Appelgriebsch
-
 # some global theme specific variables
 set $gtk-theme Arc-Dark
 set $icon-theme Papirus-Dark
@@ -9,23 +6,39 @@ set $gui-font Source Code Pro 11
 set $term-font Source Code Pro 12
 set $kvantum-theme Arc-Dark
 
-# a theme specific color map
-set $base00 #141a1b
-set $base01 #282a2b
-set $base02 #3B758C
-set $base03 #41535B
-set $base04 #43a5d5
-set $base05 #d6d6d6
-set $base06 #eeeeee
-set $base07 #ffffff
-set $base08 #Cd3f45
-set $base09 #db7b55
-set $base0A #e6cd69
-set $base0B #9fca56
-set $base0C #16a085
-set $base0D #55b5db
-set $base0E #a074c4
-set $base0F #8a553f
+set $base00 #2E3440
+set $base01 #3B4252
+set $base02 #434C5E
+set $base03 #4C566A
+set $base04 #D8DEE9
+set $base05 #E5E9F0
+set $base06 #ECEFF4
+set $base07 #8FBCBB
+set $base08 #88C0D0
+set $base09 #81A1C1
+set $base0A #5E81AC
+set $base0B #BF616A
+set $base0C #D08770
+set $base0D #EBCB8B
+set $base0E #A3BE8C
+set $base0F #B48EAD
+
+#set $base00 #141a1b
+#set $base01 #282a2b
+#set $base02 #3B758C
+#set $base03 #41535B
+#set $base04 #43a5d5
+#set $base05 #d6d6d6
+#set $base06 #eeeeee
+#set $base07 #ffffff
+#set $base08 #Cd3f45
+#set $base09 #db7b55
+#set $base0A #e6cd69
+#set $base0B #9fca56
+#set $base0C #16a085
+#set $base0D #55b5db
+#set $base0E #a074c4
+#set $base0F #8a553f
 
 set $transparent-background-color rgba(20, 26, 27, 0.9)
 
