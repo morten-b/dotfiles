@@ -9,7 +9,7 @@
 # import theme
 include $theme/definitions
 
-output Virtual-1 resolution 1680x1050
+output Virtual-1 resolution 1280x1024
 
 # Default wallpaper
 #output * bg $background fill
