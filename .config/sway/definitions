@@ -17,7 +17,7 @@ set $menu exec $term --name=floating_shell -e sway-launcher-desktop
 bindsym $mod+space exec $menu
 
 # styles
-set $theme $HOME/.config/sway/themes/matcha-green
+set $theme $HOME/.config/sway/themes/
 
 ### Lockscreen configuration
 set $locking swaylock --daemonize --config $theme/swaylock
