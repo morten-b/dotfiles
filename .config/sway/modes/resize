@@ -1,4 +1,4 @@
-set $mode_resize Resize
+set $mode_resize "<span foreground='$base05'><b>Resize</b></span>"
 
 mode $mode_resize {
     bindsym Left resize shrink width 10px
