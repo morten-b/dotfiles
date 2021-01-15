@@ -73,6 +73,7 @@ bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
+
 ## Action // Move focussed window to workspace // $mod + Shift + [number] ##
 bindsym $mod+Shift+1 move container to workspace 1
 bindsym $mod+Shift+2 move container to workspace 2
@@ -107,12 +108,6 @@ bindsym $mod+f fullscreen
 
 ## Action // Toggle floating ##
 bindsym $mod+Shift+space floating toggle
-
-## Navigation // Swap focus to the parent window ##
-bindsym $mod+a focus parent
-
-## Launch // Help ##
-bindsym $mod+question exec $help
 
 default_border pixel 1
 hide_edge_borders smart
