@@ -137,7 +137,6 @@ set $menu exec $term --class=launcher -e sway-launcher-desktop
 set $theme $HOME/.config/sway/themes/matcha-green
 
 ### Lockscreen configuration
-#
 set $locking swaylock --daemonize --config $theme/swaylock
 
 ### Idle configuration
@@ -164,5 +163,3 @@ set $pulseaudio $term_float pulsemixer
 
 # onscreen bar
 set $onscreen_bar bash $HOME/.config/sway/scripts/wob.sh
-
-default_border pixel 2
