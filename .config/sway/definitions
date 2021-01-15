@@ -3,12 +3,6 @@
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
 
-# Home row direction keys, like vim
-#set $left h
-#set $down j
-#set $up k
-#set $right l
-
 # Your preferred terminal emulator
 set $term termite --config=$theme/termite
 set $term_float_portrait $term --name=floating_shell_portrait --exec
@@ -17,7 +11,7 @@ set $term_float $term --name=floating_shell --exec
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu exec $term --class=launcher -e sway-launcher-desktop
+set $menu exec $term --class=launcher --name=floating_shell -e sway-launcher-desktop
 
 # Start your launcher
 bindsym $mod+space exec $menu
