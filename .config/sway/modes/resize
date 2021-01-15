@@ -12,5 +12,6 @@ mode $mode_resize {
 }
 ## Launch // Resize Mode ##
 bindsym $mod+r mode $mode_resize
+
 gaps inner 2px
 gaps outer 2px
