@@ -6,23 +6,22 @@ set $gui-font Source Code Pro 11
 set $term-font Source Code Pro 12
 set $kvantum-theme Arc-Dark
 
-# https://github.com/ada-lovecraft/base16-nord-scheme
-set $base00 #2E3440
-set $base01 #3B4252
-set $base02 #434C5E
-set $base03 #4C566A
-set $base04 #D8DEE9
-set $base05 #E5E9F0
-set $base06 #ECEFF4
-set $base07 #8FBCBB
-set $base08 #88C0D0
-set $base09 #81A1C1
-set $base0A #5E81AC
-set $base0B #BF616A
-set $base0C #D08770
-set $base0D #EBCB8B
-set $base0E #A3BE8C
-set $base0F #B48EAD
+set $base00 #262b36
+set $base01 #9c3528
+set $base02 #61bc3b
+set $base03 #f3b43a
+set $base04 #0d68a8
+set $base05 #744560
+set $base06 #288e9c
+set $base07 #a2a2a2
+set $base08 #2f343f
+set $base09 #d64937
+set $base0A #86df5d
+set $base0B #fdd75a
+set $base0C #0f75bd
+set $base0D #9e5e83
+set $base0E #37c3d6
+set $base0F #f9f9f9
 
 set $transparent-background-color rgba(20, 26, 27, 0.9)
 
