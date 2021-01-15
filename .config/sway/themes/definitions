@@ -2,8 +2,8 @@
 set $gtk-theme Arc-Dark
 set $icon-theme Papirus-Dark
 set $cursor-theme xcursor-breeze
-set $gui-font Source Code Pro 11
-set $term-font Source Code Pro 12
+set $gui-font Source Code Pro 10
+set $term-font Source Code Pro 11
 set $kvantum-theme Arc-Dark
 
 set $base00 #262b36
