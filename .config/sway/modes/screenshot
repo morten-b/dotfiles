@@ -22,4 +22,4 @@ mode --pango_markup $mode_screenshot {
 }
 
 ## Launch // Screenshot Mode ##
-bindsym $mod+Shift+s mode $mode_screenshot
+bindsym Print mode $mode_screenshot
