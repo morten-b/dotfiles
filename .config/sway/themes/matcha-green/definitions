@@ -3,11 +3,11 @@
 
 # some global theme specific variables
 set $gtk-theme Arc-Dark
-set $icon-theme Papirus-Dark-Maia
+set $icon-theme Papirus-Dark
 set $cursor-theme xcursor-breeze
 set $gui-font Source Code Pro 11
 set $term-font Source Code Pro 12
-set $kvantum-theme Matchama-Dark
+set $kvantum-theme Arc-Dark
 
 # a theme specific color map
 set $base00 #141a1b
