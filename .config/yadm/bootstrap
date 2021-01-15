@@ -7,3 +7,5 @@ sudo pacman -Syu --noconfirm - < $HOME/.config/yadm/pacman.lst
 yay -Syu --noconfirm - < $HOME/.config/yadm/aur.lst
 
 chsh -s /usr/bin/fish
+
+sudo nextdns install -config 2a7136 -report-client-info -auto-activate
