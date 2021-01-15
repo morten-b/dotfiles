@@ -1,15 +1,7 @@
-# Default config for sway
-#
-# Copy this to ~/.config/sway/config and edit it to your liking.
-#
-# Read `man 5 sway` for a complete reference.
-
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
-
-#font pango:Source Code Pro, FontAwesome, 12
 
 # Home row direction keys, like vim
 set $left h
@@ -39,7 +31,7 @@ set $menu dmenu_path | wofi --show drun -i | xargs swaymsg exec --
     bindsym $mod+Shift+q kill
 
     # Start your launcher
-    bindsym $mod+d exec $menu
+    bindsym $mod+space exec $menu
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -166,7 +158,7 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-# styles - matcha-green or matcha-blue
+# styles
 set $theme $HOME/.config/sway/themes/matcha-green
 
 ### Lockscreen configuration
@@ -194,9 +186,6 @@ set $shutdown wlogout --buttons-per-row 3
 
 # pulseaudio command
 set $pulseaudio $term_float pulsemixer
-
-# help command
-set $help $term_float "man $HOME/.config/sway/help.man"
 
 # onscreen bar
 set $onscreen_bar bash $HOME/.config/sway/scripts/wob.sh
