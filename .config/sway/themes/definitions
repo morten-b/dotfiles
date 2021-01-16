@@ -4,7 +4,7 @@ set $icon-theme Papirus-Dark
 set $cursor-theme xcursor-breeze
 set $gui-font Roboto 11
 set $term-font Source Code Pro 11
-set $kvantum-theme Arc-Dark
+set $kvantum-theme Adwaita
 
 set $base00 #262b36
 set $base01 #9c3528
