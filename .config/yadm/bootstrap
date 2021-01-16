@@ -13,6 +13,6 @@ sudo nextdns install -config 2a7136 -report-client-info -auto-activate
 
 # https://wiki.archlinux.org/index.php/getty
 sudo mkdir /etc/systemd/system/getty@tty1.service.d/
-sudo cp /home/morten/.config/autologin /etc/systemd/system/getty@tty1.service.d/override.conf
+sudo cp $HOME/.config/autologin /etc/systemd/system/getty@tty1.service.d/override.conf
 
 reboot
