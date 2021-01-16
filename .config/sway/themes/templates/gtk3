@@ -1,5 +1,6 @@
 [Settings]
 gtk-theme-name=GTK_THEME
+gtk-application-prefer-dark-theme=GTK-DARK
 gtk-icon-theme-name=ICON_THEME
 gtk-font-name=GUI_FONT
 gtk-cursor-theme-name=CURSOR_THEME
@@ -13,5 +14,5 @@ gtk-enable-input-feedback-sounds=1
 gtk-xft-antialias=1
 gtk-xft-hinting=1
 gtk-xft-hintstyle=hintfull
-gtk-application-prefer-dark-theme=true
+
 
