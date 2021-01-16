@@ -1,5 +1,5 @@
 # global theme specific variables
-set $gtk-theme Adwaita:Dark
+set $gtk-theme Adwaita
 set $icon-theme Papirus-Dark
 set $cursor-theme xcursor-breeze
 set $gui-font Roboto 11
