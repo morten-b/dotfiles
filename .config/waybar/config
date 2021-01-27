@@ -2,7 +2,7 @@
 {
 		"layer": "top",   
       	"position": "top",
-     	"height": 30,
+     	//"height": 30,
  
     	"modules-left": [
         	"sway/workspaces",
@@ -50,7 +50,7 @@
  
 "cpu": {
         "interval": 5,
-        "format": "  {usage}% ({load})", // Icon: microchip
+        "format": "  {usage}%", // Icon: microchip
         "states": {
         "warning": 70,
         "critical": 90
