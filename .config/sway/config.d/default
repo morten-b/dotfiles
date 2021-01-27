@@ -178,10 +178,6 @@ bindsym $mod+r mode "resize"
     bindsym XF86MonBrightnessUp exec brightnessctl -c backlight set +5%
     bindsym XF86MonBrightnessDown exec brightnessctl -c backlight set 5%-
 #
-# App shortcuts
-#
-    bindsym $mod+Return exec firefox
-#
 # Screenshots
 #
     bindsym print exec grimshot --notify save output
