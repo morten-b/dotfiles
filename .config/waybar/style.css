@@ -167,7 +167,7 @@ Arc-Dark Color Scheme
 }
 
 #workspaces button.focused {
-        background-color: solid  @highlight;
+        background-color: @highlight;
      padding-left:10px;
      padding-right:10px;
   }
