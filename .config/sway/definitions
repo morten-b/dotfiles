@@ -12,7 +12,7 @@ set $term_float $term --name=floating_shell --exec
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 #set $menu exec $term --name=floating_shell -e sway-launcher-desktop
-set $menu wofi -c ~/.config/wofi/config -I
+set $menu wofi -I
 
 # Start your launcher
 bindsym $mod+space exec $menu
