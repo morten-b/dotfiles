@@ -26,8 +26,6 @@ netctl
 network-manager-applet
 networkmanager
 nextcloud-client
-noto-fonts
-noto-fonts-cjk
 noto-fonts-emoji
 otf-font-awesome
 papirus-icon-theme
@@ -47,15 +45,10 @@ thunar
 thunar-archive-plugin
 thunar-volman
 tlp
-ttf-bitstream-vera
-ttf-caladea
-ttf-carlito
-ttf-croscore
 ttf-dejavu
-ttf-liberation
+ttf-font-awesome
 ttf-nerd-fonts-symbols
 ttf-roboto
-ttf-ubuntu-font-family
 udiskie
 waybar
 wayland-protocols
