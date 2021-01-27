@@ -4,8 +4,6 @@ yadm remote set-url origin "git@github.com:morten-b/sway-dotfiles.git"
 
 sudo pacman -Syu --noconfirm --needed - < $HOME/.config/yadm/pacman.lst
 
-sudo pacman -Syu --noconfirm --needed - < $HOME/.config/yadm/base
-
 yay -Syu --noconfirm - < $HOME/.config/yadm/aur.lst
 
 # default shell
