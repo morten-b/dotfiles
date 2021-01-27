@@ -1,7 +1,7 @@
 hide_search=false
 hide_scroll=true
-show=drun,run
-width=700
+show=drun
+width=500
 lines=7
 line_wrap=word
 term=alacritty
