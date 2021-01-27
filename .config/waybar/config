@@ -2,11 +2,9 @@
 {
 	"layer": "top",   
       	"position": "top",
-	// If height property would be not present, it'd be calculated dynamically
-     "height": 30,
+     	//"height": 30,
  
     	"modules-left": [
-        	"custom/launcher",
         	"sway/workspaces",
         	"sway/mode",
 	],
@@ -18,14 +16,11 @@
              "network",
 	        "memory",
 	        "cpu",
-	        // "custom/weather",
 	        "pulseaudio",
-	        "custom/keyboard-layout",
 	        "battery",
 	        "backlight",
 	        "clock",
 	        "tray",
-	        "custom/power",
      	],
  
 // Modules
@@ -48,8 +43,8 @@
  
 "clock": {
       	"interval": 10,
-      	"format-alt": "  {:%e %b %Y}", // Icon: calendar-alt
       	"format": "{:%H:%M}",
+      	"format-alt": "  {:%e %b %Y %H:%M}", // Icon: calendar-alt
       	"tooltip-format": "{:%e %B %Y}"
 },
  
@@ -62,16 +57,6 @@
         },
         "on-click": "exec htop",
 },
- 
-"custom/keyboard-layout": {
-      	"exec": "swaymsg -t get_inputs | grep -m1 'xkb_active_layout_name' | cut -d '\"' -f4",
-      	// Interval set only as a fallback, as the value is updated by signal
-      	"interval": 30,
-      	"format": "  {}", // Icon: keyboard
-      	// Signal sent by Sway key binding (~/.config/sway/key-bindings)
-      	"signal": 1, // SIGHUP
-      	"tooltip": false
-    	},
  
 "memory": {
         "interval": 5,
@@ -104,14 +89,7 @@
          "disable-scroll": true,
          "disable-markup" : false,
          "all-outputs": true,
-         "format": "  {icon}  ",
          //"format":"{icon}",
-         "format-icons": {
-             "1": "",
-             "2": "",
-             "3": "",
-             "4": "",
-          }
      },
 "pulseaudio": {
     	"scroll-step": 1, // %, can be a float
@@ -135,13 +113,6 @@
     	"on-scroll-down": "pamixer -ud 2",
 },
  
-"custom/weather": {
-    	"exec": "~/.config/waybar/scripts/weather.sh",
-    	"format": "{}",
-    	"return-type": "json",
-    	"interval": 600
-},
- 
 "tray": {
        	"icon-size": 18,
        	"spacing":10,
@@ -156,42 +127,3 @@
     	"on-scroll-down": "brightnessctl -c backlight set +5%",
     	"on-scroll-up": "brightnessctl -c backlight set 5%-"
 },
- 
-"custom/firefox": {
-    	"format": " ",
-    	"on-click": "exec firefox",
-    	"tooltip": false
-},
- 
-"custom/terminal": {
-    	"format": " ",
-    	"on-click": "exec alacritty",
-    	"tooltip": false
-},
- 
-"custom/files": {
-    	"format": " ",
-    	"on-click": "exec thunar",
-    	"tooltip": false
-},
- 
-"custom/launcher": {
-    	"format":" ",
-    	"on-click": "exec wofi -c ~/.config/wofi/config -I",
-    	"tooltip": false,
-},
- 
-"custom/power": {
-    	"format":"",
-    	"on-click": "exec ~/.config/waybar/scripts/power-menu.sh",
-    	"tooltip": false,
-    	},
-}
-"wlr/taskbar": {
-    "format": "{icon}",
-    "icon-size": 14,
-    "icon-theme": "Numix-Circle",
-    "tooltip-format": "{title}",
-    "on-click": "activate",
-    "on-click-middle": "close"
-}
