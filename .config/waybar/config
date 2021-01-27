@@ -1,6 +1,6 @@
 // Global 
 {
-	"layer": "top",   
+		"layer": "top",   
       	"position": "top",
      	"height": 30,
  
@@ -127,3 +127,4 @@
     	"on-scroll-down": "brightnessctl -c backlight set +5%",
     	"on-scroll-up": "brightnessctl -c backlight set 5%-"
 },
+}
