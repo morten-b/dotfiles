@@ -163,7 +163,8 @@ Arc-Dark Color Scheme
         padding: 0 5px;
         background: transparent;
         color: white;
-        margin: -3px;
+        margin-top: -3px;
+        margin-bottom: -3px;
     }
     
     #workspaces button.focused {
