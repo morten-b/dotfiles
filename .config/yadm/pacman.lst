@@ -1,6 +1,5 @@
 adobe-source-code-pro-fonts
 alacritty
-arc-gtk-theme
 blueman
 brightnessctl
 chromium
@@ -41,9 +40,6 @@ sway
 swaybg
 swayidle
 swaylock
-thunar
-thunar-archive-plugin
-thunar-volman
 tlp
 ttf-dejavu
 ttf-font-awesome
@@ -53,7 +49,6 @@ udiskie
 waybar
 wayland-protocols
 wget
-whois
 wofi
 wpa_supplicant
 xdg-desktop-portal-wlr
@@ -62,5 +57,6 @@ xf86-input-libinput
 xf86-video-intel
 xf86-video-nouveau
 xorg-xwayland
-termite
 nano
+wl-clipboard
+papirus-icon-theme
