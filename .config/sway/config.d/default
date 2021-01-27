@@ -15,7 +15,7 @@ set $term termite
 # on the original workspace that the command was run on.
 set $menu wofi -I
 
-set $powermenu ~/.config/waybar/scripts/power-menu.sh
+set $powermenu ~/.config/sway/scripts/power-menu.sh
 
 ### Idle configuration
 exec swayidle -w\
