@@ -13,7 +13,7 @@
       	],
  
     	"modules-right": [
-             "network",
+            "network",
 	        "memory",
 	        "cpu",
 	        "pulseaudio",
