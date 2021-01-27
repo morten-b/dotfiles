@@ -5,207 +5,186 @@
  * Configuration reference: https://github.com/Alexays/Waybar/wiki/Configuration
  *
  * =========================================================================== */
-
-/* import css definitions for current theme */
-@import url("theme.css");
-
+ 
 /* -----------------------------------------------------------------------------
  * Keyframes
  * -------------------------------------------------------------------------- */
+ /*
+Arc-Dark Color Scheme
+*/
 
+@define-color highlight #5294e2 ;
+@define-color base1  #404552 ;
+
+ 
+ 
 @keyframes blink-warning {
     70% {
-        color: @text_color;
+        color: white;
     }
-
+ 
     to {
-        color: @text_color;
-        background-color: @warning_color;
+        color: white;
+        background-color: orange;
     }
 }
-
+ 
 @keyframes blink-critical {
     70% {
-      color: @text_color;
+      color: white;
     }
-
+ 
     to {
-        color: @text_color;
-        background-color: @error_color;
+        color: white;
+        background-color: red;
     }
 }
-
-
+ 
+ 
 /* -----------------------------------------------------------------------------
  * Base styles
  * -------------------------------------------------------------------------- */
-
+ 
 /* Reset all styles */
 * {
     border: none;
     border-radius: 0;
     min-height: 0;
-    margin: 0;
-    padding: 0;
-    font-family: "Source Code Pro", "Font Awesome", sans-serif;
+    margin: 1px;
+    padding: 1;
 }
 
 /* The whole bar */
 #waybar {
-    background: @background_color;
-    color: @text_color;
+    background: transparent;
+    color: #bebebe;
+    background-color: @base1;
+    font-family: UbuntuMono;
     font-size: 14px;
 }
 
 /* Each module */
-#custom-pacman,
-#custom-menu,
-#bluetooth,
 #battery,
 #clock,
+#backlight,
 #cpu,
+#custom-keyboard-layout,
 #memory,
 #mode,
 #network,
 #pulseaudio,
 #temperature,
-#idle_inhibitor,
-#backlight,
 #tray {
-    padding-left: 10px;
-    padding-right: 10px;
+   margin-left:10px;
+   margin-right:10px;
+   padding:1;
 }
 
 
+ 
+ 
 /* -----------------------------------------------------------------------------
  * Module styles
  * -------------------------------------------------------------------------- */
-
+ 
 #battery {
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
 }
-
+ 
 #battery.warning {
-    color: @warning_color;
+        color: orange;
 }
-
+ 
 #battery.critical {
-    color: @error_color;
+        color: red;
 }
-
+ 
 #battery.warning.discharging {
-    animation-name: blink-warning;
-    animation-duration: 3s;
+        animation-name: blink-warning;
+        animation-duration: 3s;
 }
-
+ 
 #battery.critical.discharging {
-    animation-name: blink-critical;
-    animation-duration: 2s;
+        animation-name: blink-critical;
+        animation-duration: 2s;
 }
-
-#clock {
-    font-weight: bold;
-}
-
-#cpu {
-  /* No styles */
-}
-
+ 
 #cpu.warning {
-    color: @warning_color;
+        color: orange;
 }
-
+ 
 #cpu.critical {
-    color: @error_color;
+        color: red;
 }
-
-#custom-menu {
-    background-color: @accent_color;
-}
-
+ 
 #memory {
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
 }
-
+ 
 #memory.warning {
-    color: @warning_color;
-}
-
+        color: orange;
+ }
+ 
 #memory.critical {
-    color: @error_color;
-    animation-name: blink-critical;
-    animation-duration: 2s;
+    color: red;
+        animation-name: blink-critical;
+        animation-duration: 2s;
 }
-
+ 
 #mode {
-    background: @background_color;
-}
-
-#network {
-    /* No styles */
-}
-
+    background: @highlight;
+    border-bottom: 3px transparent;
+    color:white;
+    margin-left: 5px;
+    padding:7;
+  }
+ 
 #network.disconnected {
-    color: @warning_color;
+        color: orange;
 }
-
-#pulseaudio {
-    /* No styles */
-}
-
+ 
 #pulseaudio.muted {
-    /* No styles */
-    color: @warning_color;
+    color: @highlight; 
 }
-
-#temperature {
-    /* No styles */
-}
-
+ 
 #temperature.critical {
-    color: @error_color;
+        color: red;
 }
-
-#tray {
-    /* No styles */
-}
-
+ 
 #window {
-    font-weight: bold;
-    margin-right: 25px;
-    color: @accent_color;
+        font-weight: bold;
 }
-
+ 
 #workspaces button {
-    border-top: 2px solid transparent;
-    /* To compensate for the top border and still have vertical centering */
-    padding-bottom: 2px;
-    padding-left: 10px;
-    padding-right: 10px;
-    color: @accent_color;
-    font-weight: bold;
+    border-bottom: 3px solid transparent;
+    margin-bottom: 0px;
+    padding:0px;
+    
 }
 
 #workspaces button.focused {
-    border-color: @accent_color;
-    color: @text_color;
-    background-color: @accent_color;
-    font-weight: bold;
-}
+      border-bottom: 3px solid  @highlight;
+     margin-bottom: 1px;
+     padding-left:0;
+  }
 
 #workspaces button.urgent {
-    border-color: @error_color;
-    color: @error_color;
+        border-color: #c9545d;
+        color: #c9545d;
 }
+ 
+#custom-power,
+#custom-launcher{
+   margin-left:15px;
+   margin-right:15px;
+   font-size:15px;
+}   
+#custom-launcher{
+ font-size:20px;
+ }   
 
-#custom-pacman {
-    color: @warning_color;
-}
 
-#bluetooth.disabled {
-    color: @warning_color;
-}
