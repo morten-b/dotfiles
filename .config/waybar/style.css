@@ -1,7 +1,7 @@
 * {
     border: none;
     border-radius: 0;
-    font-family: sans-serif, "Font Awesome 5 Free";
+    font-family: "Source Code Pro", "Font Awesome";
     font-size: 14px;
 }
 
@@ -26,7 +26,7 @@ window {
     border-bottom: 3px solid white;
 }
 
-#clock, #battery, #cpu, #memory, #network, #pulseaudio, #backlight, #temperature, #tray {
+#clock, #battery, #cpu, #memory, #network, #pulseaudio, #backlight, #temperature, #tray, #mode {
     padding: 0 6px;
     margin: 0 2px;
 }
