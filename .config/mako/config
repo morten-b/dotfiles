@@ -9,12 +9,7 @@ progress-color=over #eceff480
 icon-path=/usr/share/icons/Papirus-Dark
 max-icon-size=70
 layer=overlay
-
 border-size=5
 border-radius=0
 border-color=#5294e2
-
 default-timeout=5000
-
-[urgency=high]
-
