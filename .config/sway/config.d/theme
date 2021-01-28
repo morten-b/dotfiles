@@ -15,7 +15,7 @@ font pango:Source Code Pro 10
 smart_borders on
 
 # Set wallpaper:
-exec swaybg -i ~/.config/background.pnd
+exec swaybg -i ~/.config/background.png
 
 #
 # Status Bar:
