@@ -26,7 +26,6 @@ network-manager-applet
 networkmanager
 nextcloud-client
 noto-fonts-emoji
-otf-font-awesome
 papirus-icon-theme
 paprefs
 pavucontrol
@@ -39,11 +38,8 @@ slurp
 sway
 swaybg
 swayidle
-swaylock
 tlp
-ttf-dejavu
 ttf-font-awesome
-ttf-nerd-fonts-symbols
 udiskie
 waybar
 wayland-protocols
@@ -60,3 +56,5 @@ nano
 wl-clipboard
 papirus-icon-theme
 pamixer
+python
+python-pip

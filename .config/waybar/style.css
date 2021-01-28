@@ -22,18 +22,18 @@ window {
 }
 
 #workspaces button.focused {
-    background: #606060;
-    border-bottom: 3px solid white;
+    background: #5294E3;
+    border-bottom: 3px solid #5294E3;
 }
 
 #clock, #battery, #cpu, #memory, #network, #pulseaudio, #backlight, #temperature, #tray, #mode {
-    padding: 0 6px;
+    padding: 0 15px;
     margin: 0 2px;
 }
 
 @keyframes blink {
     to {
-        background-color: #ffffff;
+        background-color: white;
         color: black;
     }
 }
