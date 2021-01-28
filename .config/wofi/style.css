@@ -29,7 +29,7 @@ window {
 
 #outer-box {
     margin: 3px;
-    padding:15px;
+    padding:5px;
     background-color: @base2;
 }
 
