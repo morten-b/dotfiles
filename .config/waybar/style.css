@@ -6,7 +6,7 @@
 }
 
 window {
-    background: rgba(0, 0, 0, 0.2);
+    background: #181818;
     color: white;
 }
 
@@ -22,7 +22,7 @@ window {
 }
 
 #workspaces button.focused {
-    background: rgba(200, 200, 200, 0.1);
+    background: #606060;
     border-bottom: 3px solid white;
 }
 
