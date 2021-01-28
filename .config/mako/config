@@ -1,12 +1,12 @@
 font=Source Code Pro 11
-background-color=#181818
+background-color=#FFFFFF
 text-color=#e5e9f0
 width=315
 height=200
 padding=10
 margin=10
 progress-color=over #eceff480
-icon-path=/usr/share/icons/Arc-X-D
+icon-path=/usr/share/icons/Papirus-Dark
 max-icon-size=70
 layer=overlay
 
