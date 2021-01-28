@@ -128,7 +128,7 @@ exec swayidle -w\
     bindsym $mod+Shift+space floating toggle
 
     # Swap focus between the tiling area and the floating area
-    bindsym $mod+space focus mode_toggle
+    # bindsym $mod+space focus mode_toggle
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
@@ -172,8 +172,8 @@ bindsym $mod+r mode "resize"
 #
 # Volume
 #
-    bindsym --locked XF86AudioRaiseVolume exec pamixer -ui 2
-    bindsym --locked XF86AudioLowerVolume exec pamixer -ud 2
+    bindsym --locked XF86AudioRaiseVolume exec pamixer -ui 3
+    bindsym --locked XF86AudioLowerVolume exec pamixer -ud 3
     bindsym --locked XF86AudioMute exec pamixer -t
 #
 # Backlight
