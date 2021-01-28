@@ -37,8 +37,8 @@ padding: 5px;
 color: white;
 }
 
-#entry:nth-child(even){
-    background-color: @base1;
+#entry {
+    background-color: @base2;
 }
 
 #entry {
