@@ -24,9 +24,10 @@ Arc-Dark Color Scheme
 
 #outer-box {
     	margin: 5px;
-    	padding:5px;
+    	padding: 5px;
     	background-color: @base2;
-	margin-top: -10px;
+	margin-top: -25px;
+	margin-bottom: 3px;
 }
 
 #scroll {
