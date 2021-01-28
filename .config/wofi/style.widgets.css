@@ -41,10 +41,6 @@ color: white;
     background-color: @base2;
 }
 
-#entry {
-    background-color: @base3;
-}
-
 #entry:selected {
     background-color: @highlight;
 }
