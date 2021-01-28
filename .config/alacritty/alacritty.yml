@@ -51,12 +51,12 @@ key_bindings:
 background_opacity: 1.00
 window:
   padding:
-    x: 20
-    y: 20
+    x: 10
+    y: 10
 font:
   normal:
-    family: UbuntuMono
+    family: Source Code Pro
     style: Regular
-  size: 12
+  size: 11
 live_config_reload: true
 dynamic_padding: true
