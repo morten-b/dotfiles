@@ -1,6 +1,2 @@
 indicator-caps-lock
-# datestr=%A
-image=$HOME/.config/background.png
-scaling=fill
-font=UbuntuMono
-font-size=20
+font=Source Code Pro
