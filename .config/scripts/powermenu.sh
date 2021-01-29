@@ -13,6 +13,6 @@ case $selected in
     exec systemctl reboot;;
   shutdown)
     exec systemctl poweroff -i;;
-  shutdown)
+  lock)
     exec $HOME/.config/scripts/lock.sh;;
 esac
