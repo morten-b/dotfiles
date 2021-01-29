@@ -1,6 +1,6 @@
 #!/bin/bash
 
-entries="Logout Suspend Reboot Shutdown"
+entries="Logout Suspend Reboot Shutdown Lock"
 
 selected=$(printf '%s\n' $entries | wofi --conf=$HOME/.config/wofi/config.power --style=$HOME/.config/wofi/style.widgets.css | awk '{print tolower($1)}')
 
@@ -13,4 +13,6 @@ case $selected in
     exec systemctl reboot;;
   shutdown)
     exec systemctl poweroff -i;;
+  shutdown)
+    exec $HOME/.config/scripts/lock.sh;;
 esac
