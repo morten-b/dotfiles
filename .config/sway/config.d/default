@@ -15,7 +15,7 @@ set $term alacritty
 # on the original workspace that the command was run on.
 set $menu wofi
 
-set $powermenu ~/.config/sway/scripts/power-menu.sh
+set $powermenu ~/.config/scripts/powermenu.sh
 
 ### Idle configuration
 exec swayidle -w\
