@@ -7,13 +7,13 @@ sudo pacman -Syu --noconfirm --needed - < $HOME/.config/yadm/pacman.lst
 yay -Syu --noconfirm --needed - < $HOME/.config/yadm/aur.lst
 
 # default shell
-#chsh -s /usr/bin/fish
+chsh -s /usr/bin/fish
 
 sudo nextdns install -config 2a7136 -report-client-info -auto-activate
 
 # https://wiki.archlinux.org/index.php/getty
 sudo mkdir /etc/systemd/system/getty@tty1.service.d/
-sudo cp $HOME/.config/autologin /etc/systemd/system/getty@tty1.service.d/override.conf
+sudo cp $HOME/.config/assets/autologin /etc/systemd/system/getty@tty1.service.d/override.conf
 
 
 # enable auto updating mirrorlist
@@ -21,5 +21,7 @@ sudo cp $HOME/.config/reflector.conf /etc/xdg/reflector/reflector.conf
 
 systemclt enable reflector.timer
 systemclt start reflector.timer
+
+systemctl enable displaylink.service
 
 reboot
