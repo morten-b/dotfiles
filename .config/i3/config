@@ -176,3 +176,7 @@ exec --no-startup-id autotiling
 exec --no-startup-id slack -u
 exec --no-startup-id nextcloud --background 
 exec --no-startup-id signal-desktop --use-tray-icon --start-in-tray
+
+for_window [class="Blueman-manager"] floating enable
+for_window [class="Pavucontrol"] floating enable
+
