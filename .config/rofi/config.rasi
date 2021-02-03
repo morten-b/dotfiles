@@ -1,6 +1,7 @@
 configuration {
   font: "Source Code Pro 11";
-  modi: "combi";
+
+  modi: "drun,combi";
   combi-modi: "window,drun";
   disable-history: false;
   lines: 8;

@@ -41,6 +41,6 @@ font:
   normal:
     family: Source Code Pro
     style: Regular
-  size: 6.5
+  size: 11
 live_config_reload: true
 dynamic_padding: true
