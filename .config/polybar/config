@@ -20,15 +20,19 @@ background = #222
 background-alt = #444
 foreground = #dfdfdf
 foreground-alt = #555
-primary = #ffb52a
+primary = #5294e2
 secondary = #e60053
 alert = #bd2c40
 warning = #bdbd2c
 
+[settings]
+screenchange-reload = true
 
 [bar/base]
 width = 100%
-;fixed-center = true
+
+monitor = ${env:MONITOR}
+tray-position = ${env:TRAY_POSITION:right}
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -45,11 +49,11 @@ module-margin-left = 2
 module-margin-right = 2
 
 font-0 = Source Code Pro:style=Regular:size=11;3
-font-1 = Font Awesome 5 Brands Regular:style=Regular:size=10;2
-font-2 = Font Awesome 5 Free Solid:style=Solid:size=10;2
-font-3 = Font Awesome 5 Free Regular:style=Regular:size=10;2
+font-1 = SauceCodePro Nerd Font:style=Regular:size=10;2
+;font-1 = Font Awesome 5 Brands Regular:style=Regular:size=10;2
+;font-2 = Font Awesome 5 Free Solid:style=Solid:size=10;2
+;font-3 = Font Awesome 5 Free Regular:style=Regular:size=10;2
 
-tray-position = right
 tray-padding = 2
 
 cursor-click = pointer
@@ -59,15 +63,14 @@ modules-left = i3
 
 [bar/primary]
 inherit = bar/base
-monitor = eDP1
-modules-right = backlight pulseaudio memory cpu wlan eth battery date
+modules-right = system-bluetooth-bluetoothctl backlight pulseaudio memory cpu wlan eth battery date
 
 [bar/secondary]
 inherit = bar/base
-monitor = DVI-I-2-1
 
 [module/i3]
 type = internal/i3
+index-sort = true
 
 label-mode-padding = 2
 label-mode-background = #e60053
@@ -75,7 +78,7 @@ label-mode-background = #e60053
 label-focused = %index%
 label-focused-foreground = #ffffff
 label-focused-background = #3f3f3f
-label-focused-underline = #fba922
+label-focused-underline = ${colors.primary}
 label-focused-padding = 2
 
 label-unfocused = %index%
@@ -114,7 +117,7 @@ label =  %percentage_used%%
 [module/wlan]
 type = internal/network
 
-interface = wlan0
+interface = wlp5s0
 interval = 3.0
 
 format-connected =  <label-connected>
@@ -172,5 +175,8 @@ ramp-capacity-2 = 
 ramp-capacity-3 = 
 ramp-capacity-4 = 
 
-[settings]
-screenchange-reload = true
+[module/system-bluetooth-bluetoothctl]
+type = custom/script
+exec = ~/.config/scripts/system-bluetooth-bluetoothctl.sh
+tail = true
+click-left = ~/.config/scripts/system-bluetooth-bluetoothctl.sh --toggle &

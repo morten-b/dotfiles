@@ -20,11 +20,14 @@ font pango:Source Code Pro, FontAwesome 11
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
-# Use pactl to adjust volume in PulseAudio.
+
 bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer -ui 3
 bindsym XF86AudioLowerVolume exec --no-startup-id pamixer -ud 3
 bindsym XF86AudioMute exec --no-startup-id pamixer -t
-bindsym XF86AudioMicMute exec --no-startup-id pamixer --default-source -t
+bindsym XF86AudioMicMute exec --no-startup-id pamixer --default-source -tq
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl s 10%-
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl s 10%+
+
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -179,3 +182,4 @@ exec --no-startup-id dunst
 for_window [class="Blueman-manager"] floating enable
 for_window [class="Pavucontrol"] floating enable
 
+bindsym $mod+x move workspace to output left

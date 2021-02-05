@@ -18,7 +18,6 @@ htop
 i3
 imagemagick
 intel-ucode
-jq
 libsecret 	
 nano
 nautilus
@@ -28,13 +27,13 @@ networkmanager
 nextcloud-client
 nitrogen
 noto-fonts-emoji
+pipewire-pulse
 pamixer
 papirus-icon-theme
 paprefs
 pavucontrol
 pkgfile 	
 polkit-gnome
-pulseaudio
 python
 python-pip
 qtkeychain-qt5 	
