@@ -1,3 +1,7 @@
 [Added Associations]
 application/pdf=org.gnome.Evince.desktop;
 application/x-shellscript=code-oss.desktop;
+application/xml=firefox.desktop;
+
+[Default Applications]
+x-scheme-handler/msteams=teams.desktop

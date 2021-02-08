@@ -18,15 +18,15 @@ font pango:Source Code Pro, FontAwesome 11
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- $HOME/.config/scripts/lock.sh --nofork
 
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer -ui 3
-bindsym XF86AudioLowerVolume exec --no-startup-id pamixer -ud 3
+bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer -ui 3 && pamixer --get-volume >> /tmp/xobpipe
+bindsym XF86AudioLowerVolume exec --no-startup-id pamixer -ud 3 && pamixer --get-volume >> /tmp/xobpipe
 bindsym XF86AudioMute exec --no-startup-id pamixer -t
 bindsym XF86AudioMicMute exec --no-startup-id pamixer --default-source -tq
-bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl s 10%-
-bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl s 10%+
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl s 10%- && brightnessctl g >> /tmp/xobpipebrightness
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl s 10%+ && brightnessctl g >> /tmp/xobpipebrightness
 
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -178,6 +178,8 @@ exec --no-startup-id nextcloud --background
 exec --no-startup-id signal-desktop --use-tray-icon --start-in-tray
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id dunst
+exec --no-startup-id mkfifo /tmp/xobpipe && tail -f /tmp/xobpipe | xob
+exec --no-startup-id mkfifo /tmp/xobpipebrightness && tail -f /tmp/xobpipebrightness | xob -m 7500
 
 for_window [class="Blueman-manager"] floating enable
 for_window [class="Pavucontrol"] floating enable

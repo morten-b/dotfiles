@@ -83,7 +83,7 @@
     #
     # If this option is set to mouse or keyboard, the monitor option will be
     # ignored.
-    follow = keyboard
+    follow = none
 
     # should a notification popped up from history be sticky or
     # timeout as if it would normally do.
@@ -115,10 +115,7 @@
     # print a notification on startup
     # This is mainly for error detection, since dbus (re-)starts dunst
     # automatically after a crash.
-    startup_notification = true
-
-    # dmenu path
-    dmenu = /usr/bin/dmenu -p dunst:
+    startup_notification = false
 
     # browser for opening urls in context menu
     browser = /usr/bin/firefox -new-tab
@@ -161,62 +158,3 @@
     background = "#900000"
     foreground = "#ffffff"
     timeout = 0
-
-
-# Every section that isn't one of the above is interpreted as a rules
-# to override settings for certain messages.
-# Messages can be matched by 'appname', 'summary', 'body' or 'icon'
-# and you can override the 'timeout', 'urgency', 'foreground', 'background'
-# and 'format'.
-# Shell-like globbing will get expanded.
-#
-# SCRIPTING
-# you can specify a script that gets run when the rule matches by setting
-# the 'script' option.
-# The script will be called as follows:
-# script appname summary body icon urgency
-# where urgency can be "LOW", "NORMAL" or "CRITICAL".
-#
-# NOTE: if you don't want a notification to be displayed, set the format to ""
-# NOTE: It might be helpful to run dunst -print in a terminal in order to find
-# fitting options for rules.
-
-#[espeak]
-#    summary = "*"
-#    script = dunst_espeak.sh
-
-#[script-test]
-#    summary = "*script*"
-#    script = dunst_test.sh
-
-#[ignore]
-## This notification will not be displayed
-#    summary = "foobar"
-#    format = ""
-
-[signed_on]
-    appname = Pidgin
-    summary = "*signed on*"
-    urgency = low
-
-[signed_off]
-    appname = Pidgin
-    summary = *signed off*
-    urgency = low
-
-[says]
-    appname = Pidgin
-    summary = *says*
-    urgency = critical
-    format  = "%s "%b""
-
-[music]
-    appname = Amarok
-    summary = "Now playing"
-    urgency = low
-
-#[twitter]
-#    appname = Pidgin
-#    summary = *twitter.com*
-#    urgency = normal
-#

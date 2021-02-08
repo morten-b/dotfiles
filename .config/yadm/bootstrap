@@ -15,9 +15,11 @@ sudo nextdns install -config 2a7136 -report-client-info -auto-activate
 sudo mkdir /etc/systemd/system/getty@tty1.service.d/
 sudo cp $HOME/.config/assets/autologin /etc/systemd/system/getty@tty1.service.d/override.conf
 
+# disable beep
+sudo cp $HOME/.config/assets/nobeep.conf /etc/modprobe.d/nobeep.conf
 
 # enable auto updating mirrorlist
-sudo cp $HOME/.config/reflector.conf /etc/xdg/reflector/reflector.conf
+sudo cp $HOME/.config/assets/reflector.conf /etc/xdg/reflector/reflector.conf
 
 systemclt enable reflector.timer
 systemclt start reflector.timer

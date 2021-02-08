@@ -9,8 +9,7 @@ code
 dunst
 evince
 firefox
-fish
-font-manager 	
+fish	
 gnome-calculator
 gnome-keyring 
 gtk-engine-murrine
@@ -27,7 +26,8 @@ networkmanager
 nextcloud-client
 nitrogen
 noto-fonts-emoji
-pipewire-pulse
+noto-fonts
+pulseaudio-bluetooth
 pamixer
 papirus-icon-theme
 paprefs
@@ -38,11 +38,9 @@ python
 python-pip
 qtkeychain-qt5 	
 reflector
-rofi 	
-seahorse 	
+rofi	
 signal-desktop
 tlp
-ttf-font-awesome
 udiskie
 wget
 wpa_supplicant
