@@ -49,10 +49,7 @@ module-margin-left = 2
 module-margin-right = 2
 
 font-0 = Source Code Pro:style=Regular:size=11;3
-font-1 = SauceCodePro Nerd Font:style=Regular:size=10;2
-;font-1 = Font Awesome 5 Brands Regular:style=Regular:size=10;2
-;font-2 = Font Awesome 5 Free Solid:style=Solid:size=10;2
-;font-3 = Font Awesome 5 Free Regular:style=Regular:size=10;2
+font-1 = SauceCodePro Nerd Font:style=Regular:size=11;3
 
 tray-padding = 2
 
@@ -63,7 +60,7 @@ modules-left = i3
 
 [bar/primary]
 inherit = bar/base
-modules-right = system-bluetooth-bluetoothctl backlight pulseaudio memory cpu wlan eth battery date
+modules-right = pulseaudio memory cpu tether wlan eth battery system-bluetooth-bluetoothctl date
 
 [bar/secondary]
 inherit = bar/base
@@ -75,20 +72,20 @@ index-sort = true
 label-mode-padding = 2
 label-mode-background = #e60053
 
-label-focused = %index%
+label-focused = %name%
 label-focused-foreground = #ffffff
 label-focused-background = #3f3f3f
 label-focused-underline = ${colors.primary}
 label-focused-padding = 2
 
-label-unfocused = %index%
+label-unfocused = %name%
 label-unfocused-padding = 2
 
-label-visible = %index%
+label-visible = %name%
 label-visible-underline = #555555
 label-visible-padding = 2
 
-label-urgent = %index%
+label-urgent = %name%
 label-urgent-foreground = #000000
 label-urgent-background = #bd2c40
 label-urgent-padding = 2
@@ -99,7 +96,7 @@ type = internal/backlight
 ; Use the following command to list available cards:
 ; $ ls -1 /sys/class/backlight/
 card = intel_backlight
-format =  <label>
+format = 盛 <label>
 
 [module/cpu]
 type = internal/cpu
@@ -123,7 +120,7 @@ interval = 3.0
 format-connected =  <label-connected>
 label-connected = %essid%
 
-format-disconnected = 
+format-disconnected = 
 format-disconnected-foreground = ${colors.warning}
 
 [module/eth]
@@ -136,7 +133,19 @@ format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.foreground-alt}
 label-connected = %local_ip%
 
-format-disconnected =
+format-disconnected = 
+
+[module/tether]
+type = internal/network
+interface = enp0s20f0u2
+interval = 3.0
+
+format-connected-underline = #55aa55
+format-connected-prefix = " "
+format-connected-prefix-foreground = ${colors.foreground-alt}
+label-connected = %local_ip%
+
+format-disconnected = 
 
 [module/date]
 type = internal/date
@@ -151,7 +160,7 @@ time-alt = %H:%M
 type = internal/pulseaudio
 use-ui-max = false
 format-volume =  <label-volume>
-label-muted = 
+label-muted = 
 click-right = pavucontrol
 
 [module/battery]
@@ -161,11 +170,11 @@ full-at = 98
 battery = BAT0
 adapter = AD
 
-format-charging = <ramp-capacity> <label-charging>
+format-charging = <label-charging>
 format-discharging = <ramp-capacity> <label-discharging>
 label-full = 
-label-charging =  %percentage%%
-label-discharging = %percentage%%
+label-charging =  %percentage%%
+label-discharging = " %percentage%%"
 
 ramp-capacity-0 = 
 ramp-capacity-0-foreground = ${colors.alert}

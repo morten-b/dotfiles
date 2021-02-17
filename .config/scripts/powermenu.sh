@@ -1,19 +1,29 @@
 #!/bin/bash
 
-entries="' Logout Suspend Reboot Shutdown Lock"
+power_off=" Shutdown"
+reboot=" Reboot"
+lock=" Lock"
+suspend=" Suspend"
+log_out=" Logout"
 
-#selected=$(printf '%s\n' $entries | wofi --conf=$HOME/.config/wofi/config.power --style=$HOME/.config/wofi/style.widgets.css | awk '{print tolower($1)}')
-selected=$(printf '%b\n' $entries | rofi -dmenu | awk '{print tolower($1)}')
+options="$power_off\n$reboot\n$lock\n$suspend\n$log_out"
 
-case $selected in
-  logout)
-    swaymsg exit;;
-  suspend)
-    exec systemctl suspend;;
-  reboot)
-    exec systemctl reboot;;
-  shutdown)
-    exec systemctl poweroff -i;;
-  lock)
-    exec $HOME/.config/scripts/lock.sh;;
+chosen="$(echo -e "$options" | rofi -lines 5 -dmenu)"
+
+case $chosen in
+    $power_off)
+        systemctl poweroff
+        ;;
+    $reboot)
+        systemctl reboot
+        ;;
+    $lock)
+        loginctl lock-session
+        ;;
+    $suspend)
+        systemctl suspend
+        ;;
+    $log_out)
+        i3-msg exit
+        ;;
 esac
