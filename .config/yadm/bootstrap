@@ -27,7 +27,7 @@ systemclt start reflector.timer
 systemctl enable displaylink.service
 
 systemctl enable emptty.service
-sudo groupadd -r nopasswdlogin
-sudo gpasswd -a morten nopasswdlogin
+
+gsettings set com.github.stunkymonkey.nautilus-open-any-terminal terminal alacritty
 
 reboot

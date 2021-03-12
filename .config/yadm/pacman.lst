@@ -56,3 +56,6 @@ xorg-xrandr
 xrandr 	
 xss-lock
 texlive-most
+picom
+redshift
+gnome-disk-utility

@@ -122,6 +122,8 @@ bindsym $mod+Shift+c reload restart
 # powermenu
 bindsym $mod+Shift+e exec ~/.config/scripts/powermenu.sh
 
+bindsym Print exec scrot
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -146,7 +148,6 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 
-
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id autotiling
 
@@ -163,12 +164,15 @@ exec --no-startup-id mkfifo /tmp/xobpipe && tail -f /tmp/xobpipe | xob
 exec --no-startup-id mkfifo /tmp/xobpipebrightness && tail -f /tmp/xobpipebrightness | xob -m 7500
 exec --no-startup-id discord --start-minimized
 exec --no-startup-id picom -b
+exec --no-startup-id redshift -l 55.701639:12.540154
+exec --no-startup-id udiskie
 
 for_window [class="Blueman-manager"] floating enable, move position center
 for_window [class="Pavucontrol"] floating enable, move position center
 for_window [class="zoom" title="Settings"] floating enable, move position center
 for_window [class="zoom" title="Zoom - Licensed Account"] floating enable, move position center
 for_window [class="Gnome-calculator"] floating enable
+for_window [class="firefox" title="Picture-in-Picture"] floating disable
 
 bindsym $mod+x move workspace to output left
 
