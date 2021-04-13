@@ -44,3 +44,5 @@ font:
   size: 11
 live_config_reload: true
 dynamic_padding: true
+env:
+  WINIT_X11_SCALE_FACTOR: "1.0"
