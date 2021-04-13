@@ -56,3 +56,5 @@ xorg-server
 xorg-xinit
 xorg-xrandr
 xss-lock
+nvidia
+bluez-utils
