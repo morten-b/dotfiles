@@ -46,7 +46,6 @@ wget
 wpa_supplicant
 xclock
 xdg-user-dirs 	
-xdg-utils
 xf86-input-libinput
 xf86-video-intel
 xf86-video-nouveau
@@ -57,5 +56,5 @@ xrandr
 xss-lock
 texlive-most
 picom
-redshift
 gnome-disk-utility
+ntp
