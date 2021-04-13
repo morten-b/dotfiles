@@ -9,7 +9,7 @@ paru -Syuq --skipreview --noconfirm --needed - < $HOME/.config/yadm/aur.lst
 # default shell
 chsh -s /usr/bin/fish
 
-sudo nextdns install -config 2a7136 -report-client-info -auto-activate
+#sudo nextdns install -config 2a7136 -report-client-info -auto-activate
 
 # https://wiki.archlinux.org/index.php/getty
 #sudo mkdir /etc/systemd/system/getty@tty1.service.d/
@@ -27,6 +27,8 @@ systemclt start reflector.timer
 systemctl enable displaylink.service
 
 systemctl enable emptty.service
+
+systemctl enable bluetooth.service
 
 gsettings set com.github.stunkymonkey.nautilus-open-any-terminal terminal alacritty
 
