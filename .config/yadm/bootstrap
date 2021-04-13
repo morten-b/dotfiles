@@ -1,10 +1,10 @@
 #!/bin/sh
 
-yadm remote set-url origin "git@github.com:morten-b/sway-dotfiles.git"
+yadm remote set-url origin "git@github.com:morten-b/dotfiles.git"
 
 sudo pacman -Syu --noconfirm --needed - < $HOME/.config/yadm/pacman.lst
 
-yay -Syu --noconfirm --needed - < $HOME/.config/yadm/aur.lst
+paru -Syuq --noconfirm --needed - < $HOME/.config/yadm/aur.lst
 
 # default shell
 chsh -s /usr/bin/fish
