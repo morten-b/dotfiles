@@ -30,4 +30,6 @@ systemctl enable emptty.service
 
 gsettings set com.github.stunkymonkey.nautilus-open-any-terminal terminal alacritty
 
+localectl set-x11-keymap dk
+
 reboot
