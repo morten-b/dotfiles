@@ -34,4 +34,6 @@ gsettings set com.github.stunkymonkey.nautilus-open-any-terminal terminal alacri
 
 localectl set-x11-keymap dk
 
+git config --global user.email "mail@mbendtsen.dk"
+
 reboot
