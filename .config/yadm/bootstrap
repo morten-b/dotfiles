@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -e
+
 yadm remote set-url origin "git@github.com:morten-b/dotfiles.git"
 
 sudo pacman -Syu --noconfirm --needed - < $HOME/.config/yadm/pacman.lst
@@ -16,10 +18,10 @@ chsh -s /usr/bin/fish
 #sudo cp $HOME/.config/assets/autologin /etc/systemd/system/getty@tty1.service.d/override.conf
 
 # disable beep
-sudo cp $HOME/.config/assets/nobeep.conf /etc/modprobe.d/nobeep.conf
+#sudo cp $HOME/.config/assets/nobeep.conf /etc/modprobe.d/nobeep.conf
 
 # enable auto updating mirrorlist
-sudo cp $HOME/.config/assets/reflector.conf /etc/xdg/reflector/reflector.conf
+#sudo cp $HOME/.config/assets/reflector.conf /etc/xdg/reflector/reflector.conf
 
 systemclt enable reflector.timer
 systemclt start reflector.timer
@@ -33,7 +35,5 @@ systemctl enable bluetooth.service
 gsettings set com.github.stunkymonkey.nautilus-open-any-terminal terminal alacritty
 
 localectl set-x11-keymap dk
-
-git config --global user.email "mail@mbendtsen.dk"
 
 reboot
