@@ -50,7 +50,6 @@ xorg-xclock
 xdg-user-dirs
 xf86-input-libinput
 xf86-video-intel
-xf86-video-nouveau
 xorg-server
 xorg-xinit
 xorg-xrandr
