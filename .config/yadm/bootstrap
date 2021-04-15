@@ -12,11 +12,8 @@ paru -Syuq --skipreview --noconfirm --needed - < $HOME/.config/yadm/aur.lst
 chsh -s /usr/bin/fish
 
 # https://wiki.archlinux.org/index.php/getty
-#sudo mkdir /etc/systemd/system/getty@tty1.service.d/
-#sudo cp $HOME/.config/assets/autologin /etc/systemd/system/getty@tty1.service.d/override.conf
-
-sudo groupadd -r nopasswdlogin
-sudo gpasswd -a morten autologin
+sudo mkdir /etc/systemd/system/getty@tty1.service.d/
+sudo cp $HOME/.config/assets/autologin /etc/systemd/system/getty@tty1.service.d/override.conf
 
 # disable beep
 sudo cp $HOME/.config/assets/nobeep.conf /etc/modprobe.d/nobeep.conf
@@ -24,8 +21,6 @@ sudo cp $HOME/.config/assets/nobeep.conf /etc/modprobe.d/nobeep.conf
 sudo reflector --save /etc/pacman.d/mirrorlist --country Denmark,Germany,Sweden --protocol https --latest 10 --sort rate
 
 systemctl enable displaylink.service
-
-systemctl enable emptty.service
 
 systemctl enable bluetooth.service
 
