@@ -11,20 +11,17 @@ paru -Syuq --skipreview --noconfirm --needed - < $HOME/.config/yadm/aur.lst
 # default shell
 chsh -s /usr/bin/fish
 
-#sudo nextdns install -config 2a7136 -report-client-info -auto-activate
-
 # https://wiki.archlinux.org/index.php/getty
 #sudo mkdir /etc/systemd/system/getty@tty1.service.d/
 #sudo cp $HOME/.config/assets/autologin /etc/systemd/system/getty@tty1.service.d/override.conf
 
+sudo groupadd -r nopasswdlogin
+sudo gpasswd -a morten autologin
+
 # disable beep
 sudo cp $HOME/.config/assets/nobeep.conf /etc/modprobe.d/nobeep.conf
 
-# enable auto updating mirrorlist
-sudo cp $HOME/.config/assets/reflector.conf /etc/xdg/reflector/reflector.conf
-
-systemclt enable reflector.timer
-systemclt start reflector.timer
+sudo reflector --save /etc/pacman.d/mirrorlist --country Denmark,Germany,Sweden --protocol https --latest 10 --sort rate
 
 systemctl enable displaylink.service
 
