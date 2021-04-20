@@ -2,7 +2,6 @@ autotiling
 slack-desktop
 adwaita-qt
 displaylink
-nextdns
 nerd-fonts-source-code-pro
 xob
 latex-mk
@@ -10,3 +9,4 @@ nautilus-open-any-terminal
 handlr-bin
 polybar
 visual-studio-code-bin
+informant
