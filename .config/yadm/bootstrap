@@ -18,6 +18,8 @@ sudo cp $HOME/.config/assets/autologin /etc/systemd/system/getty@tty1.service.d/
 # disable beep
 sudo cp $HOME/.config/assets/nobeep.conf /etc/modprobe.d/nobeep.conf
 
+sudo gpasswd -a morten informant
+
 sudo reflector --save /etc/pacman.d/mirrorlist --country Denmark,Germany,Sweden --protocol https --latest 10 --sort rate
 
 systemctl enable displaylink.service
