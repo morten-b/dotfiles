@@ -146,10 +146,11 @@ format-disconnected =
 type = internal/date
 
 label = %date% %time%
-date = 
+date = " %d-%m-%Y"
 time = %H:%M
-date-alt = " %d-%m-%Y"
+date-alt = 
 time-alt = %H:%M
+
 
 [module/pulseaudio]
 type = internal/pulseaudio
