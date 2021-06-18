@@ -26,6 +26,8 @@ systemctl enable displaylink.service
 
 systemctl enable bluetooth.service
 
+systemctl enable systemd-timesyncd.service
+
 gsettings set com.github.stunkymonkey.nautilus-open-any-terminal terminal alacritty
 
 localectl set-x11-keymap dk

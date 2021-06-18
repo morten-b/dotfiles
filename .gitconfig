@@ -1,3 +1,5 @@
 [user]
 	email = mail@mbendtsen.dk
 	name = Morten Bendtsen
+[init]
+	defaultBranch = main
