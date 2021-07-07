@@ -19,7 +19,9 @@ gtk-engine-murrine
 htop
 i3
 imagemagick
+libgnome-keyring
 libsecret
+linux-headers
 man
 mpv
 nano
@@ -47,6 +49,7 @@ qtkeychain-qt5
 reflector
 rofi
 scrot
+seahorse
 signal-desktop
 tlp
 udiskie
@@ -61,6 +64,3 @@ xorg-xinit
 xorg-xrandr
 xss-lock
 zip
-linux-headers
-seahorse
-libgnome-keyring
