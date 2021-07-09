@@ -83,7 +83,7 @@ bindsym $mod+a focus parent
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1: Firefox"
 set $ws2 "2: Code"
-set $ws3 "3"
+set $ws3 "3: PDF"
 set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
@@ -179,6 +179,7 @@ bindsym $mod+x move workspace to output left
 
 assign [class="firefox"] $ws1
 assign [class="Code"] $ws2
+assign [class="Evince"] $ws3 
 assign [class="zoom"] $ws9 
 assign [class="discord"] $ws10
 assign [class="Signal"] $ws10
@@ -188,3 +189,4 @@ for_window [class="zoom"] layout tabbed
 for_window [class="discord"] layout tabbed
 for_window [class="Signal"] layout tabbed
 for_window [class="Slack"] layout tabbed
+for_window [class="Evince"] layout tabbed
