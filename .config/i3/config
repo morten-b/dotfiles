@@ -18,7 +18,7 @@ font pango:Source Code Pro, FontAwesome 11
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-# exec --no-startup-id xss-lock --transfer-sleep-lock -- $HOME/.config/scripts/lock.sh --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- $HOME/.config/scripts/lock.sh --nofork
 
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer -ui 3 && pamixer --get-volume >> /tmp/xobpipe

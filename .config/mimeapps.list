@@ -1,6 +1,6 @@
 [Added Associations]
 application/csv=visual-studio-code.desktop;
-application/pdf=org.gnome.Evince.desktop;
+application/pdf=firefox.desktop;org.gnome.Evince.desktop;
 application/x-extension-htm=firefox.desktop;
 application/x-extension-html=firefox.desktop;
 application/x-extension-shtml=firefox.desktop;
@@ -9,8 +9,8 @@ application/x-extension-xhtml=firefox.desktop;
 application/x-shellscript=visual-studio-code.desktop;nautilus-autorun-software.desktop;
 application/xhtml+xml=firefox.desktop;
 application/xml=firefox.desktop;
-image/jpeg=firefox.desktop;org.gnome.Evince.desktop;
-image/png=org.gnome.Evince.desktop;org.gnome.eog.desktop;firefox.desktop;
+image/jpeg=gimp.desktop;firefox.desktop;org.gnome.Evince.desktop;
+image/png=gimp.desktop;shotwell-viewer.desktop;org.gnome.Evince.desktop;org.gnome.eog.desktop;firefox.desktop;
 text/html=firefox.desktop;
 text/plain=visual-studio-code.desktop;
 x-scheme-handler/chrome=firefox.desktop;
@@ -19,6 +19,7 @@ x-scheme-handler/http=firefox.desktop;
 x-scheme-handler/https=firefox.desktop;
 inode/directory=visual-studio-code.desktop;
 application/zip=org.gnome.Nautilus.desktop;
+image/bmp=org.gnome.eog.desktop;
 
 [Default Applications]
 application/pdf=org.gnome.Evince.desktop;
