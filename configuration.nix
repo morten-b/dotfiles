@@ -137,6 +137,9 @@ in
         "git.confirmSync" = false;
         "security.workspace.trust.untrustedFiles" = "open";
         "editor.largeFileOptimizations" = false;
+        "[json]" = {
+          "editor.defaultFormatter" = "esbenp.prettier-vscode";
+        };
       };
       extensions = with pkgs.vscode-extensions; [
         piousdeer.adwaita-theme
