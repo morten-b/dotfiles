@@ -1,10 +1,6 @@
 #{ lib, config, pkgs, inputs, pkgs-unstable, ... }:
 { lib, config, pkgs, inputs, ... }:
 
-let
-  session = "${pkgs.hyprland}/bin/Hyprland";
-in
-
 {
   imports =
     [ 
@@ -23,18 +19,6 @@ in
   networking.hostName = "nixos";
 
   services.flatpak.enable = true;
-  services.gvfs.enable = true;
-  services.tumbler.enable = true;
-
-  services.greetd = {
-    enable = true;
-    settings = {
-      default_session = {
-        command = "${session}";
-        user = "morten";
-      };
-    };
-  };
 
   networking.networkmanager.enable = true;
 
@@ -71,8 +55,6 @@ in
     pulse.enable = true;
   };
 
-  services.gnome.core-utilities.enable = false;
-
   programs.fish.enable = true;
   
   services.udev.packages = [ pkgs.gnome-settings-daemon ];
@@ -81,16 +63,6 @@ in
     isNormalUser = true;
     description = "morten";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
-  };
-
-  #programs.xfconf.enable = true;
-  programs.thunar = {
-    enable = true;
-    plugins = with pkgs.xfce; [
-      thunar-archive-plugin
-      thunar-volman
-    ];
   };
 
   home-manager.useGlobalPkgs = true;
@@ -111,18 +83,11 @@ in
         type = "Application";
       };
     in {
-    home.packages = [ pkgs.polkit_gnome teams-ascendis-desktop teams-redpill-linpro-desktop ];
-    
-    xfconf = {
-      enable = true;
-      settings = {
-        thunar = {
-          default-view = "ThunarDetailsView";
-          misc-date-style = "THUNAR_DATE_STYLE_SHORT";
-          last-show-hidden = true;
-        };
-      };
-    };
+    home.packages = [ 
+      teams-ascendis-desktop 
+      teams-redpill-linpro-desktop 
+    ];
+
 
     programs.vscode = {
       enable = true;
@@ -166,130 +131,59 @@ in
       ];
     };
 
+    # dconf dump / > old-conf.txt
+    # dconf dump / > new-conf.txt
     dconf = {
+      enable = true;
       settings = {
         "org/gnome/desktop/interface" = {
-          gtk-theme = "Adwaita-dark";
           color-scheme = "prefer-dark";
+        };
+        "org/gnome/shell" = {
+          disable-user-extensions = false;
+          enabled-extensions = [
+            pkgs.gnomeExtensions.appindicator.extensionUuid
+          ];
         };
       };
     };
 
-    gtk = {
-      enable = true;
-      theme = {
-          name = "Adwaita-dark";
-          package = pkgs.gnome-themes-extra;
-      };
-      iconTheme = {
-        package = pkgs.adwaita-icon-theme;
-        name = "Adwaita";
-      };
-      cursorTheme = {
-        package = pkgs.adwaita-icon-theme;
-        name = "Adwaita";
-        size = 14;
-      };
-      font = {
-        name = "DejaVu Sans";
-        size = 10;
-      };
-    };
-
-    home.sessionPath = [
-      "/home/morten/bin/az"
-    ];
-
     home.file = {
       ".config/teams-for-linux/Redpill-Linpro/config.json".text = ''
-      {
-          "optInTeamsV2": "true",
-          "appTitle": "Teams-Redpill-Linpro",
-          "appIcon": "/home/morten/.config/teams-for-linux/Redpill-Linpro/favicon.png",
-          "notificationMethod": "web",
-          "minimized": "false",
-          "electronCLIFlags": [
-            ["ozone-platform-hint","wayland"],
-            ["enable-features","WaylandWindowDecorations"]
-          ]
-      }
+        {
+            "optInTeamsV2": "true",
+            "appTitle": "Teams-Redpill-Linpro",
+            "appIcon": "/home/morten/.config/teams-for-linux/Redpill-Linpro/favicon.png",
+            "notificationMethod": "web",
+            "minimized": "true",
+            "electronCLIFlags": [
+              ["ozone-platform-hint","wayland"],
+              ["enable-features","WaylandWindowDecorations"]
+            ]
+        }
       '';
-    };
 
-    home.file = {
       ".config/teams-for-linux/Ascendis/config.json".text = ''
-      {
-          "optInTeamsV2": "true",
-          "appTitle": "Teams-Ascendis",
-          "appIcon": "/home/morten/.config/teams-for-linux/Ascendis/favicon.png",
-          "notificationMethod": "web",
-          "minimized": "false",
-         	"electronCLIFlags": [
-            ["ozone-platform-hint","wayland"],
-            ["enable-features","WaylandWindowDecorations"]
-          ]
-      }
-      '';
-    };
-
-
-    home.file = {
-      ".config/wofi/powermenu-style.css".text = ''
-        #input {
-          margin-bottom: 10px;
-          border-radius: 3px;
-          border:none;
-        }
-
-        #outer-box {
-          margin-top: -35px;
-          margin-left: 3px;
-          margin-right: 3px;
-          margin-bottom: 3px;
-          padding:5px;
-        }
-
-        #text {
-          padding: 5px;
+        {
+            "optInTeamsV2": "true",
+            "appTitle": "Teams-Ascendis",
+            "appIcon": "/home/morten/.config/teams-for-linux/Ascendis/favicon.png",
+            "notificationMethod": "web",
+            "minimized": "true",
+            "electronCLIFlags": [
+              ["ozone-platform-hint","wayland"],
+              ["enable-features","WaylandWindowDecorations"]
+            ]
         }
       '';
+
+      ".config/autostart/teams-ascendis.desktop".text = teams-ascendis-desktop.text;
+
+      ".config/autostart/teams-redpill-linpro.desktop".text = teams-redpill-linpro-desktop.text;
+
+      ".config/autostart/mattermost.desktop".text = builtins.readFile "${pkgs.mattermost-desktop}/share/applications/Mattermost.desktop";
     };
 
-    home.file = {
-      ".config/wofi/powermenu-config".text = ''
-        hide_search=true
-        hide_scroll=true
-        show=dmenu
-        lines=6
-        width=300
-        insensitive=true
-        normal_window=true
-      '';
-    };
-
-    home.file = {
-      ".config/scripts/powermenu.sh".executable = true;
-      ".config/scripts/powermenu.sh".text = ''
-        #!/usr/bin/env bash
-
-        entries="Shutdown Reboot Logout Suspend Lock"
-
-        selected=$(printf '%s\n' $entries | wofi --conf=/home/morten/.config/wofi/powermenu-config --style=/home/morten/.config/wofi/powermenu-style.css | awk '{print tolower($1)}')
-
-        case $selected in
-          logout)
-            hyprctl dispatch exit;;
-          suspend)
-            exec systemctl suspend;;
-          reboot)
-            exec systemctl reboot;;
-          shutdown)
-            exec systemctl poweroff -i;;
-          lock)
-            exec gtklock;;
-        esac
-      '';
-    };
 
     programs.firefox = {
       enable = true;
@@ -383,139 +277,6 @@ in
       };
     };
 
-    programs.waybar = {
-      enable = true;
-      settings = {
-        mainBar = {
-          layer = "top";
-          position = "top";
-          modules-left = [ "hyprland/workspaces" ];
-          modules-center = [ "hyprland/window" ];
-          modules-right = [
-            "privacy"
-            "network"
-	          "pulseaudio"
-	          "battery"
-	          "backlight"
-	          "clock"
-	          "tray"
-     	    ];
-          battery = {
-            states = {
-              warning = 30;
-              critical = 15;
-            };
-            format = "{icon}  {capacity}%";
-            format-charging = "  {capacity}%";
-            format-plugged = "  {capacity}%";
-            format-alt = "{icon}  {time}";
-            format-icons = [
-              ""
-              ""
-              ""
-              ""
-              ""
-            ];
-          };
-          clock = {
-            interval = 10;
-            format = "{:%H:%M}";
-            format-alt = "  {:%e %b %Y %H:%M}";
-            tooltip-format = "{:%e %B %Y}";
-          };
-          network = {
-            interval = 5;
-            format-wifi = "   {essid} ({signalStrength}%)";
-            format-ethernet = "   {ifname}: {ipaddr}/{cidr}";
-            format-disconnected = "   Disconnected";
-            tooltip-format = "{ifname}: {ipaddr}";
-            on-click = "nmtui";
-          };
-          pulseaudio = {
-            scroll-step = 1;
-            format = "   {volume}%   {format_source}%";
-            on-click = "pavucontrol";
-            on-scroll-up = "pamixer -ui 2";
-            on-scroll-down = "pamixer -ud 2";
-          };
-          tray = {
-            icon-size = 18;
-            spacing = 10;
-          };
-          backlight = {
-            interval = 5;
-            format = "{icon}  {percent}%";
-            format-icons = [
-              "󱩎"
-              "󱩐"
-              "󱩒"
-              "󱩔"
-              "󱩖"
-            ];
-            on-scroll-up = "brightnessctl -c backlight set 5%+";
-            on-scroll-down = "brightnessctl -c backlight set 5%-";
-          };
-          privacy = {
-            icon-spacing = 14;
-            icon-size = 14;
-            transition-duration = 0;
-            modules = [
-              {
-                type = "screenshare";
-                tooltip = false;
-              }
-            ];
-          };
-        };
-      };
-      style = ''
-        * {
-            border: none;
-            border-radius: 0;
-            font-family: "DejaVu Sans", "Font Awesome";
-            font-size: 13px;
-        }
-
-        window {
-            background: #303030;
-        }
-
-        #workspaces button {
-            padding: 5px 10px;
-        }
-
-        #workspaces button.icon label {
-            font-size: 10px;
-        }
-
-        #workspaces button.active {
-            background: #5294E3;
-        }
-
-        #privacy-item {
-            padding: 5px 10px;
-            background: #5294E3;
-        }
-
-        #clock, #battery, #network, #pulseaudio, #backlight, #tray, #mode #privacy {
-            padding: 0 15px;
-            margin: 0 2px;
-        }
-
-        #battery.warning {
-            background: #f53c3c;
-        }
-      '';
-    };
-
-    wayland.windowManager.hyprland = {
-      enable = true;
-      extraConfig = builtins.readFile "/home/morten/nixos/hyprland.conf";
-      plugins = [
-        pkgs.hyprlandPlugins.hyprscroller
-      ];
-    };
-
     programs.alacritty = {
       enable = true;
       settings = {
@@ -523,39 +284,6 @@ in
         font.size = 10;
       };
     };
-       
-    programs.wofi = {
-      enable = true;
-      settings = {
-        hide_search=false;
-        hide_scroll=true;
-        show="drun";
-        width=500;
-        lines=7;
-        allow_images=true;
-        insensitive=true;
-        image_size=15;
-        display_generic=true;
-        normal_window=true;
-      };
-      style =
-        ''
-        #input {
-          margin-bottom: 10px;
-          border-radius: 3px;
-          border:none;
-        }
-
-        #outer-box {
-          margin: 3px;
-          padding:5px;
-        }
-
-        #text {
-          padding: 5px;
-        }
-        '';
-    };  
 
     programs.git = {
       enable = true;
@@ -574,50 +302,19 @@ in
     home.stateVersion = "24.05";
   };
 
-  fonts = {
-    fontDir.enable = true;
-    enableDefaultPackages = true;
-    fontconfig = {
-      antialias = true;
-      hinting.enable = true;
-      hinting.autohint = true;
-    };
-    packages = with pkgs; [
-      nerdfonts
-      font-awesome
-      source-code-pro
-    ];
-  };  
-
   nixpkgs = {
     config = {
       allowUnfree = true;
     };
   };
 
-  security.pam.services.gtklock = {};
-  security.pam.services.greetd.enableGnomeKeyring = true;
-
   environment.systemPackages = (with pkgs; [
     git-credential-manager
-    polkit_gnome
     unzip
     wget
     zip
     wireguard-tools
-    grim
-    slurp
-    wl-clipboard
-    wayland
-    xdg-utils
-    mako   
-    libnotify
     home-manager
-    pavucontrol
-    pamixer
-    brightnessctl
-    gtklock
-    swappy
     mattermost-desktop
     postman
     gzip
@@ -626,9 +323,7 @@ in
       sdk_6_0
       sdk_8_0
     ])
-    libsecret
     wireplumber
-    dconf
     filezilla
     azurite
     google-chrome
@@ -636,6 +331,9 @@ in
     jetbrains.rider
     teams-for-linux
     azure-functions-core-tools
+    gnomeExtensions.appindicator
+    quickemu
+    annotator
     ((azure-cli
       .withExtensions [ 
         azure-cli.extensions.account 
@@ -646,7 +344,60 @@ in
   #++ (with pkgs-unstable; [
   #]);
 
-  programs.hyprland.enable = true;
+  # GNOME dynamic triple buffering
+  # See https://gitlab.gnome.org/GNOME/mutter/-/merge_requests/1441
+  nixpkgs.overlays = [
+    (final: prev: {
+      mutter = prev.mutter.overrideAttrs (oldAttrs: {
+        src = final.fetchFromGitLab {
+          domain = "gitlab.gnome.org";
+          owner = "vanvugt";
+          repo = "mutter";
+          rev = "triple-buffering-v4-47";
+          hash = "sha256-JaqJvbuIAFDKJ3y/8j/7hZ+/Eqru+Mm1d3EvjfmCcug=";
+        };
+
+        preConfigure =
+          let
+            gvdb = final.fetchFromGitLab {
+              domain = "gitlab.gnome.org";
+              owner = "GNOME";
+              repo = "gvdb";
+              rev = "2b42fc75f09dbe1cd1057580b5782b08f2dcb400";
+              hash = "sha256-CIdEwRbtxWCwgTb5HYHrixXi+G+qeE1APRaUeka3NWk=";
+            };
+          in
+          ''
+            cp -a "${gvdb}" ./subprojects/gvdb
+          '';
+      });
+    })
+  ];
+
+  environment.gnome.excludePackages = with pkgs; [
+    orca
+    baobab
+    epiphany
+    gnome-text-editor
+    gnome-calendar
+    gnome-characters
+    gnome-console
+    gnome-contacts
+    gnome-font-viewer
+    gnome-logs
+    gnome-maps
+    gnome-music
+    gnome-system-monitor
+    gnome-weather
+    gnome-connections
+    gnome-tour
+    simple-scan
+    snapshot
+    totem
+    yelp
+    gnome-software
+    geary
+  ];
 
   services.dbus.enable = true;
 
@@ -663,25 +414,17 @@ in
 
   zramSwap.enable = true;
 
-  xdg.portal = {
-    enable = true;
-    wlr.enable = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-gtk
-      pkgs.xdg-desktop-portal-hyprland
-    ];
-  };
-
   programs.nix-ld.enable = true;
   programs.nix-ld.package = pkgs.nix-ld-rs;
 
-  services.gnome.gnome-keyring.enable = true;
+  services.xserver.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
 
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
     ELECTRON_OZONE_PLATFORM_HINT = "wayland";
   };
-
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -690,23 +433,6 @@ in
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
-
-  # systemctl start --user polkit-gnome-authentication-agent-1 & 
-  systemd = {
-    user.services.polkit-gnome-authentication-agent-1 = {
-      description = "polkit-gnome-authentication-agent-1";
-      wantedBy = [ "graphical-session.target" ];
-      wants = [ "graphical-session.target" ];
-      after = [ "graphical-session.target" ];
-      serviceConfig = {
-          Type = "simple";
-          ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
-          Restart = "on-failure";
-          RestartSec = 1;
-          TimeoutStopSec = 10;
-      };
-    };
-  };
 
   # Drop request to http://169.254.169.254/metadata/identity/oauth2/token
   # See https://github.com/Azure/azure-sdk-for-net/issues/39532
@@ -724,7 +450,6 @@ in
       dns = [ "87.238.33.1" "2a02:c0::1" ];
       privateKeyFile = "/etc/wireguard/privatekey";
       autostart = true;
-      
       peers = [
         {
           publicKey = "cJTr1DOHpz2L8y9zTkgpYyEaV6zDSrLhEBpY5q3tYQw=";
