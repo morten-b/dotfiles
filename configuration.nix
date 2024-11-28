@@ -188,7 +188,6 @@
       ".config/autostart/mattermost.desktop".text = builtins.readFile "${pkgs.mattermost-desktop}/share/applications/Mattermost.desktop";
     };
 
-
     programs.firefox = {
       enable = true;
       profiles = {
