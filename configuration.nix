@@ -1,20 +1,18 @@
-#{ lib, config, pkgs, inputs, pkgs-unstable, ... }:
-{ lib, config, pkgs, inputs, ... }:
-
 {
-  imports =
-    [ 
-      ./hardware-configuration.nix
-      #./nix-alien.nix
-      #./virt.nix
-      #./docker.nix
-      #./distrobox.nix
-    ];
+  lib,
+  config,
+  pkgs,
+  inputs,
+  ...
+}: {
+  imports = [
+    ./hardware-configuration.nix
+  ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   networking.hostName = "nixos";
 
@@ -56,38 +54,41 @@
   };
 
   programs.fish.enable = true;
-  
-  services.udev.packages = [ pkgs.gnome-settings-daemon ];
+
+  services.udev.packages = [pkgs.gnome-settings-daemon];
 
   users.users.morten = {
     isNormalUser = true;
     description = "morten";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
   };
 
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
-  home-manager.users.morten = { lib, inputs, pkgs, ... }: 
-    let 
-      teams-ascendis-desktop = pkgs.makeDesktopItem {
-        name = "teams-ascendis";
-        desktopName = "Teams Ascendis";
-        exec = "teams-for-linux --customUserDir=/home/morten/.config/teams-for-linux/Ascendis/";
-        type = "Application";
-      };
+  home-manager.users.morten = {
+    lib,
+    inputs,
+    pkgs,
+    ...
+  }: let
+    teams-ascendis-desktop = pkgs.makeDesktopItem {
+      name = "teams-ascendis";
+      desktopName = "Teams Ascendis";
+      exec = "teams-for-linux --customUserDir=/home/morten/.config/teams-for-linux/Ascendis/";
+      type = "Application";
+    };
 
-      teams-redpill-linpro-desktop = pkgs.makeDesktopItem {
-        name = "teams-redpill-linpro";
-        desktopName = "Teams Redpill-Linpro";
-        exec = "teams-for-linux --customUserDir=/home/morten/.config/teams-for-linux/Redpill-Linpro/";
-        type = "Application";
-      };
-    in {
-    home.packages = [ 
-      teams-ascendis-desktop 
-      teams-redpill-linpro-desktop 
+    teams-redpill-linpro-desktop = pkgs.makeDesktopItem {
+      name = "teams-redpill-linpro";
+      desktopName = "Teams Redpill-Linpro";
+      exec = "teams-for-linux --customUserDir=/home/morten/.config/teams-for-linux/Redpill-Linpro/";
+      type = "Application";
+    };
+  in {
+    home.packages = [
+      teams-ascendis-desktop
+      teams-redpill-linpro-desktop
     ];
-
 
     programs.vscode = {
       enable = true;
@@ -106,29 +107,31 @@
           "editor.defaultFormatter" = "esbenp.prettier-vscode";
         };
       };
-      extensions = with pkgs.vscode-extensions; [
-        piousdeer.adwaita-theme
-        ms-dotnettools.csharp
-        ms-dotnettools.csdevkit
-        yzhang.markdown-all-in-one
-        github.copilot
-        bbenoist.nix
-        ms-dotnettools.vscode-dotnet-runtime
-        esbenp.prettier-vscode
-      ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-      {
-        name = "vscode-bicep";
-        publisher = "ms-azuretools";
-        version = "0.30.23";
-        sha256 = "sha256-WkHPZdeo42aro0qoy9EY1IauPFw9+Ld7dxJQTK4XLuE=";
-      }
-      {
-        name = "vscode-base64";
-        publisher = "adamhartford";
-        version = "0.1.0";
-        sha256 = "sha256-ML3linlHH/GnsoxDHa0/6R7EEh27rjMp0PcNWDmB8Qw=";
-      }
-      ];
+      extensions = with pkgs.vscode-extensions;
+        [
+          piousdeer.adwaita-theme
+          ms-dotnettools.csharp
+          ms-dotnettools.csdevkit
+          yzhang.markdown-all-in-one
+          github.copilot
+          bbenoist.nix
+          ms-dotnettools.vscode-dotnet-runtime
+          esbenp.prettier-vscode
+        ]
+        ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+          {
+            name = "vscode-bicep";
+            publisher = "ms-azuretools";
+            version = "0.30.23";
+            sha256 = "sha256-WkHPZdeo42aro0qoy9EY1IauPFw9+Ld7dxJQTK4XLuE=";
+          }
+          {
+            name = "vscode-base64";
+            publisher = "adamhartford";
+            version = "0.1.0";
+            sha256 = "sha256-ML3linlHH/GnsoxDHa0/6R7EEh27rjMp0PcNWDmB8Qw=";
+          }
+        ];
     };
 
     # dconf dump / > old-conf.txt
@@ -198,9 +201,9 @@
           search = {
             force = true;
             default = "Google";
-            order = [ "Google" ];
+            order = ["Google"];
             engines = {
-              "Google".metaData.alias = "@g"; # builtin engines only support specifying one additional alias
+              "Google".metaData.alias = "@g";
             };
           };
         };
@@ -210,12 +213,12 @@
         DisableTelemetry = true;
         DisableFirefoxStudies = true;
         EnableTrackingProtection = {
-          Value= true;
+          Value = true;
           Locked = true;
           Cryptomining = true;
           Fingerprinting = true;
         };
-        FirefoxHome  =  {
+        FirefoxHome = {
           Search = false;
           TopSites = false;
           SponsoredTopSites = false;
@@ -246,7 +249,6 @@
         DisplayBookmarksToolbar = "never";
         SearchBar = "unified";
 
-        /* ---- EXTENSIONS ---- */
         # Check about:support for extension/add-on ID strings.
         # Valid strings for installation_mode are "allowed", "blocked",
         # "force_installed" and "normal_installed".
@@ -256,7 +258,7 @@
             install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
             installation_mode = "force_installed";
           };
-          "{446900e4-71c2-419f-a6a7-df9c091e268b}" =  {
+          "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
             install_url = "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
             installation_mode = "force_installed";
           };
@@ -311,7 +313,7 @@
     };
   };
 
-  environment.systemPackages = (with pkgs; [
+  environment.systemPackages = with pkgs; [
     git-credential-manager
     unzip
     wget
@@ -322,10 +324,11 @@
     postman
     gzip
     htop
-    (with dotnetCorePackages; combinePackages [
-      sdk_6_0
-      sdk_8_0
-    ])
+    (with dotnetCorePackages;
+      combinePackages [
+        sdk_6_0
+        sdk_8_0
+      ])
     wireplumber
     filezilla
     azurite
@@ -338,14 +341,11 @@
     quickemu
     annotator
     ((azure-cli
-      .withExtensions [ 
-        azure-cli.extensions.account 
-        ])
-      .override { withImmutableConfig = false; })
-  ]);
-  
-  #++ (with pkgs-unstable; [
-  #]);
+      .withExtensions [
+        azure-cli.extensions.account
+      ])
+    .override {withImmutableConfig = false;})
+  ];
 
   # GNOME dynamic triple buffering
   # See https://gitlab.gnome.org/GNOME/mutter/-/merge_requests/1441
@@ -360,19 +360,17 @@
           hash = "sha256-JaqJvbuIAFDKJ3y/8j/7hZ+/Eqru+Mm1d3EvjfmCcug=";
         };
 
-        preConfigure =
-          let
-            gvdb = final.fetchFromGitLab {
-              domain = "gitlab.gnome.org";
-              owner = "GNOME";
-              repo = "gvdb";
-              rev = "2b42fc75f09dbe1cd1057580b5782b08f2dcb400";
-              hash = "sha256-CIdEwRbtxWCwgTb5HYHrixXi+G+qeE1APRaUeka3NWk=";
-            };
-          in
-          ''
-            cp -a "${gvdb}" ./subprojects/gvdb
-          '';
+        preConfigure = let
+          gvdb = final.fetchFromGitLab {
+            domain = "gitlab.gnome.org";
+            owner = "GNOME";
+            repo = "gvdb";
+            rev = "2b42fc75f09dbe1cd1057580b5782b08f2dcb400";
+            hash = "sha256-CIdEwRbtxWCwgTb5HYHrixXi+G+qeE1APRaUeka3NWk=";
+          };
+        in ''
+          cp -a "${gvdb}" ./subprojects/gvdb
+        '';
       });
     })
   ];
@@ -410,10 +408,12 @@
     openFirewall = true;
   };
 
-  swapDevices = [{
-    device = "/swapfile";
-    size = 12 * 1024;
-  }];
+  swapDevices = [
+    {
+      device = "/swapfile";
+      size = 12 * 1024;
+    }
+  ];
 
   zramSwap.enable = true;
 
@@ -446,18 +446,18 @@
     '';
   };
 
-  # systemctl start wg-quick-wg0.service 
+  # systemctl start wg-quick-wg0.service
   networking.wg-quick.interfaces = {
     rp0 = {
-      address = [ "100.87.0.190/32" "2a02:c0:4f0:b01::be/128" ];
-      dns = [ "87.238.33.1" "2a02:c0::1" ];
+      address = ["100.87.0.190/32" "2a02:c0:4f0:b01::be/128"];
+      dns = ["87.238.33.1" "2a02:c0::1"];
       privateKeyFile = "/etc/wireguard/privatekey";
       autostart = false;
       peers = [
         {
           publicKey = "cJTr1DOHpz2L8y9zTkgpYyEaV6zDSrLhEBpY5q3tYQw=";
           presharedKey = "yzCceXj1cFTHfd0g0WTrt1McrmDErPWCTmeUHFbXV8o=";
-          allowedIPs = [ "0.0.0.0/0" "::/0" ];
+          allowedIPs = ["0.0.0.0/0" "::/0"];
           endpoint = "vpn.redpill-linpro.com:51820";
           persistentKeepalive = 25;
         }
