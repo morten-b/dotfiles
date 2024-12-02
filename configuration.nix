@@ -322,15 +322,27 @@
   };
 
   environment.systemPackages = with pkgs; [
+    annotator
+    azure-functions-core-tools
+    azurite
+    drawio
+    filezilla
     git-credential-manager
+    gnomeExtensions.appindicator
+    google-chrome
+    gzip
+    home-manager
+    jetbrains.rider
+    mattermost-desktop
+    nixpkgs-fmt
+    postman
+    quickemu
+    teams-for-linux
     unzip
     wget
-    zip
     wireguard-tools
-    home-manager
-    mattermost-desktop
-    postman
-    gzip
+    wireplumber
+    zip
     (
       with dotnetCorePackages;
       combinePackages [
@@ -338,18 +350,6 @@
         sdk_8_0
       ]
     )
-    wireplumber
-    filezilla
-    azurite
-    google-chrome
-    drawio
-    jetbrains.rider
-    teams-for-linux
-    azure-functions-core-tools
-    gnomeExtensions.appindicator
-    quickemu
-    nixpkgs-fmt
-    annotator
     (
       (azure-cli.withExtensions [
         azure-cli.extensions.account
