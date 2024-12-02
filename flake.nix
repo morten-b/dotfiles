@@ -10,23 +10,32 @@
   };
 
   outputs =
-    {
-      self,
-      nixpkgs,
-      home-manager,
-      ...
+    { self
+    , nixpkgs
+    , home-manager
+    , ...
     }@inputs:
     let
       system = "x86_64-linux";
       commonArgs = {
         inherit system;
-        config.allowUnfree = true;
+        config = {
+          allowUnfree = true;
+          permittedInsecurePackages =
+            [
+              "dotnet-sdk-6.0.428"
+              "dotnet-sdk-7.0.410"
+              "dotnet-sdk-wrapped-6.0.428"
+              "dotnet-sdk-wrapped-7.0.410"
+              "dotnet-core-combined"
+            ];
+        };
       };
       pkgs = import nixpkgs commonArgs;
     in
     {
       nixosConfigurations.morten = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        inherit system;
         specialArgs = {
           inherit inputs self pkgs;
         };

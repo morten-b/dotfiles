@@ -1,9 +1,8 @@
-{
-  lib,
-  config,
-  pkgs,
-  inputs,
-  ...
+{ lib
+, config
+, pkgs
+, inputs
+, ...
 }:
 {
   imports = [
@@ -73,11 +72,10 @@
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
   home-manager.users.morten =
-    {
-      lib,
-      inputs,
-      pkgs,
-      ...
+    { lib
+    , inputs
+    , pkgs
+    , ...
     }:
     let
       teams-ascendis-desktop = pkgs.makeDesktopItem {
@@ -85,6 +83,7 @@
         desktopName = "Teams Ascendis";
         exec = "teams-for-linux --customUserDir=/home/morten/.config/teams-for-linux/Ascendis/";
         type = "Application";
+        icon = "/home/morten/.config/teams-for-linux/Ascendis/favicon.png";
       };
 
       teams-redpill-linpro-desktop = pkgs.makeDesktopItem {
@@ -92,6 +91,7 @@
         desktopName = "Teams Redpill-Linpro";
         exec = "teams-for-linux --customUserDir=/home/morten/.config/teams-for-linux/Redpill-Linpro/";
         type = "Application";
+        icon = "/home/morten/.config/teams-for-linux/Redpill-Linpro/favicon.png";
       };
     in
     {
@@ -125,9 +125,9 @@
             ms-dotnettools.csdevkit
             yzhang.markdown-all-in-one
             github.copilot
-            bbenoist.nix
             ms-dotnettools.vscode-dotnet-runtime
             esbenp.prettier-vscode
+            jnoortheen.nix-ide
           ]
           ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
             {
@@ -318,12 +318,6 @@
       home.stateVersion = "24.05";
     };
 
-  nixpkgs = {
-    config = {
-      allowUnfree = true;
-    };
-  };
-
   environment.systemPackages = with pkgs; [
     git-credential-manager
     unzip
@@ -334,7 +328,6 @@
     mattermost-desktop
     postman
     gzip
-    htop
     (
       with dotnetCorePackages;
       combinePackages [
@@ -352,12 +345,13 @@
     azure-functions-core-tools
     gnomeExtensions.appindicator
     quickemu
+    nixpkgs-fmt
     annotator
     (
       (azure-cli.withExtensions [
         azure-cli.extensions.account
       ]).override
-      { withImmutableConfig = false; }
+        { withImmutableConfig = false; }
     )
   ];
 
