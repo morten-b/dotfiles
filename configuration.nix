@@ -83,7 +83,7 @@
         desktopName = "Teams Ascendis";
         exec = "teams-for-linux --customUserDir=/home/morten/.config/teams-for-linux/Ascendis/";
         type = "Application";
-        icon = "/home/morten/.config/teams-for-linux/Ascendis/favicon.png";
+        icon = ./ascendis-favicon.png;
       };
 
       teams-redpill-linpro-desktop = pkgs.makeDesktopItem {
@@ -91,7 +91,7 @@
         desktopName = "Teams Redpill-Linpro";
         exec = "teams-for-linux --customUserDir=/home/morten/.config/teams-for-linux/Redpill-Linpro/";
         type = "Application";
-        icon = "/home/morten/.config/teams-for-linux/Redpill-Linpro/favicon.png";
+        icon = ./redpill-linpro-favicon.png;
       };
     in
     {
