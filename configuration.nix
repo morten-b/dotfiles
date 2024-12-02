@@ -1,8 +1,9 @@
-{ lib
-, config
-, pkgs
-, inputs
-, ...
+{
+  lib,
+  config,
+  pkgs,
+  inputs,
+  ...
 }:
 {
   imports = [
@@ -69,15 +70,15 @@
     ];
   };
 
-
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
     users.morten =
-      { lib
-      , inputs
-      , pkgs
-      , ...
+      {
+        lib,
+        inputs,
+        pkgs,
+        ...
       }:
       let
         teams-ascendis-desktop = pkgs.makeDesktopItem {
@@ -115,6 +116,7 @@
             "git.confirmSync" = false;
             "security.workspace.trust.untrustedFiles" = "open";
             "editor.largeFileOptimizations" = false;
+            "nix.formatterPath" = "nixfmt";
             "[json]" = {
               "editor.defaultFormatter" = "esbenp.prettier-vscode";
             };
@@ -334,7 +336,7 @@
     home-manager
     jetbrains.rider
     mattermost-desktop
-    nixpkgs-fmt
+    nixfmt-rfc-style
     postman
     quickemu
     teams-for-linux
@@ -354,7 +356,7 @@
       (azure-cli.withExtensions [
         azure-cli.extensions.account
       ]).override
-        { withImmutableConfig = false; }
+      { withImmutableConfig = false; }
     )
   ];
 
@@ -487,4 +489,3 @@
     };
   };
 }
-
