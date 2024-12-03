@@ -156,12 +156,25 @@
           settings = {
             "org/gnome/desktop/interface" = {
               color-scheme = "prefer-dark";
+              enable-hot-corners = false;
             };
             "org/gnome/shell" = {
               disable-user-extensions = false;
               enabled-extensions = [
                 pkgs.gnomeExtensions.appindicator.extensionUuid
               ];
+            };
+            "org/gnome/desktop/peripherals/mouse" = {
+              speed = -0.7;
+            };
+            "org/gnome/desktop/wm/preferences" = {
+              num-workspaces = 1;
+            };
+            "org/gnome/desktop/peripherals/keyboard" = {
+              numlock-state = true;
+            };
+            "org/gnome/nautilus/preferences" = {
+              default-folder-viewer = "list-view";
             };
           };
         };
