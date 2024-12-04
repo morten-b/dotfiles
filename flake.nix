@@ -2,7 +2,7 @@
   description = "NixOS flake";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/release-24.11";
     home-manager = {
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -24,9 +24,7 @@
           allowUnfree = true;
           permittedInsecurePackages = [
             "dotnet-sdk-6.0.428"
-            "dotnet-sdk-7.0.410"
             "dotnet-sdk-wrapped-6.0.428"
-            "dotnet-sdk-wrapped-7.0.410"
             "dotnet-core-combined"
           ];
         };
