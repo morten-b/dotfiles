@@ -120,6 +120,7 @@
             "[json]" = {
               "editor.defaultFormatter" = "esbenp.prettier-vscode";
             };
+            "dotnetAcquisitionExtension.sharedExistingDotnetPath" = "/run/current-system/sw/bin/dotnet";
           };
           extensions =
             with pkgs.vscode-extensions;
@@ -175,6 +176,9 @@
             };
             "org/gnome/nautilus/preferences" = {
               default-folder-viewer = "list-view";
+            };
+            "org/gnome/desktop/sound" = {
+              event-sounds = false;
             };
           };
         };
