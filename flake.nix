@@ -44,7 +44,7 @@
               inherit inputs self pkgs;
             };
             modules = [
-              ./hardware-configurations-${machine}.nix
+              ./hardware-configuration-${machine}.nix
               ./configuration.nix
               home-manager.nixosModules.home-manager
               {
