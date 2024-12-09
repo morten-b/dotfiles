@@ -30,20 +30,29 @@
         };
       };
       pkgs = import nixpkgs commonArgs;
+      machines = [
+        "T14s"
+      ];
     in
     {
-      nixosConfigurations.morten = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = {
-          inherit inputs self pkgs;
-        };
-        modules = [
-          ./configuration.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.extraSpecialArgs = { inherit inputs; };
-          }
-        ];
-      };
+      nixosConfigurations = builtins.listToAttrs (
+        map (machine: {
+          name = machine;
+          value = nixpkgs.lib.nixosSystem {
+            inherit system;
+            specialArgs = {
+              inherit inputs self pkgs;
+            };
+            modules = [
+              ./hardware-configurations-${machine}.nix
+              ./configuration.nix
+              home-manager.nixosModules.home-manager
+              {
+                home-manager.extraSpecialArgs = { inherit inputs; };
+              }
+            ];
+          };
+        }) machines
+      );
     };
 }
