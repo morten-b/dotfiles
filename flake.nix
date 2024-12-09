@@ -32,6 +32,7 @@
       pkgs = import nixpkgs commonArgs;
       machines = [
         "T14s"
+        "T490"
       ];
     in
     {
