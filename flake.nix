@@ -46,6 +46,7 @@
             };
             modules = [
               ./hardware-configuration-${machine}.nix
+              ./configuration-${machine}.nix
               ./configuration.nix
               home-manager.nixosModules.home-manager
               {
