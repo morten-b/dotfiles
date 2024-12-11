@@ -6,7 +6,7 @@
   ...
 }:
 {
-  imports = [];
+  imports = [ ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -71,288 +71,213 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    users.morten =
-      {
-        lib,
-        inputs,
-        pkgs,
-        ...
-      }:
-      let
-        teams-ascendis-desktop = pkgs.makeDesktopItem {
-          name = "teams-ascendis";
-          desktopName = "Teams Ascendis";
-          exec = "teams-for-linux --customUserDir=/home/morten/.config/teams-for-linux/Ascendis/";
-          type = "Application";
-          icon = ./ascendis-favicon.png;
-        };
-
-        teams-redpill-linpro-desktop = pkgs.makeDesktopItem {
-          name = "teams-redpill-linpro";
-          desktopName = "Teams Redpill-Linpro";
-          exec = "teams-for-linux --customUserDir=/home/morten/.config/teams-for-linux/Redpill-Linpro/";
-          type = "Application";
-          icon = ./redpill-linpro-favicon.png;
-        };
-      in
-      {
-        home.packages = [
-          teams-ascendis-desktop
-          teams-redpill-linpro-desktop
-        ];
-
-        programs.vscode = {
-          enable = true;
-          mutableExtensionsDir = false;
-          enableUpdateCheck = false;
-          enableExtensionUpdateCheck = false;
-          package = pkgs.vscode.fhs;
-          userSettings = {
-            "workbench.colorTheme" = "Adwaita Dark & default syntax highlighting & colorful status bar";
-            "workbench.startupEditor" = "none";
-            "git.autofetch" = true;
-            "git.confirmSync" = false;
-            "security.workspace.trust.untrustedFiles" = "open";
-            "editor.largeFileOptimizations" = false;
-            "nix.formatterPath" = "nixfmt";
-            "[json]" = {
-              "editor.defaultFormatter" = "esbenp.prettier-vscode";
-            };
-            "dotnetAcquisitionExtension.sharedExistingDotnetPath" = "/run/current-system/sw/bin/dotnet";
+    users.morten = {
+      programs.vscode = {
+        enable = true;
+        mutableExtensionsDir = false;
+        enableUpdateCheck = false;
+        enableExtensionUpdateCheck = false;
+        package = pkgs.vscode.fhs;
+        userSettings = {
+          "workbench.colorTheme" = "Adwaita Dark & default syntax highlighting & colorful status bar";
+          "workbench.startupEditor" = "none";
+          "git.autofetch" = true;
+          "git.confirmSync" = false;
+          "security.workspace.trust.untrustedFiles" = "open";
+          "editor.largeFileOptimizations" = false;
+          "nix.formatterPath" = "nixfmt";
+          "[json]" = {
+            "editor.defaultFormatter" = "esbenp.prettier-vscode";
           };
-          extensions =
-            with pkgs.vscode-extensions;
-            [
-              piousdeer.adwaita-theme
-              ms-dotnettools.csharp
-              ms-dotnettools.csdevkit
-              yzhang.markdown-all-in-one
-              github.copilot
-              ms-dotnettools.vscode-dotnet-runtime
-              esbenp.prettier-vscode
-              jnoortheen.nix-ide
-            ]
-            ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-              {
-                name = "vscode-bicep";
-                publisher = "ms-azuretools";
-                version = "0.30.23";
-                sha256 = "sha256-WkHPZdeo42aro0qoy9EY1IauPFw9+Ld7dxJQTK4XLuE=";
-              }
-              {
-                name = "vscode-base64";
-                publisher = "adamhartford";
-                version = "0.1.0";
-                sha256 = "sha256-ML3linlHH/GnsoxDHa0/6R7EEh27rjMp0PcNWDmB8Qw=";
-              }
-            ];
+          "dotnetAcquisitionExtension.sharedExistingDotnetPath" = "/run/current-system/sw/bin/dotnet";
         };
-
-        # dconf dump / > old-conf.txt
-        # dconf dump / > new-conf.txt
-        dconf = {
-          enable = true;
-          settings = {
-            "org/gnome/desktop/interface" = {
-              color-scheme = "prefer-dark";
-              enable-hot-corners = false;
-            };
-            "org/gnome/shell" = {
-              disable-user-extensions = false;
-              enabled-extensions = [
-                pkgs.gnomeExtensions.appindicator.extensionUuid
-              ];
-            };
-            "org/gnome/desktop/peripherals/mouse" = {
-              speed = -0.7;
-            };
-            "org/gnome/desktop/wm/preferences" = {
-              num-workspaces = 1;
-            };
-            "org/gnome/desktop/peripherals/keyboard" = {
-              numlock-state = true;
-            };
-            "org/gnome/nautilus/preferences" = {
-              default-folder-viewer = "list-view";
-            };
-            "org/gnome/desktop/sound" = {
-              event-sounds = false;
-            };
-          };
-        };
-
-        home.file = {
-          ".config/teams-for-linux/Redpill-Linpro/config.json".text = ''
+        extensions =
+          with pkgs.vscode-extensions;
+          [
+            piousdeer.adwaita-theme
+            ms-dotnettools.csharp
+            ms-dotnettools.csdevkit
+            yzhang.markdown-all-in-one
+            github.copilot
+            ms-dotnettools.vscode-dotnet-runtime
+            esbenp.prettier-vscode
+            jnoortheen.nix-ide
+          ]
+          ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
             {
-                "optInTeamsV2": "true",
-                "appTitle": "Teams-Redpill-Linpro",
-                "appIcon": "/home/morten/.config/teams-for-linux/Redpill-Linpro/favicon.png",
-                "notificationMethod": "web",
-                "minimized": "true",
-                "electronCLIFlags": [
-                  ["ozone-platform-hint","wayland"],
-                  ["enable-features","WaylandWindowDecorations"]
-                ]
+              name = "vscode-bicep";
+              publisher = "ms-azuretools";
+              version = "0.30.23";
+              sha256 = "sha256-WkHPZdeo42aro0qoy9EY1IauPFw9+Ld7dxJQTK4XLuE=";
             }
-          '';
-
-          ".config/teams-for-linux/Redpill-Linpro/favicon.png".source = ./redpill-linpro-favicon.png;
-
-          ".config/teams-for-linux/Ascendis/config.json".text = ''
             {
-                "optInTeamsV2": "true",
-                "appTitle": "Teams-Ascendis",
-                "appIcon": "/home/morten/.config/teams-for-linux/Ascendis/favicon.png",
-                "notificationMethod": "web",
-                "minimized": "true",
-                "electronCLIFlags": [
-                  ["ozone-platform-hint","wayland"],
-                  ["enable-features","WaylandWindowDecorations"]
-                ]
+              name = "vscode-base64";
+              publisher = "adamhartford";
+              version = "0.1.0";
+              sha256 = "sha256-ML3linlHH/GnsoxDHa0/6R7EEh27rjMp0PcNWDmB8Qw=";
             }
-          '';
-
-          ".config/teams-for-linux/Ascendis/favicon.png".source = ./ascendis-favicon.png;
-
-          ".config/autostart/teams-ascendis.desktop".text = teams-ascendis-desktop.text;
-
-          ".config/autostart/teams-redpill-linpro.desktop".text = teams-redpill-linpro-desktop.text;
-
-          ".config/autostart/mattermost.desktop".text = builtins.readFile "${pkgs.mattermost-desktop}/share/applications/Mattermost.desktop";
-        };
-
-        programs.firefox = {
-          enable = true;
-          profiles = {
-            default = {
-              id = 0;
-              name = "default";
-              isDefault = true;
-              search = {
-                force = true;
-                default = "Google";
-                order = [ "Google" ];
-                engines = {
-                  "Google".metaData.alias = "@g";
-                };
-              };
-            };
-          };
-          # https://mozilla.github.io/policy-templates/
-          policies = {
-            DisableTelemetry = true;
-            DisableFirefoxStudies = true;
-            EnableTrackingProtection = {
-              Value = true;
-              Locked = true;
-              Cryptomining = true;
-              Fingerprinting = true;
-            };
-            FirefoxHome = {
-              Search = false;
-              TopSites = false;
-              SponsoredTopSites = false;
-              Highlights = false;
-              Pocket = false;
-              SponsoredPocket = false;
-              Snippets = false;
-              Locked = true;
-            };
-            FirefoxSuggest = {
-              WebSuggestions = false;
-              SponsoredSuggestions = false;
-              ImproveSuggest = false;
-              Locked = false;
-            };
-            AutofillCreditCardEnabled = false;
-            TranslateEnabled = false;
-            PasswordManagerEnabled = false;
-            OfferToSaveLogins = false;
-            DisablePocket = true;
-            DisableFirefoxAccounts = true;
-            DisableAccounts = true;
-            DisableFirefoxScreenshots = true;
-            DisableSetDesktopBackground = true;
-            OverrideFirstRunPage = "";
-            OverridePostUpdatePage = "";
-            DontCheckDefaultBrowser = true;
-            DisplayBookmarksToolbar = "never";
-            SearchBar = "unified";
-
-            # Check about:support for extension/add-on ID strings.
-            # Valid strings for installation_mode are "allowed", "blocked",
-            # "force_installed" and "normal_installed".
-            ExtensionSettings = {
-              #"*".installation_mode = "blocked";
-              "uBlock0@raymondhill.net" = {
-                install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
-                installation_mode = "force_installed";
-              };
-              "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
-                install_url = "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
-                installation_mode = "force_installed";
-              };
-            };
-          };
-        };
-
-        programs.fish = {
-          enable = true;
-          shellAliases = {
-            myip = "curl https://am.i.mullvad.net/ip";
-          };
-          interactiveShellInit = ''
-            set fish_greeting # Disable greeting
-            set fish_color_autosuggestion A0A0A0
-          '';
-          functions = {
-            wg = ''
-              systemctl $argv wg-quick-rp0.service
-            '';
-          };
-        };
-
-        programs.alacritty = {
-          enable = true;
-          settings = {
-            terminal.shell.program = "${pkgs.fish}/bin/fish";
-            font.size = 10;
-          };
-        };
-
-        programs.git = {
-          enable = true;
-          package = pkgs.gitFull;
-          userName = "Morten Skov Bendtsen";
-          userEmail = "mosb@ascendispharma.com";
-          extraConfig = {
-            fetch = {
-              prune = true;
-            };
-          };
-        };
-
-        # The state version is required and should stay at the version you
-        # originally installed.
-        home.stateVersion = "24.05";
+          ];
       };
+
+      # dconf dump / > old-conf.txt
+      # dconf dump / > new-conf.txt
+      dconf = {
+        enable = true;
+        settings = {
+          "org/gnome/desktop/interface" = {
+            color-scheme = "prefer-dark";
+            enable-hot-corners = false;
+          };
+          "org/gnome/shell" = {
+            disable-user-extensions = false;
+            enabled-extensions = [
+              pkgs.gnomeExtensions.appindicator.extensionUuid
+            ];
+          };
+          "org/gnome/desktop/peripherals/mouse" = {
+            speed = -0.7;
+          };
+          "org/gnome/desktop/wm/preferences" = {
+            num-workspaces = 1;
+          };
+          "org/gnome/desktop/peripherals/keyboard" = {
+            numlock-state = true;
+          };
+          "org/gnome/nautilus/preferences" = {
+            default-folder-viewer = "list-view";
+          };
+          "org/gnome/desktop/sound" = {
+            event-sounds = false;
+          };
+        };
+      };
+
+      programs.firefox = {
+        enable = true;
+        profiles = {
+          default = {
+            id = 0;
+            name = "default";
+            isDefault = true;
+            search = {
+              force = true;
+              default = "Google";
+              order = [ "Google" ];
+              engines = {
+                "Google".metaData.alias = "@g";
+              };
+            };
+          };
+        };
+        # https://mozilla.github.io/policy-templates/
+        policies = {
+          DisableTelemetry = true;
+          DisableFirefoxStudies = true;
+          EnableTrackingProtection = {
+            Value = true;
+            Locked = true;
+            Cryptomining = true;
+            Fingerprinting = true;
+          };
+          FirefoxHome = {
+            Search = false;
+            TopSites = false;
+            SponsoredTopSites = false;
+            Highlights = false;
+            Pocket = false;
+            SponsoredPocket = false;
+            Snippets = false;
+            Locked = true;
+          };
+          FirefoxSuggest = {
+            WebSuggestions = false;
+            SponsoredSuggestions = false;
+            ImproveSuggest = false;
+            Locked = false;
+          };
+          AutofillCreditCardEnabled = false;
+          TranslateEnabled = false;
+          PasswordManagerEnabled = false;
+          OfferToSaveLogins = false;
+          DisablePocket = true;
+          DisableFirefoxAccounts = true;
+          DisableAccounts = true;
+          DisableFirefoxScreenshots = true;
+          DisableSetDesktopBackground = true;
+          OverrideFirstRunPage = "";
+          OverridePostUpdatePage = "";
+          DontCheckDefaultBrowser = true;
+          DisplayBookmarksToolbar = "never";
+          SearchBar = "unified";
+
+          # Check about:support for extension/add-on ID strings.
+          # Valid strings for installation_mode are "allowed", "blocked",
+          # "force_installed" and "normal_installed".
+          ExtensionSettings = {
+            #"*".installation_mode = "blocked";
+            "uBlock0@raymondhill.net" = {
+              install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+              installation_mode = "force_installed";
+            };
+            "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
+              install_url = "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
+              installation_mode = "force_installed";
+            };
+          };
+        };
+      };
+
+      programs.fish = {
+        enable = true;
+        shellAliases = {
+          myip = "curl https://am.i.mullvad.net/ip";
+        };
+        interactiveShellInit = ''
+          set fish_greeting # Disable greeting
+          set fish_color_autosuggestion A0A0A0
+        '';
+        functions = {
+          wg = ''
+            systemctl $argv wg-quick-rp0.service
+          '';
+        };
+      };
+
+      programs.alacritty = {
+        enable = true;
+        settings = {
+          terminal.shell.program = "${pkgs.fish}/bin/fish";
+          font.size = 10;
+        };
+      };
+
+      programs.git = {
+        enable = true;
+        package = pkgs.gitFull;
+        userName = "Morten Skov Bendtsen";
+        userEmail = "mosb@ascendispharma.com";
+        extraConfig = {
+          fetch = {
+            prune = true;
+          };
+        };
+      };
+
+      # The state version is required and should stay at the version you
+      # originally installed.
+      home.stateVersion = "24.05";
+    };
   };
 
   environment.systemPackages = with pkgs; [
     annotator
-    azure-functions-core-tools
-    azurite
-    drawio
     filezilla
     git-credential-manager
     gnomeExtensions.appindicator
     google-chrome
     gzip
     home-manager
-    jetbrains.rider
-    mattermost-desktop
     nixfmt-rfc-style
-    postman
     quickemu
     teams-for-linux
     unzip
@@ -360,19 +285,6 @@
     wireguard-tools
     wireplumber
     zip
-    (
-      with dotnetCorePackages;
-      combinePackages [
-        sdk_6_0
-        sdk_8_0
-      ]
-    )
-    (
-      (azure-cli.withExtensions [
-        azure-cli.extensions.account
-      ]).override
-      { withImmutableConfig = false; }
-    )
   ];
 
   # GNOME dynamic triple buffering
@@ -466,15 +378,6 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
-
-  # Drop request to http://169.254.169.254/metadata/identity/oauth2/token
-  # See https://github.com/Azure/azure-sdk-for-net/issues/39532
-  networking.firewall = {
-    enable = true;
-    extraCommands = ''
-      iptables -A OUTPUT -d 169.254.169.254 -j DROP
-    '';
-  };
 
   # systemctl start wg-quick-wg0.service
   networking.wg-quick.interfaces = {
