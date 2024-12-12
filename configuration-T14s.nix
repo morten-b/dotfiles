@@ -89,19 +89,12 @@
     drawio
     jetbrains.rider
     mattermost-desktop
-    postman
     (
       with dotnetCorePackages;
       combinePackages [
         sdk_6_0
         sdk_8_0
       ]
-    )
-    (
-      (azure-cli.withExtensions [
-        azure-cli.extensions.account
-      ]).override
-      { withImmutableConfig = false; }
     )
   ];
 

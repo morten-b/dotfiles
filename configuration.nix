@@ -285,6 +285,13 @@
     wireguard-tools
     wireplumber
     zip
+    postman
+    (
+      (azure-cli.withExtensions [
+        azure-cli.extensions.account
+      ]).override
+      { withImmutableConfig = false; }
+    )
   ];
 
   # GNOME dynamic triple buffering
