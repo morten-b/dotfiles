@@ -369,9 +369,17 @@
   programs.nix-ld.enable = true;
   programs.nix-ld.package = pkgs.nix-ld-rs;
 
-  services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  services.xserver = {
+    enable = true;
+    displayManager = {
+      gdm.enable = true;
+      gnome.enable = true;
+    };
+  };
+  services.displayManager.autoLogin = {
+    enable = true;
+    user = "morten";
+  };
 
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
