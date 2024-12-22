@@ -99,6 +99,7 @@
             ms-dotnettools.csdevkit
             yzhang.markdown-all-in-one
             github.copilot
+            github.copilot-chat
             ms-dotnettools.vscode-dotnet-runtime
             esbenp.prettier-vscode
             jnoortheen.nix-ide
@@ -377,6 +378,9 @@
     enable = true;
     user = "morten";
   };
+
+  systemd.services."getty@tty1".enable = false;
+  systemd.services."autovt@tty1".enable = false;
 
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
