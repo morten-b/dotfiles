@@ -8,6 +8,13 @@
 {
   environment.systemPackages = with pkgs; [
     nodejs
+    jetbrains.rider
+    (
+      with dotnetCorePackages;
+      combinePackages [
+        sdk_8_0
+      ]
+    )
   ];
 
   networking.firewall = {

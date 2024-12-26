@@ -85,10 +85,8 @@
           "git.confirmSync" = false;
           "security.workspace.trust.untrustedFiles" = "open";
           "editor.largeFileOptimizations" = false;
+          "editor.defaultFormatter" = "esbenp.prettier-vscode";
           "nix.formatterPath" = "nixfmt";
-          "[json]" = {
-            "editor.defaultFormatter" = "esbenp.prettier-vscode";
-          };
           "dotnetAcquisitionExtension.sharedExistingDotnetPath" = "/run/current-system/sw/bin/dotnet";
         };
         extensions =
