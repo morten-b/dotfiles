@@ -77,8 +77,8 @@
 
           ".config/autostart/teams-redpill-linpro.desktop".text = teams-redpill-linpro-desktop.text;
 
-          ".config/autostart/mattermost.desktop".text =
-            builtins.readFile "${pkgs.mattermost-desktop}/share/applications/Mattermost.desktop";
+          # ".config/autostart/mattermost.desktop".text =
+          #   builtins.readFile "${pkgs.mattermost-desktop}/share/applications/Mattermost.desktop";
         };
       };
   };
