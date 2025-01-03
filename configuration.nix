@@ -85,10 +85,8 @@
           "git.confirmSync" = false;
           "security.workspace.trust.untrustedFiles" = "open";
           "editor.largeFileOptimizations" = false;
+          "editor.defaultFormatter" = "esbenp.prettier-vscode";
           "nix.formatterPath" = "nixfmt";
-          "[json]" = {
-            "editor.defaultFormatter" = "esbenp.prettier-vscode";
-          };
           "dotnetAcquisitionExtension.sharedExistingDotnetPath" = "/run/current-system/sw/bin/dotnet";
         };
         extensions =
@@ -99,6 +97,7 @@
             ms-dotnettools.csdevkit
             yzhang.markdown-all-in-one
             github.copilot
+            github.copilot-chat
             ms-dotnettools.vscode-dotnet-runtime
             esbenp.prettier-vscode
             jnoortheen.nix-ide
@@ -381,6 +380,9 @@
     enable = true;
     user = "morten";
   };
+
+  systemd.services."getty@tty1".enable = false;
+  systemd.services."autovt@tty1".enable = false;
 
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
