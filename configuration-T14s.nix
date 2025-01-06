@@ -6,6 +6,8 @@
   ...
 }:
 {
+  imports = [ ./distrobox.nix ];
+
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
