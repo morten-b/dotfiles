@@ -115,6 +115,12 @@
               version = "0.1.0";
               sha256 = "sha256-ML3linlHH/GnsoxDHa0/6R7EEh27rjMp0PcNWDmB8Qw=";
             }
+            {
+              name = "vscode-azurefunctions";
+              publisher = "ms-azuretools";
+              version = "1.16.1";
+              sha256 = "sha256-Vvrpeg6QZAshzRCdzXXGYu2P3hrZVXwf9sZtB7ZX5jM=";
+            }
           ];
       };
 

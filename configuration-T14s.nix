@@ -6,7 +6,6 @@
   ...
 }:
 {
-
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
@@ -89,6 +88,7 @@
     drawio
     jetbrains.rider
     mattermost-desktop
+    quickemu
     (
       with dotnetCorePackages;
       combinePackages [
