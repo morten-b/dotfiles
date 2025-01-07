@@ -121,6 +121,12 @@
               version = "1.16.1";
               sha256 = "sha256-Vvrpeg6QZAshzRCdzXXGYu2P3hrZVXwf9sZtB7ZX5jM=";
             }
+            {
+              name = "vscode-azureresourcegroups";
+              publisher = "ms-azuretools";
+              version = "0.10.1";
+              sha256 = "sha256-ynPiWYfQDyXEwEu+tpuiarMUktwIANZj2RbHkTgZEP4=";
+            }
           ];
       };
 
