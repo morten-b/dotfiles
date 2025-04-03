@@ -85,12 +85,11 @@
   };
 
   environment.systemPackages = with pkgs; [
-    azure-functions-core-tools
+    jq
     azurite
     drawio
     jetbrains.rider
     mattermost-desktop
-    quickemu
     (
       with dotnetCorePackages;
       combinePackages [
