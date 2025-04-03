@@ -13,6 +13,7 @@
     hugo
     nodejs
     jetbrains.rider
+    bash
     docker-compose  
     (
       with dotnetCorePackages;
@@ -20,8 +21,14 @@
         sdk_8_0
       ]
     )
-    (import ./azure-functions-cli-bin.nix { inherit pkgs; })
   ];
+
+  services.envfs = {
+    enable = true;
+    extraFallbackPathCommands = ''
+      ln -s ${pkgs.bash}/bin/bash $out/bash
+    '';
+  };
 
   users.users.morten.extraGroups = [ "docker" ];
 
