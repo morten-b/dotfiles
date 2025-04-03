@@ -13,6 +13,7 @@
 , icu
 , lttng-ust_2_12
 , openssl
+, makeWrapper
 }:
 
 stdenv.mkDerivation rec {
@@ -20,7 +21,7 @@ stdenv.mkDerivation rec {
   version = "4.0.6821";
 
   src = fetchzip {
-    url = "https://github.com/Azure/azure-functions-core-tools/releases/download/4.0.6821/Azure.Functions.Cli.linux-x64.4.0.6821.zip";
+    url = "https://github.com/Azure/azure-functions-core-tools/releases/download/${version}/Azure.Functions.Cli.linux-x64.${version}.zip";
     sha256 = "sha256-YwOiXlfcV+3+LRKciIFz+PoLpJLb5FYNDydapM3kocg=";
     stripRoot = false;
   };
@@ -40,6 +41,7 @@ stdenv.mkDerivation rec {
     stdenv.cc.cc
     lttng-ust_2_12
     openssl
+    makeWrapper
   ];
 
   fixupPhase = ''
@@ -58,8 +60,8 @@ stdenv.mkDerivation rec {
     chmod +x $out/usr/lib/azure-functions-cli-bin/in-proc8/func
     chmod a+x $out/usr/lib/azure-functions-cli-bin/gozip
 
-    mkdir -p $out/usr/bin
-    ln -s $out/usr/lib/azure-functions-cli-bin/func $out/usr/bin/func
+    mkdir -p $out/bin
+    ln -s $out/usr/lib/azure-functions-cli-bin/func $out/bin/func
   '';
 
   meta = with lib; {
