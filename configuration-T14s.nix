@@ -98,7 +98,15 @@
         sdk_8_0
       ]
     )
+    (callPackage ./azure-functions-cli-bin.nix {}  )
   ];
+
+  services.envfs = {
+    enable = true;
+    extraFallbackPathCommands = ''
+      ln -s ${pkgs.bash}/bin/bash $out/bash
+    '';
+  };
 
   # Drop request to http://169.254.169.254/metadata/identity/oauth2/token
   # See https://github.com/Azure/azure-sdk-for-net/issues/39532
