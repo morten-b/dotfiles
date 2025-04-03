@@ -88,6 +88,7 @@
           "editor.defaultFormatter" = "esbenp.prettier-vscode";
           "nix.formatterPath" = "nixfmt";
           "dotnetAcquisitionExtension.sharedExistingDotnetPath" = "/run/current-system/sw/bin/dotnet";
+          "prettier.printWidth" = 120;
         };
         extensions =
           with pkgs.vscode-extensions;
@@ -101,6 +102,8 @@
             ms-dotnettools.vscode-dotnet-runtime
             esbenp.prettier-vscode
             jnoortheen.nix-ide
+            ms-azuretools.vscode-docker
+            ms-vscode-remote.remote-ssh
           ]
           ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
             {
