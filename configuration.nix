@@ -392,7 +392,7 @@
   services.xserver.desktopManager.gnome.enable = true;
   
   services.displayManager.autoLogin = {
-    enable = true;
+    enable = false;
     user = "morten";
   };
 
