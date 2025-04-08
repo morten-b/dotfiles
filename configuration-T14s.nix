@@ -90,6 +90,7 @@
     drawio
     jetbrains.rider
     mattermost-desktop
+    azure-artifacts-credprovider
     (
       with dotnetCorePackages;
       combinePackages [
