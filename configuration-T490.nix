@@ -9,10 +9,8 @@
   virtualisation.docker.enable = true;
 
   environment.systemPackages = with pkgs; [
-    icu
     hugo
     nodejs
-    jetbrains.rider
     docker-compose  
     (
       with dotnetCorePackages;
