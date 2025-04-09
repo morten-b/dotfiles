@@ -400,8 +400,8 @@
   systemd.services."autovt@tty1".enable = false;
 
   environment.sessionVariables = {
-    NIXOS_OZONE_WL = "1";
-    ELECTRON_OZONE_PLATFORM_HINT = "wayland";
+    #NIXOS_OZONE_WL = "1";
+    #ELECTRON_OZONE_PLATFORM_HINT = "wayland";
     DOTNET_SYSTEM_GLOBALIZATION_INVARIANT = "1";
   };
 
