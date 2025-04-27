@@ -12,6 +12,7 @@
     hugo
     nodejs
     docker-compose  
+    jetbrains.rider
     (
       with dotnetCorePackages;
       combinePackages [
