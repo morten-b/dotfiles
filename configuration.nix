@@ -57,6 +57,17 @@
 
   programs.fish.enable = true;
 
+  # Setting up the fish shell as the default shell https://nixos.wiki/wiki/Fish
+  programs.bash = {
+    interactiveShellInit = ''
+      if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
+      then
+        shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
+        exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
+      fi
+    '';
+  };
+
   services.udev.packages = [ pkgs.gnome-settings-daemon ];
 
   users.users.morten = {
@@ -261,14 +272,6 @@
         };
       };
 
-      programs.alacritty = {
-        enable = true;
-        settings = {
-          terminal.shell.program = "${pkgs.fish}/bin/fish";
-          font.size = 10;
-        };
-      };
-
       programs.git = {
         enable = true;
         package = pkgs.gitFull;
@@ -349,7 +352,6 @@
     gnome-text-editor
     gnome-calendar
     gnome-characters
-    gnome-console
     gnome-contacts
     gnome-font-viewer
     gnome-logs
