@@ -105,16 +105,11 @@
           with pkgs.vscode-extensions;
           [
             piousdeer.adwaita-theme
-            ms-dotnettools.csharp
-            ms-dotnettools.csdevkit
             yzhang.markdown-all-in-one
             github.copilot
-            github.copilot-chat
-            ms-dotnettools.vscode-dotnet-runtime
+            #github.copilot-chat
             esbenp.prettier-vscode
             jnoortheen.nix-ide
-            ms-azuretools.vscode-docker
-            ms-vscode-remote.remote-ssh
           ]
           ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
             {
@@ -128,18 +123,6 @@
               publisher = "adamhartford";
               version = "0.1.0";
               sha256 = "sha256-ML3linlHH/GnsoxDHa0/6R7EEh27rjMp0PcNWDmB8Qw=";
-            }
-            {
-              name = "vscode-azurefunctions";
-              publisher = "ms-azuretools";
-              version = "1.16.1";
-              sha256 = "sha256-Vvrpeg6QZAshzRCdzXXGYu2P3hrZVXwf9sZtB7ZX5jM=";
-            }
-            {
-              name = "vscode-azureresourcegroups";
-              publisher = "ms-azuretools";
-              version = "0.10.1";
-              sha256 = "sha256-ynPiWYfQDyXEwEu+tpuiarMUktwIANZj2RbHkTgZEP4=";
             }
           ];
       };
