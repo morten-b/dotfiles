@@ -15,7 +15,7 @@
   platforms = {
     "x86_64-linux" = {
       platformStr = "linux-x64";
-      hash = "sha256-5R4/hCxCz6KfBl9Zbei+iFty5S2MOYt9hMvPMjCzL54=";
+      hash = "sha256-IpMRgaTCiR0AQAd7fifxRaEBC6x0GT3ewmmsvqijp4I=";
     };
   };
 
@@ -58,6 +58,8 @@ in
         mkdir -p $out/bin
         cp -prd . $out/bin/azure-functions-core-tools
         chmod +x $out/bin/azure-functions-core-tools/{func,gozip}
+        chmod +x $out/bin/azure-functions-core-tools/in-proc8/func
+        chmod +x $out/bin/azure-functions-core-tools/in-proc6/func
       ''
       + lib.optionalString stdenv.isLinux ''
         patchelf \
