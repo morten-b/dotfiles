@@ -45,9 +45,9 @@
 
   console.keyMap = "dk-latin1";
 
-  hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   security.polkit.enable = true;
+  services.pulseaudio.enable = false;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -86,45 +86,47 @@
       programs.vscode = {
         enable = true;
         mutableExtensionsDir = false;
-        enableUpdateCheck = false;
-        enableExtensionUpdateCheck = false;
         package = pkgs.vscode.fhs;
-        userSettings = {
-          "workbench.colorTheme" = "Adwaita Dark & default syntax highlighting & colorful status bar";
-          "workbench.startupEditor" = "none";
-          "git.autofetch" = true;
-          "git.confirmSync" = false;
-          "security.workspace.trust.untrustedFiles" = "open";
-          "editor.largeFileOptimizations" = false;
-          "editor.defaultFormatter" = "esbenp.prettier-vscode";
-          "nix.formatterPath" = "nixfmt";
-          "dotnetAcquisitionExtension.sharedExistingDotnetPath" = "/run/current-system/sw/bin/dotnet";
-          "prettier.printWidth" = 120;
+        profiles.default = {
+          enableUpdateCheck = false;
+          enableExtensionUpdateCheck = false;
+          userSettings = {
+            "workbench.colorTheme" = "Adwaita Dark & default syntax highlighting & colorful status bar";
+            "workbench.startupEditor" = "none";
+            "git.autofetch" = true;
+            "git.confirmSync" = false;
+            "security.workspace.trust.untrustedFiles" = "open";
+            "editor.largeFileOptimizations" = false;
+            "editor.defaultFormatter" = "esbenp.prettier-vscode";
+            "nix.formatterPath" = "nixfmt";
+            "dotnetAcquisitionExtension.sharedExistingDotnetPath" = "/run/current-system/sw/bin/dotnet";
+            "prettier.printWidth" = 120;
+          };
+          extensions =
+            with pkgs.vscode-extensions;
+            [
+              piousdeer.adwaita-theme
+              yzhang.markdown-all-in-one
+              github.copilot
+              github.copilot-chat
+              esbenp.prettier-vscode
+              jnoortheen.nix-ide
+            ]
+            ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+              {
+                name = "vscode-bicep";
+                publisher = "ms-azuretools";
+                version = "0.30.23";
+                sha256 = "sha256-WkHPZdeo42aro0qoy9EY1IauPFw9+Ld7dxJQTK4XLuE=";
+              }
+              {
+                name = "vscode-base64";
+                publisher = "adamhartford";
+                version = "0.1.0";
+                sha256 = "sha256-ML3linlHH/GnsoxDHa0/6R7EEh27rjMp0PcNWDmB8Qw=";
+              }
+            ];
         };
-        extensions =
-          with pkgs.vscode-extensions;
-          [
-            piousdeer.adwaita-theme
-            yzhang.markdown-all-in-one
-            github.copilot
-            #github.copilot-chat
-            esbenp.prettier-vscode
-            jnoortheen.nix-ide
-          ]
-          ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-            {
-              name = "vscode-bicep";
-              publisher = "ms-azuretools";
-              version = "0.30.23";
-              sha256 = "sha256-WkHPZdeo42aro0qoy9EY1IauPFw9+Ld7dxJQTK4XLuE=";
-            }
-            {
-              name = "vscode-base64";
-              publisher = "adamhartford";
-              version = "0.1.0";
-              sha256 = "sha256-ML3linlHH/GnsoxDHa0/6R7EEh27rjMp0PcNWDmB8Qw=";
-            }
-          ];
       };
 
       # dconf dump / > old-conf.txt
@@ -169,10 +171,10 @@
             isDefault = true;
             search = {
               force = true;
-              default = "Google";
-              order = [ "Google" ];
+              default = "google";
+              order = [ "google" ];
               engines = {
-                "Google".metaData.alias = "@g";
+                "google".metaData.alias = "@g";
               };
             };
           };
@@ -298,36 +300,6 @@
     )
   ];
 
-  # GNOME dynamic triple buffering
-  # See https://gitlab.gnome.org/GNOME/mutter/-/merge_requests/1441
-  nixpkgs.overlays = [
-    (final: prev: {
-      mutter = prev.mutter.overrideAttrs (oldAttrs: {
-        src = final.fetchFromGitLab {
-          domain = "gitlab.gnome.org";
-          owner = "vanvugt";
-          repo = "mutter";
-          rev = "triple-buffering-v4-47";
-          hash = "sha256-JaqJvbuIAFDKJ3y/8j/7hZ+/Eqru+Mm1d3EvjfmCcug=";
-        };
-
-        preConfigure =
-          let
-            gvdb = final.fetchFromGitLab {
-              domain = "gitlab.gnome.org";
-              owner = "GNOME";
-              repo = "gvdb";
-              rev = "2b42fc75f09dbe1cd1057580b5782b08f2dcb400";
-              hash = "sha256-CIdEwRbtxWCwgTb5HYHrixXi+G+qeE1APRaUeka3NWk=";
-            };
-          in
-          ''
-            cp -a "${gvdb}" ./subprojects/gvdb
-          '';
-      });
-    })
-  ];
-
   environment.gnome.excludePackages = with pkgs; [
     orca
     baobab
@@ -375,7 +347,7 @@
   services.xserver.enable = true;
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
-  
+
   services.displayManager.autoLogin = {
     enable = false;
     user = "morten";
