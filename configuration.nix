@@ -101,6 +101,9 @@
             "nix.formatterPath" = "nixfmt";
             "dotnetAcquisitionExtension.sharedExistingDotnetPath" = "/run/current-system/sw/bin/dotnet";
             "prettier.printWidth" = 120;
+            "[nix]" = {
+              "editor.defaultFormatter" = "jnoortheen.nix-ide";
+            };
           };
           extensions =
             with pkgs.vscode-extensions;
