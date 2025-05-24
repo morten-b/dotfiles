@@ -39,6 +39,9 @@
             }
             {
               nixpkgs.config.allowUnfree = true;
+              nixpkgs.config.permittedInsecurePackages = [
+                "dotnet-sdk-6.0.428"
+              ];
             }
           ];
         };

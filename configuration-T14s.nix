@@ -76,8 +76,8 @@
 
           ".config/autostart/teams-redpill-linpro.desktop".text = teams-redpill-linpro-desktop.text;
 
-          # ".config/autostart/mattermost.desktop".text =
-          #   builtins.readFile "${pkgs.mattermost-desktop}/share/applications/Mattermost.desktop";
+          ".config/autostart/mattermost.desktop".text =
+            builtins.readFile "${pkgs.mattermost-desktop}/share/applications/Mattermost.desktop";
         };
       };
   };
@@ -95,7 +95,7 @@
         sdk_8_0
       ]
     )
-    (callPackage ./azure-functions-cli-bin.nix {} )
+    (callPackage ./azure-functions-cli-bin.nix { })
   ];
 
   services.envfs = {
