@@ -1,5 +1,4 @@
 {
-  description = "NixOS flake";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
@@ -18,45 +17,34 @@
     }@inputs:
     let
       system = "x86_64-linux";
-      commonArgs = {
-        inherit system;
-      };
-      pkgs = import nixpkgs commonArgs;
+      pkgs = import nixpkgs { inherit system; };
       machines = [
         "T14s"
         "T490"
       ];
+      mkConfig = machine: {
+        name = machine;
+        value = nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = {
+            inherit inputs self;
+          };
+          modules = [
+            ./hardware-configuration-${machine}.nix
+            ./configuration-${machine}.nix
+            ./configuration.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.extraSpecialArgs = { inherit inputs; };
+            }
+            {
+              nixpkgs.config.allowUnfree = true;
+            }
+          ];
+        };
+      };
     in
     {
-      nixosConfigurations = builtins.listToAttrs (
-        map (machine: {
-          name = machine;
-          value = nixpkgs.lib.nixosSystem {
-            inherit system;
-            specialArgs = {
-              inherit inputs self;
-            };
-            modules = [
-              ./hardware-configuration-${machine}.nix
-              ./configuration-${machine}.nix
-              ./configuration.nix
-              home-manager.nixosModules.home-manager
-              {
-                home-manager.extraSpecialArgs = { inherit inputs; };
-              }
-              {
-                nixpkgs.config = {
-                  allowUnfree = true;
-                  permittedInsecurePackages = [
-                    "dotnet-sdk-6.0.428"
-                    "dotnet-sdk-wrapped-6.0.428"
-                    "dotnet-core-combined"
-                  ];
-                };
-              }
-            ];
-          };
-        }) machines
-      );
+      nixosConfigurations = builtins.listToAttrs (map mkConfig machines);
     };
 }

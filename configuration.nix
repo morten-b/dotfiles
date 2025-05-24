@@ -114,14 +114,9 @@
               github.copilot-chat
               esbenp.prettier-vscode
               jnoortheen.nix-ide
+              ms-azuretools.vscode-bicep
             ]
             ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-              {
-                name = "vscode-bicep";
-                publisher = "ms-azuretools";
-                version = "0.30.23";
-                sha256 = "sha256-WkHPZdeo42aro0qoy9EY1IauPFw9+Ld7dxJQTK4XLuE=";
-              }
               {
                 name = "vscode-base64";
                 publisher = "adamhartford";
