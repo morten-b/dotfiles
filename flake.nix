@@ -20,14 +20,6 @@
       system = "x86_64-linux";
       commonArgs = {
         inherit system;
-        config = {
-          allowUnfree = true;
-          permittedInsecurePackages = [
-            "dotnet-sdk-6.0.428"
-            "dotnet-sdk-wrapped-6.0.428"
-            "dotnet-core-combined"
-          ];
-        };
       };
       pkgs = import nixpkgs commonArgs;
       machines = [
@@ -42,7 +34,7 @@
           value = nixpkgs.lib.nixosSystem {
             inherit system;
             specialArgs = {
-              inherit inputs self pkgs;
+              inherit inputs self;
             };
             modules = [
               ./hardware-configuration-${machine}.nix
@@ -51,6 +43,16 @@
               home-manager.nixosModules.home-manager
               {
                 home-manager.extraSpecialArgs = { inherit inputs; };
+              }
+              {
+                nixpkgs.config = {
+                  allowUnfree = true;
+                  permittedInsecurePackages = [
+                    "dotnet-sdk-6.0.428"
+                    "dotnet-sdk-wrapped-6.0.428"
+                    "dotnet-core-combined"
+                  ];
+                };
               }
             ];
           };
