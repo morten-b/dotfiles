@@ -20,7 +20,7 @@
         teams-ascendis-desktop = pkgs.makeDesktopItem {
           name = "teams-ascendis";
           desktopName = "Teams Ascendis";
-          exec = "teams-for-linux --customUserDir=/home/morten/.config/teams-for-linux/Ascendis/";
+          exec = "teams-for-linux --user-data-dir=/home/morten/.config/teams-for-linux/Ascendis/";
           type = "Application";
           icon = ./ascendis-favicon.png;
         };
@@ -28,7 +28,7 @@
         teams-redpill-linpro-desktop = pkgs.makeDesktopItem {
           name = "teams-redpill-linpro";
           desktopName = "Teams Redpill-Linpro";
-          exec = "teams-for-linux --customUserDir=/home/morten/.config/teams-for-linux/Redpill-Linpro/";
+          exec = "teams-for-linux --user-data-dir=/home/morten/.config/teams-for-linux/Redpill-Linpro/";
           type = "Application";
           icon = ./redpill-linpro-favicon.png;
         };
@@ -42,10 +42,8 @@
         home.file = {
           ".config/teams-for-linux/Redpill-Linpro/config.json".text = ''
             {
-                "optInTeamsV2": "true",
                 "appTitle": "Teams-Redpill-Linpro",
                 "appIcon": "/home/morten/.config/teams-for-linux/Redpill-Linpro/favicon.png",
-                "notificationMethod": "web",
                 "minimized": "true",
                 "electronCLIFlags": [
                   ["ozone-platform-hint","wayland"],
@@ -58,10 +56,8 @@
 
           ".config/teams-for-linux/Ascendis/config.json".text = ''
             {
-                "optInTeamsV2": "true",
                 "appTitle": "Teams-Ascendis",
                 "appIcon": "/home/morten/.config/teams-for-linux/Ascendis/favicon.png",
-                "notificationMethod": "web",
                 "minimized": "true",
                 "electronCLIFlags": [
                   ["ozone-platform-hint","wayland"],
