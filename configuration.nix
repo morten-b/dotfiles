@@ -160,6 +160,9 @@
           "org/gnome/control-center" = {
             last-panel = "system";
           };
+          "org/gnome/mutter" = {
+            dynamic-workspaces = false;
+          };
         };
       };
 
