@@ -157,6 +157,9 @@
           "org/gnome/desktop/sound" = {
             event-sounds = false;
           };
+          "org/gnome/control-center" = {
+            last-panel = "system";
+          };
         };
       };
 
