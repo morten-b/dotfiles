@@ -353,9 +353,11 @@
   services.xserver.desktopManager.gnome.enable = true;
 
   services.displayManager.autoLogin = {
-    enable = false;
-    user = "morten";
+    enable = true;
+    user = "myuser";
   };
+  services.gnome.gnome-keyring.enable = true;
+  security.pam.services.login.enableGnomeKeyring = true;
 
   environment.sessionVariables = {
     DOTNET_SYSTEM_GLOBALIZATION_INVARIANT = "1";
