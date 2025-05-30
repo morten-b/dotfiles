@@ -351,7 +351,26 @@
   services.xserver.enable = true;
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
+
+  services.displayManager.autoLogin = {
+    enable = true;
+    user = "morten";
+  };
   services.gnome.gnome-keyring.enable = true;
+  security.pam.services.login.enableGnomeKeyring = true;
+  boot.initrd.systemd.enable = true;
+
+  services.resolved = {
+    enable = true;
+    extraConfig = ''
+      [Resolve]
+      DNS=45.90.28.0#2a7136.dns.nextdns.io
+      DNS=2a07:a8c0::#2a7136.dns.nextdns.io
+      DNS=45.90.30.0#2a7136.dns.nextdns.io
+      DNS=2a07:a8c1::#2a7136.dns.nextdns.io
+      DNSOverTLS=yes
+    '';
+  };
 
   environment.sessionVariables = {
     DOTNET_SYSTEM_GLOBALIZATION_INVARIANT = "1";
