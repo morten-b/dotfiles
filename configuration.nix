@@ -163,6 +163,9 @@
           "org/gnome/mutter" = {
             dynamic-workspaces = false;
           };
+          "[org/gnome/settings-daemon/plugins/power]" = {
+            sleep-inactive-ac-type = "nothing";
+          };
         };
       };
 
@@ -209,13 +212,19 @@
             ImproveSuggest = false;
             Locked = false;
           };
+          DNSOverHTTPS = {
+            Enabled = true;
+            ProviderURL = "https://dns.nextdns.io/2a7136";
+            Locked = true;
+            Fallback = false;
+          };
           AutofillCreditCardEnabled = false;
           TranslateEnabled = false;
           PasswordManagerEnabled = false;
           OfferToSaveLogins = false;
           DisablePocket = true;
           DisableFirefoxAccounts = true;
-          DisableAccounts = true;
+          DisableAccounts = false;
           DisableFirefoxScreenshots = true;
           DisableSetDesktopBackground = true;
           OverrideFirstRunPage = "";
