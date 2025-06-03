@@ -163,7 +163,7 @@
           "org/gnome/mutter" = {
             dynamic-workspaces = false;
           };
-          "[org/gnome/settings-daemon/plugins/power]" = {
+          "org/gnome/settings-daemon/plugins/power" = {
             sleep-inactive-ac-type = "nothing";
           };
         };
