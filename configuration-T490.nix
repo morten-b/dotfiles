@@ -11,14 +11,7 @@
   environment.systemPackages = with pkgs; [
     hugo
     nodejs
-    docker-compose  
-    jetbrains.rider
-    (
-      with dotnetCorePackages;
-      combinePackages [
-        sdk_8_0
-      ]
-    )
+    docker-compose
   ];
 
   users.users.morten.extraGroups = [ "docker" ];

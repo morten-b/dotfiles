@@ -84,6 +84,14 @@
     drawio
     jetbrains.rider
     mattermost-desktop
+    filezilla
+    teams-for-linux
+    (
+      (azure-cli.withExtensions [
+        azure-cli.extensions.account
+      ]).override
+      { withImmutableConfig = false; }
+    )
     (
       with dotnetCorePackages;
       combinePackages [

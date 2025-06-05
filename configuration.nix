@@ -290,7 +290,6 @@
 
   environment.systemPackages = with pkgs; [
     annotator
-    filezilla
     git-credential-manager
     gnomeExtensions.appindicator
     google-chrome
@@ -298,19 +297,12 @@
     home-manager
     nixfmt-rfc-style
     quickemu
-    teams-for-linux
     unzip
     wget
     wireguard-tools
     wireplumber
     zip
     postman
-    (
-      (azure-cli.withExtensions [
-        azure-cli.extensions.account
-      ]).override
-      { withImmutableConfig = false; }
-    )
   ];
 
   environment.gnome.excludePackages = with pkgs; [
