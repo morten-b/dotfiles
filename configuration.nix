@@ -108,13 +108,14 @@
           extensions =
             with pkgs.vscode-extensions;
             [
-              piousdeer.adwaita-theme
-              yzhang.markdown-all-in-one
+              esbenp.prettier-vscode
               github.copilot
               github.copilot-chat
-              esbenp.prettier-vscode
               jnoortheen.nix-ide
               ms-azuretools.vscode-bicep
+              ms-dotnettools.vscode-dotnet-runtime
+              piousdeer.adwaita-theme
+              yzhang.markdown-all-in-one
             ]
             ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
               {
@@ -232,6 +233,7 @@
           DontCheckDefaultBrowser = true;
           DisplayBookmarksToolbar = "never";
           SearchBar = "unified";
+          NoDefaultBookmarks = true;
 
           # Check about:support for extension/add-on ID strings.
           # Valid strings for installation_mode are "allowed", "blocked",
