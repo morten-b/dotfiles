@@ -91,16 +91,16 @@
           enableUpdateCheck = false;
           enableExtensionUpdateCheck = false;
           userSettings = {
-            "workbench.colorTheme" = "Adwaita Dark & default syntax highlighting & colorful status bar";
-            "workbench.startupEditor" = "none";
+            "editor.defaultFormatter" = "esbenp.prettier-vscode";
+            "editor.largeFileOptimizations" = false;
             "git.autofetch" = true;
             "git.confirmSync" = false;
-            "security.workspace.trust.untrustedFiles" = "open";
-            "editor.largeFileOptimizations" = false;
-            "editor.defaultFormatter" = "esbenp.prettier-vscode";
+            "github.copilot.nextEditSuggestions.enabled" = true;
             "nix.formatterPath" = "nixfmt";
-            "dotnetAcquisitionExtension.sharedExistingDotnetPath" = "/run/current-system/sw/bin/dotnet";
             "prettier.printWidth" = 120;
+            "security.workspace.trust.untrustedFiles" = "open";
+            "workbench.colorTheme" = "Adwaita Dark & default syntax highlighting & colorful status bar";
+            "workbench.startupEditor" = "none";
             "[nix]" = {
               "editor.defaultFormatter" = "jnoortheen.nix-ide";
             };
