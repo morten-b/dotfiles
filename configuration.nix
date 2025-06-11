@@ -293,21 +293,22 @@
 
   environment.systemPackages = with pkgs; [
     annotator
+    bind
+    docker
+    docker-compose
     git-credential-manager
     gnomeExtensions.appindicator
     google-chrome
     gzip
     home-manager
     nixfmt-rfc-style
+    postman
     quickemu
     unzip
     wget
     wireguard-tools
     wireplumber
     zip
-    postman
-    bind
-    docker-compose
   ];
 
   environment.gnome.excludePackages = with pkgs; [
