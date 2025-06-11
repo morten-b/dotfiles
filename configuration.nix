@@ -76,6 +76,7 @@
     extraGroups = [
       "networkmanager"
       "wheel"
+      "docker"
     ];
   };
 
@@ -305,6 +306,8 @@
     wireplumber
     zip
     postman
+    bind
+    docker-compose
   ];
 
   environment.gnome.excludePackages = with pkgs; [
