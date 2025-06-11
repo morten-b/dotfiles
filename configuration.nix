@@ -294,7 +294,6 @@
   environment.systemPackages = with pkgs; [
     annotator
     bind
-    docker
     docker-compose
     git-credential-manager
     gnomeExtensions.appindicator
@@ -370,6 +369,8 @@
   environment.sessionVariables = {
     DOTNET_SYSTEM_GLOBALIZATION_INVARIANT = "1";
   };
+
+  virtualisation.docker.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
