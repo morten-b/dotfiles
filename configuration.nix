@@ -163,6 +163,11 @@
           "org/gnome/desktop/sound" = {
             event-sounds = false;
           };
+          "org/gnome/desktop/background" = {
+            picture-options = "none";
+            primary-color = "#164c54";
+            color-shading-type = "solid";
+          };
           "org/gnome/control-center" = {
             last-panel = "system";
           };
