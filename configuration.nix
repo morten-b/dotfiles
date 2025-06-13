@@ -92,6 +92,7 @@
           enableUpdateCheck = false;
           enableExtensionUpdateCheck = false;
           userSettings = {
+            "dotnetAcquisitionExtension.sharedExistingDotnetPath" = "/run/current-system/sw/bin/dotnet";
             "editor.defaultFormatter" = "esbenp.prettier-vscode";
             "editor.largeFileOptimizations" = false;
             "git.autofetch" = true;
