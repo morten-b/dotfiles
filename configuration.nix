@@ -106,6 +106,9 @@
             "[nix]" = {
               "editor.defaultFormatter" = "jnoortheen.nix-ide";
             };
+            "[bicep]" = {
+              "editor.defaultFormatter" = "ms-azuretools.vscode-bicep";
+            };
           };
           extensions =
             with pkgs.vscode-extensions;
