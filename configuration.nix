@@ -57,6 +57,22 @@
 
   programs.fish.enable = true;
 
+  programs.chromium = {
+    enable = true;
+    defaultSearchProviderSearchURL = "https://google.com";
+    extraOpts = {
+      "BrowserSignin" = 0;
+      "SyncDisabled" = true;
+      "PasswordManagerEnabled" = false;
+      "DefaultBrowserSettingEnabled" = false;
+      "SavingBrowserHistoryDisabled" = true;
+      "BrowserLabsEnabled" = false;
+    };
+    extensions = [
+      "cjpalhdlnbpafiamejdnhcphjbkeiagm"
+    ];
+  };
+
   # Setting up the fish shell as the default shell https://nixos.wiki/wiki/Fish
   programs.bash = {
     interactiveShellInit = ''
@@ -303,10 +319,10 @@
   environment.systemPackages = with pkgs; [
     annotator
     bind
+    chromium
     docker-compose
     git-credential-manager
     gnomeExtensions.appindicator
-    google-chrome
     gzip
     home-manager
     nixfmt-rfc-style
