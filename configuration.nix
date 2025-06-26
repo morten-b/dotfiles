@@ -60,6 +60,7 @@
   programs.chromium = {
     enable = true;
     defaultSearchProviderSearchURL = "https://google.com";
+    homepageLocation = "about:blank";
     extraOpts = {
       "BrowserSignin" = 0;
       "SyncDisabled" = true;
@@ -67,9 +68,10 @@
       "DefaultBrowserSettingEnabled" = false;
       "SavingBrowserHistoryDisabled" = true;
       "BrowserLabsEnabled" = false;
+      "URLBlocklist" = ["reddit.com"];
     };
     extensions = [
-      "cjpalhdlnbpafiamejdnhcphjbkeiagm"
+      "ddkjiahejlhfcafbddmgiahcphecmpfh" # uBlock Origin Lite
     ];
   };
 
