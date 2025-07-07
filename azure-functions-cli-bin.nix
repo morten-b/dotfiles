@@ -18,11 +18,11 @@
 
 stdenv.mkDerivation rec {
   pname = "azure-functions-cli-bin";
-  version = "4.0.7030";
+  version = "4.0.7512";
 
   src = fetchzip {
     url = "https://github.com/Azure/azure-functions-core-tools/releases/download/${version}/Azure.Functions.Cli.linux-x64.${version}.zip";
-    sha256 = "sha256-YwOiXlfcV+3+LRKciIFz+PoLpJLb5FYNDydapM3kocg=";
+    sha256 = "sha256-ref825yFUeA46ckT0qF/pDw5+cRKcGrV4mFHDkLXqdw=";
     stripRoot = false;
   };
 
@@ -59,6 +59,7 @@ stdenv.mkDerivation rec {
     chmod +x $out/usr/lib/azure-functions-cli-bin/in-proc6/func
     chmod +x $out/usr/lib/azure-functions-cli-bin/in-proc8/func
     chmod a+x $out/usr/lib/azure-functions-cli-bin/gozip
+    
 
     mkdir -p $out/bin
     ln -s $out/usr/lib/azure-functions-cli-bin/func $out/bin/func

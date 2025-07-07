@@ -133,7 +133,6 @@
             [
               esbenp.prettier-vscode
               github.copilot
-              github.copilot-chat
               jnoortheen.nix-ide
               ms-azuretools.vscode-bicep
               ms-dotnettools.vscode-dotnet-runtime
@@ -146,6 +145,18 @@
                 publisher = "adamhartford";
                 version = "0.1.0";
                 sha256 = "sha256-ML3linlHH/GnsoxDHa0/6R7EEh27rjMp0PcNWDmB8Qw=";
+              }
+              {
+                name = "vscode-cosmosdb";
+                publisher = "ms-azuretools";
+                version = "0.26.0";
+                sha256 = "sha256-s6FkYqUgGJsXNg4XofnxWPq2oafL5l+FRPV4xDtiA34=";
+              }
+              {
+                name = "vscode-azureresourcegroups";
+                publisher = "ms-azuretools";
+                version = "0.11.0";
+                sha256 = "sha256-En9fGuzeLPCliaygZfAgzz4PXBIC9DdSxWUBD2NnLZ0=";
               }
             ];
         };
