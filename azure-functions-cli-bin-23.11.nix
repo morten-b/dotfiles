@@ -66,12 +66,23 @@ in
         mkdir -p $out/bin
         cp -prd . $out/bin/azure-functions-core-tools
         chmod +x $out/bin/azure-functions-core-tools/{func,gozip}
+        chmod +x $out/bin/azure-functions-core-tools/usr/lib/azure-functions-cli-bin/in-proc6/func
+        chmod +x $out/bin/azure-functions-core-tools/usr/lib/azure-functions-cli-bin/in-proc8/func
       ''
       + lib.optionalString stdenv.isLinux ''
         patchelf \
           --set-interpreter "$(cat $NIX_CC/nix-support/dynamic-linker)" \
           --set-rpath "${libPath}" "$out/bin/azure-functions-core-tools/func"
         find $out/bin/azure-functions-core-tools -type f -name "*.so" -exec patchelf --set-rpath "${libPath}" {} \;
+
+        patchelf \
+          --set-interpreter "$(cat $NIX_CC/nix-support/dynamic-linker)" \
+          --set-rpath "${libPath}" "$out/bin/azure-functions-core-tools/usr/lib/azure-functions-cli-bin/in-proc6/func"
+
+        patchelf \
+          --set-interpreter "$(cat $NIX_CC/nix-support/dynamic-linker)" \
+          --set-rpath "${libPath}" "$out/bin/azure-functions-core-tools/usr/lib/azure-functions-cli-bin/in-proc8/func"
+
         wrapProgram "$out/bin/azure-functions-core-tools/func" --prefix LD_LIBRARY_PATH : ${libPath}
       ''
       + ''
