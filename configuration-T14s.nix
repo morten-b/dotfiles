@@ -99,7 +99,7 @@
         sdk_8_0
       ]
     )
-    (callPackage ./azure-functions-cli-bin.nix { })
+    (callPackage ./azure-functions-cli-bin-23.11.nix { })
   ];
 
   services.envfs = {

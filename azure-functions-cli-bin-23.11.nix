@@ -13,9 +13,17 @@
   openssl,
 }: let
   platforms = {
+    "aarch64-darwin" = {
+      platformStr = "osx-arm64";
+      hash = "sha256-yp3VTt5m8KuACjrBIotfQ5ZdgMvfwYIFaqY2475pHRs=";
+    };
+    "x86_64-darwin" = {
+      platformStr = "osx-x64";
+      hash = "sha256-bTHh0mwGbe6JVsR8rDHGpGJ2+AipHb8NIBIW7iiuz6I=";
+    };
     "x86_64-linux" = {
       platformStr = "linux-x64";
-      hash = "sha256-IpMRgaTCiR0AQAd7fifxRaEBC6x0GT3ewmmsvqijp4I=";
+      hash = "sha256-5R4/hCxCz6KfBl9Zbei+iFty5S2MOYt9hMvPMjCzL54=";
     };
   };
 
@@ -23,7 +31,7 @@
 in
   stdenv.mkDerivation rec {
     pname = "azure-functions-core-tools";
-    version = "4.0.7030";
+    version = "4.0.7512";
 
     src = fetchurl {
       url = "https://github.com/Azure/${pname}/releases/download/${version}/Azure.Functions.Cli.${platformInfo.platformStr}.${version}.zip";
@@ -58,8 +66,6 @@ in
         mkdir -p $out/bin
         cp -prd . $out/bin/azure-functions-core-tools
         chmod +x $out/bin/azure-functions-core-tools/{func,gozip}
-        chmod +x $out/bin/azure-functions-core-tools/in-proc8/func
-        chmod +x $out/bin/azure-functions-core-tools/in-proc6/func
       ''
       + lib.optionalString stdenv.isLinux ''
         patchelf \
