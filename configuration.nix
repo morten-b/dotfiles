@@ -352,6 +352,7 @@
     wireguard-tools
     wireplumber
     zip
+    jetbrains.rider
   ];
 
   environment.gnome.excludePackages = with pkgs; [
