@@ -82,7 +82,6 @@
     jq
     azurite
     drawio
-    jetbrains.rider
     mattermost-desktop
     filezilla
     teams-for-linux
