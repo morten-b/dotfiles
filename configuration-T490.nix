@@ -11,6 +11,8 @@
   environment.systemPackages = with pkgs; [
     hugo
     nodejs
+    dotnet-sdk
+    dbeaver-bin
   ];
 
   networking.firewall = {
