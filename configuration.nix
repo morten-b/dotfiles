@@ -72,6 +72,7 @@
     };
     extensions = [
       "ddkjiahejlhfcafbddmgiahcphecmpfh" # uBlock Origin Lite
+      "nngceckbapebfimnlniiiahkandclblb" # Bitwarden
     ];
   };
 
@@ -211,6 +212,11 @@
           };
           "org/gnome/settings-daemon/plugins/power" = {
             sleep-inactive-ac-type = "nothing";
+            sleep-inactive-battery-type = "nothing";
+            idle-dim = false;
+          };
+          "org/gnome/desktop/session" = {
+            idle-delay = lib.gvariant.mkUint32 0;
           };
         };
       };
