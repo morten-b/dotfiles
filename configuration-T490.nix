@@ -13,6 +13,7 @@
     nodejs
     dotnet-sdk
     dbeaver-bin
+    dotnet-ef
   ];
 
   networking.firewall = {

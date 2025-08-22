@@ -68,7 +68,7 @@
       "DefaultBrowserSettingEnabled" = false;
       "SavingBrowserHistoryDisabled" = true;
       "BrowserLabsEnabled" = false;
-      "URLBlocklist" = ["reddit.com"];
+      "URLBlocklist" = [ "reddit.com" ];
     };
     extensions = [
       "ddkjiahejlhfcafbddmgiahcphecmpfh" # uBlock Origin Lite
@@ -359,6 +359,7 @@
     wireplumber
     zip
     jetbrains.rider
+    junction
   ];
 
   environment.gnome.excludePackages = with pkgs; [
