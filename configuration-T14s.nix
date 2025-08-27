@@ -32,11 +32,37 @@
           type = "Application";
           icon = ./redpill-linpro-favicon.png;
         };
+
+        chromium-work-desktop = pkgs.makeDesktopItem {
+          name = "chromium-work";
+          desktopName = "Chromium (Work)";
+          exec = "${pkgs.chromium}/bin/chromium --user-data-dir=/home/morten/.config/chromium-work --profile-directory=Default %U";
+          type = "Application";
+          icon = "chromium";
+          categories = [
+            "Network"
+            "WebBrowser"
+          ];
+        };
+
+        chromium-personal-desktop = pkgs.makeDesktopItem {
+          name = "chromium-personal";
+          desktopName = "Chromium (Personal)";
+          exec = "${pkgs.chromium}/bin/chromium --user-data-dir=/home/morten/.config/chromium-personal --profile-directory=Default %U";
+          type = "Application";
+          icon = "chromium";
+          categories = [
+            "Network"
+            "WebBrowser"
+          ];
+        };
       in
       {
         home.packages = [
           teams-ascendis-desktop
           teams-redpill-linpro-desktop
+          chromium-work-desktop
+          chromium-personal-desktop
         ];
 
         home.file = {
@@ -85,6 +111,7 @@
     mattermost-desktop
     filezilla
     teams-for-linux
+    azure-artifacts-credprovider
     (
       (azure-cli.withExtensions [
         azure-cli.extensions.account
@@ -96,6 +123,7 @@
       combinePackages [
         sdk_6_0
         sdk_8_0
+        sdk_9_0
       ]
     )
     (callPackage ./azure-functions-cli-bin.nix { })
