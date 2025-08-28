@@ -33,24 +33,24 @@
           icon = ./redpill-linpro-favicon.png;
         };
 
-        chromium-work-desktop = pkgs.makeDesktopItem {
-          name = "chromium-work";
-          desktopName = "Chromium (Work)";
-          exec = "${pkgs.chromium}/bin/chromium --user-data-dir=/home/morten/.config/chromium-work --profile-directory=Default %U";
+        chromium-redpill-linpro-desktop = pkgs.makeDesktopItem {
+          name = "chromium-redpill-linpro";
+          desktopName = "Chromium (Redpill-Linpro)";
+          exec = "${pkgs.chromium}/bin/chromium --profile-directory=Redpill-Linpro %U";
           type = "Application";
-          icon = "chromium";
+          icon = ./redpill-linpro-favicon.png;
           categories = [
             "Network"
             "WebBrowser"
           ];
         };
 
-        chromium-personal-desktop = pkgs.makeDesktopItem {
-          name = "chromium-personal";
-          desktopName = "Chromium (Personal)";
-          exec = "${pkgs.chromium}/bin/chromium --user-data-dir=/home/morten/.config/chromium-personal --profile-directory=Default %U";
+        chromium-ascendis-desktop = pkgs.makeDesktopItem {
+          name = "chromium-ascendis";
+          desktopName = "Chromium (Ascendis)";
+          exec = "${pkgs.chromium}/bin/chromium --profile-directory=Ascendis %U";
           type = "Application";
-          icon = "chromium";
+          icon = ./ascendis-favicon.png;
           categories = [
             "Network"
             "WebBrowser"
@@ -61,8 +61,8 @@
         home.packages = [
           teams-ascendis-desktop
           teams-redpill-linpro-desktop
-          chromium-work-desktop
-          chromium-personal-desktop
+          chromium-redpill-linpro-desktop
+          chromium-ascendis-desktop
         ];
 
         home.file = {
@@ -127,6 +127,12 @@
       ]
     )
     (callPackage ./azure-functions-cli-bin.nix { })
+    # Chromium without desktop entry
+    (chromium.overrideAttrs (old: {
+      postInstall = old.postInstall or "" + ''
+        rm -f $out/share/applications/chromium-browser.desktop
+      '';
+    }))
   ];
 
   services.envfs = {

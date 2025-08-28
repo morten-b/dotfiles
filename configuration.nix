@@ -68,6 +68,10 @@
       "DefaultBrowserSettingEnabled" = false;
       "SavingBrowserHistoryDisabled" = true;
       "BrowserLabsEnabled" = false;
+      "LiveTranslateEnabled" = false;
+      "TranslateEnabled" = false;
+      "BrowserGuestModeEnabled" = false;
+      "MetricsReportingEnabled" = false;
       "URLBlocklist" = [ "reddit.com" ];
     };
     extensions = [
@@ -344,7 +348,6 @@
   environment.systemPackages = with pkgs; [
     annotator
     bind
-    chromium
     docker-compose
     git-credential-manager
     gnomeExtensions.appindicator
