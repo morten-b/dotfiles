@@ -72,11 +72,13 @@
       "TranslateEnabled" = false;
       "BrowserGuestModeEnabled" = false;
       "MetricsReportingEnabled" = false;
+      "SearchSuggestEnabled" = false;
       "URLBlocklist" = [ "reddit.com" ];
     };
     extensions = [
       "ddkjiahejlhfcafbddmgiahcphecmpfh" # uBlock Origin Lite
       "nngceckbapebfimnlniiiahkandclblb" # Bitwarden
+      "fnaicdffflnofjppbagibeoednhnbjhg" # Floccus
     ];
   };
 
@@ -305,6 +307,10 @@
             };
             "@testpilot-containers" = {
               install_url = "https://addons.mozilla.org/firefox/downloads/latest/multi-account-containers/latest.xpi";
+              installation_mode = "force_installed";
+            };
+            "floccus@handmadeideas.org" = {
+              install_url = "https://addons.mozilla.org/firefox/downloads/latest/floccus/latest.xpi";
               installation_mode = "force_installed";
             };
           };
