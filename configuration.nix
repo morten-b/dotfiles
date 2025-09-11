@@ -97,7 +97,6 @@
     useUserPackages = true;
     users.morten = {
       imports = [
-        ./firefox.nix
         ./vscode.nix
       ];
 
