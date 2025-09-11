@@ -3,6 +3,7 @@
   config,
   pkgs,
   inputs,
+  unstablePkgs,
   ...
 }:
 {
@@ -367,7 +368,7 @@
     wireguard-tools
     wireplumber
     zip
-    jetbrains.rider
+    unstablePkgs.jetbrains.rider
     junction
   ];
 
