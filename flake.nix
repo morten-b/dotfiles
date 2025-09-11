@@ -17,12 +17,20 @@
     }@inputs:
     let
       system = "x86_64-linux";
-      pkgs = import nixpkgs { inherit system; };
+      nixpkgsConfig = {
+        allowUnfree = true;
+        download-buffer-size = 524288000; # 500 MiB
+        permittedInsecurePackages = [
+          "dotnet-sdk-6.0.428"
+        ];
+      };
+      pkgs = import nixpkgs {
+        inherit system;
+        config = nixpkgsConfig;
+      };
       unstablePkgs = import unstable {
         inherit system;
-        config = {
-          allowUnfree = true;
-        };
+        config = nixpkgsConfig;
       };
       machines = [
         "T14s"
@@ -42,15 +50,6 @@
             home-manager.nixosModules.home-manager
             {
               home-manager.extraSpecialArgs = { inherit inputs; };
-            }
-            {
-              nixpkgs.config = {
-                allowUnfree = true;
-                download-buffer-size = 524288000; # 500 MiB
-                permittedInsecurePackages = [
-                  "dotnet-sdk-6.0.428"
-                ];
-              };
             }
           ];
         };
