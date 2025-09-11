@@ -15,7 +15,10 @@
       "BrowserGuestModeEnabled" = false;
       "MetricsReportingEnabled" = false;
       "SearchSuggestEnabled" = false;
+      "ProfilePickerOnStartupAvailability" = 2;
       "URLBlocklist" = [ "reddit.com" ];
+      "DnsOverHttpsMode" = "secure";
+      "DnsOverHttpsTemplates" = "https://dns.nextdns.io/2a7136";
     };
     extensions = [
       "ddkjiahejlhfcafbddmgiahcphecmpfh" # uBlock Origin Lite
