@@ -20,9 +20,6 @@
       nixpkgsConfig = {
         allowUnfree = true;
         download-buffer-size = 524288000; # 500 MiB
-        permittedInsecurePackages = [
-          "dotnet-sdk-6.0.428"
-        ];
       };
       pkgs = import nixpkgs {
         inherit system;
