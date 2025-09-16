@@ -4,21 +4,22 @@
     defaultSearchProviderSearchURL = "https://google.com";
     homepageLocation = "about:blank";
     extraOpts = {
-      "BrowserSignin" = 0;
-      "SyncDisabled" = true;
-      "PasswordManagerEnabled" = false;
-      "DefaultBrowserSettingEnabled" = false;
-      "SavingBrowserHistoryDisabled" = true;
-      "BrowserLabsEnabled" = false;
-      "LiveTranslateEnabled" = false;
-      "TranslateEnabled" = false;
       "BrowserGuestModeEnabled" = false;
-      "MetricsReportingEnabled" = false;
-      "SearchSuggestEnabled" = false;
-      "ProfilePickerOnStartupAvailability" = 2;
-      "URLBlocklist" = [ "reddit.com" ];
+      "BrowserLabsEnabled" = false;
+      "BrowserSignin" = 0;
+      "DefaultBrowserSettingEnabled" = false;
       "DnsOverHttpsMode" = "secure";
       "DnsOverHttpsTemplates" = "https://dns.nextdns.io/2a7136";
+      "LensDesktopNTPSearchEnabled" = false;
+      "LiveTranslateEnabled" = false;
+      "MetricsReportingEnabled" = false;
+      "PasswordManagerEnabled" = false;
+      "ProfilePickerOnStartupAvailability" = 2;
+      "SavingBrowserHistoryDisabled" = true;
+      "SearchSuggestEnabled" = false;
+      "SyncDisabled" = true;
+      "TranslateEnabled" = false;
+      "URLBlocklist" = [ "reddit.com" ];
     };
     extensions = [
       "ddkjiahejlhfcafbddmgiahcphecmpfh" # uBlock Origin Lite
