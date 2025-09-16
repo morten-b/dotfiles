@@ -3,7 +3,6 @@
   config,
   pkgs,
   inputs,
-  unstablePkgs,
   ...
 }:
 {
@@ -18,13 +17,6 @@
     experimental-features = [
       "nix-command"
       "flakes"
-    ];
-  };
-
-  nixpkgs.config = {
-    allowUnfree = true;
-    permittedInsecurePackages = [
-      "dotnet-sdk-6.0.428"
     ];
   };
 
@@ -202,7 +194,7 @@
     wireguard-tools
     wireplumber
     zip
-    unstablePkgs.jetbrains.rider
+    jetbrains.rider
     junction
   ];
 
