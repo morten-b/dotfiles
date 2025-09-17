@@ -196,6 +196,7 @@
     zip
     jetbrains.rider
     junction
+    bitwarden-desktop
   ];
 
   environment.gnome.excludePackages = with pkgs; [
@@ -248,6 +249,7 @@
 
   environment.sessionVariables = {
     DOTNET_SYSTEM_GLOBALIZATION_INVARIANT = "1";
+    SSH_AUTH_SOCK = "/home/morten/.bitwarden-ssh-agent.sock";
   };
 
   virtualisation.docker.enable = true;

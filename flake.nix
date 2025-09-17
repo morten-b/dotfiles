@@ -39,6 +39,7 @@
               home-manager.extraSpecialArgs = { inherit inputs; };
             }
             {
+              nixpkgs.overlays = [ (import ./overlays/gnome-keyring.nix) ];
               nixpkgs.config.allowUnfree = true;
               nixpkgs.config.permittedInsecurePackages = [
                 "dotnet-sdk-6.0.428"
