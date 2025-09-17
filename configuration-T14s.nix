@@ -127,12 +127,6 @@
       ]
     )
     (callPackage ./azure-functions-cli-bin.nix { })
-    # Chromium without desktop entry
-    (chromium.overrideAttrs (old: {
-      postInstall = old.postInstall or "" + ''
-        rm -f $out/share/applications/chromium-browser.desktop
-      '';
-    }))
   ];
 
   services.envfs = {

@@ -172,14 +172,6 @@
         };
       };
 
-      home = {
-        sessionVariables = {
-          SSH_AUTH_SOCK = "/home/morten/.bitwarden-ssh-agent.sock";
-        };
-      };
-
-      # The state version is required and should stay at the version you
-      # originally installed.
       home.stateVersion = "24.05";
     };
   };
@@ -253,8 +245,13 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
+  # Should be available in NixOS 25.11
+  # services.gnome.gcr-ssh-agent.enable = false; 
+  # programs.ssh.startAgent = false;
+
   environment.sessionVariables = {
     DOTNET_SYSTEM_GLOBALIZATION_INVARIANT = "1";
+    #SSH_AUTH_SOCK = "/home/morten/.bitwarden-ssh-agent.sock";
   };
 
   virtualisation.docker.enable = true;
