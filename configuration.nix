@@ -205,6 +205,7 @@
     jetbrains.rider
     junction
     bitwarden-desktop
+    chromium
   ];
 
   environment.gnome.excludePackages = with pkgs; [
