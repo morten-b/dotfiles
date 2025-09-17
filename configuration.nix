@@ -261,8 +261,8 @@
 
   environment.sessionVariables = {
     DOTNET_SYSTEM_GLOBALIZATION_INVARIANT = "1";
-    SSH_AUTH_SOCK = "/home/morten/.bitwarden-ssh-agent.sock";
-    TEST = "1";
+    #SSH_AUTH_SOCK = "/home/morten/.bitwarden-ssh-agent.sock";
+    TEST = "off";
   };
 
   virtualisation.docker.enable = true;
