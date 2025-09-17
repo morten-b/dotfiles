@@ -14,7 +14,6 @@
     dotnet-sdk
     dbeaver-bin
     dotnet-ef
-    chromium
   ];
 
   networking.firewall = {

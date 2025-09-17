@@ -36,7 +36,7 @@
         chromium-redpill-linpro-desktop = pkgs.makeDesktopItem {
           name = "chromium-redpill-linpro";
           desktopName = "Chromium (Redpill-Linpro)";
-          exec = "${pkgs.chromium}/bin/chromium --profile-directory=Redpill-Linpro %U";
+          exec = "chromium --profile-directory=Redpill-Linpro %U";
           type = "Application";
           icon = ./redpill-linpro-favicon.png;
           categories = [
@@ -48,7 +48,7 @@
         chromium-ascendis-desktop = pkgs.makeDesktopItem {
           name = "chromium-ascendis";
           desktopName = "Chromium (Ascendis)";
-          exec = "${pkgs.chromium}/bin/chromium --profile-directory=Ascendis %U";
+          exec = "chromium --profile-directory=Ascendis %U";
           type = "Application";
           icon = ./ascendis-favicon.png;
           categories = [
