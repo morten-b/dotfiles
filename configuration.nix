@@ -20,16 +20,6 @@
     ];
   };
 
-  # nixpkgs.overlays = [
-  #   (final: prev: {
-  #     gnome-keyring = prev.gnome-keyring.overrideAttrs (oldAttrs: {
-  #       mesonFlags = (builtins.filter (flag: flag != "-Dssh-agent=true") oldAttrs.mesonFlags) ++ [
-  #         "-Dssh-agent=false"
-  #       ];
-  #     });
-  #   })
-  # ];
-
   networking.hostName = "nixos";
 
   services.flatpak.enable = true;
@@ -262,8 +252,7 @@
 
   environment.sessionVariables = {
     DOTNET_SYSTEM_GLOBALIZATION_INVARIANT = "1";
-    #SSH_AUTH_SOCK = "/home/morten/.bitwarden-ssh-agent.sock";
-    TEST = "off";
+    SSH_AUTH_SOCK = "/home/morten/.bitwarden-ssh-agent.sock";
   };
 
   virtualisation.docker.enable = true;
