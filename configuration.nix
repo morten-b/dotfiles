@@ -20,6 +20,16 @@
     ];
   };
 
+  nixpkgs.overlays = [
+    (final: prev: {
+      gnome-keyring = prev.gnome-keyring.overrideAttrs (oldAttrs: {
+        mesonFlags = (builtins.filter (flag: flag != "-Dssh-agent=true") oldAttrs.mesonFlags) ++ [
+          "-Dssh-agent=false"
+        ];
+      });
+    })
+  ];
+
   networking.hostName = "nixos";
 
   services.flatpak.enable = true;
@@ -246,12 +256,13 @@
   services.xserver.desktopManager.gnome.enable = true;
 
   # Should be available in NixOS 25.11
-  # services.gnome.gcr-ssh-agent.enable = false; 
+  # services.gnome.gcr-ssh-agent.enable = false;
   # programs.ssh.startAgent = false;
 
   environment.sessionVariables = {
     DOTNET_SYSTEM_GLOBALIZATION_INVARIANT = "1";
-    #SSH_AUTH_SOCK = "/home/morten/.bitwarden-ssh-agent.sock";
+    SSH_AUTH_SOCK = "/home/morten/.bitwarden-ssh-agent.sock";
+    TEST = "1";
   };
 
   virtualisation.docker.enable = true;
