@@ -192,7 +192,7 @@
     wireguard-tools
     wireplumber
     zip
-    jetbrains.rider
+    unstable.jetbrains.rider
     junction
     bitwarden-desktop
     chromium
