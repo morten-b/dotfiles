@@ -57,6 +57,20 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
+    wireplumber.configPackages = [
+      (pkgs.writeTextDir "share/wireplumber/wireplumber.conf.d/10-disable-internal-mics.conf" ''
+        rules = [
+          {
+            matches = [
+              { node.name = "alsa_input.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__Mic1__source" }
+            ]
+            actions = {
+              update-props = { node.disabled = true }
+            }
+          }
+        ]
+      '')
+    ];
   };
 
   programs.fish.enable = true;
