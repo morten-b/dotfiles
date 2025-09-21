@@ -129,10 +129,10 @@
     (callPackage ./azure-functions-cli-bin.nix { })
   ];
 
-  # Disbale build-in Audio
-  # services.udev.extraRules = ''
-  #   SUBSYSTEM=="pci", ATTRS{vendor}=="0x8086", ATTRS{device}=="0xa0c8", ATTR{remove}="1"
-  # '';
+  # Disabale build-in Audio
+  services.udev.extraRules = ''
+    SUBSYSTEM=="pci", ATTRS{vendor}=="0x8086", ATTRS{device}=="0xa0c8", ATTR{remove}="1"
+  '';
 
   services.envfs = {
     enable = true;
