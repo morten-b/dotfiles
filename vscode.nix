@@ -6,7 +6,7 @@
   programs.vscode = {
     enable = true;
     mutableExtensionsDir = false;
-    package = pkgs.vscode.fhs;
+    package = pkgs.unstable.vscode.fhs;
     profiles.default = {
       enableUpdateCheck = false;
       enableExtensionUpdateCheck = false;
@@ -30,10 +30,11 @@
         };
       };
       extensions =
-        with pkgs.vscode-extensions;
+        with pkgs.unstable.vscode-extensions;
         [
           esbenp.prettier-vscode
           github.copilot
+          github.copilot-chat
           jnoortheen.nix-ide
           ms-azuretools.vscode-bicep
           ms-dotnettools.vscode-dotnet-runtime
@@ -58,12 +59,6 @@
             publisher = "ms-azuretools";
             version = "0.11.0";
             sha256 = "sha256-En9fGuzeLPCliaygZfAgzz4PXBIC9DdSxWUBD2NnLZ0=";
-          }
-          {
-            name = "copilot-chat";
-            publisher = "github";
-            version = "0.28.5";
-            sha256 = "sha256-sxbikIUxaIVT0ySaicUIZIiHuy0kzz5xyYcKYds6+XE=";
           }
         ];
     };
