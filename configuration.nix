@@ -59,35 +59,82 @@
     pulse.enable = true;
     wireplumber.extraConfig."97-disable-devices" = {
       "monitor.alsa.rules" = [
+        # Disable internal microphones
+        {
+          matches = [
+            { "node.name" = "alsa_input.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__Mic1__source"; }
+          ];
+          actions.update-props = {
+            "device.disabled" = true;
+            "node.disabled" = true;
+            "node.hidden" = true;
+          };
+        }
+        {
+          matches = [
+            { "node.name" = "alsa_input.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__Mic2__source"; }
+          ];
+          actions.update-props = {
+            "device.disabled" = true;
+            "node.disabled" = true;
+            "node.hidden" = true;
+          };
+        }
+
+        # Disable unwanted USB input
+        {
+          matches = [ { "node.name" = "alsa_input.usb-Generic_USB_Audio-00.iec958-stereo"; } ];
+          actions.update-props = {
+            "device.disabled" = true;
+            "node.disabled" = true;
+            "node.hidden" = true;
+          };
+        }
+
+        # Disable HDMI sinks
+        {
+          matches = [
+            { "node.name" = "alsa_output.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__HDMI1__sink"; }
+          ];
+          actions.update-props = {
+            "device.disabled" = true;
+            "node.disabled" = true;
+            "node.hidden" = true;
+          };
+        }
+        {
+          matches = [
+            { "node.name" = "alsa_output.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__HDMI2__sink"; }
+          ];
+          actions.update-props = {
+            "device.disabled" = true;
+            "node.disabled" = true;
+            "node.hidden" = true;
+          };
+        }
+        {
+          matches = [
+            { "node.name" = "alsa_output.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__HDMI3__sink"; }
+          ];
+          actions.update-props = {
+            "device.disabled" = true;
+            "node.disabled" = true;
+            "node.hidden" = true;
+          };
+        }
+
+        # Disable speaker monitor (output loopback as input)
         {
           matches = [
             {
-              "node.name" = "alsa_input.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__Mic1__source";
-            }
-            {
-              "node.name" = "alsa_input.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__Mic2__source";
-            }
-            {
-              "node.name" = "alsa_input.usb-Generic_USB_Audio-00.iec958-stereo";
-            }
-            {
-              "node.name" = "alsa_output.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__HDMI1__sink";
-            }
-            {
-              "node.name" = "alsa_output.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__HDMI2__sink";
-            }
-            {
-              "node.name" = "alsa_output.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__HDMI3__sink";
-            }
-            {
-              "node.name" = "alsa_output.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__Speaker__sink.monitor";
+              "node.name" =
+                "alsa_output.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__Speaker__sink.monitor";
             }
           ];
-          actions = {
-            update-props = {
-              "device.disabled" = true;
-              "node.disabled" = true;
-            };
+          actions.update-props = {
+            "device.disabled" = true;
+            "node.disabled" = true;
+            "node.hidden" = true;
           };
         }
       ];
@@ -207,7 +254,6 @@
         };
       };
 
-      home.stateVersion = "24.05";
     };
   };
 
@@ -227,7 +273,6 @@
     wireguard-tools
     wireplumber
     zip
-    unstable.jetbrains.rider
     junction
     bitwarden-desktop
     chromium
@@ -265,15 +310,6 @@
     openFirewall = true;
   };
 
-  swapDevices = [
-    {
-      device = "/swapfile";
-      size = 12 * 1024;
-    }
-  ];
-
-  zramSwap.enable = true;
-
   programs.nix-ld.enable = true;
   programs.nix-ld.package = pkgs.nix-ld-rs;
 
@@ -293,13 +329,6 @@
   virtualisation.docker.enable = true;
   virtualisation.docker.liveRestore = false;
 
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "24.05"; # Did you read the comment?
 
   # systemctl start wg-quick-wg0.service
   networking.wg-quick.interfaces = {

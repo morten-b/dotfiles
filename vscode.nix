@@ -6,7 +6,7 @@
   programs.vscode = {
     enable = true;
     mutableExtensionsDir = false;
-    package = pkgs.unstable.vscode.fhs;
+    package = pkgs.vscode.fhs;
     profiles.default = {
       enableUpdateCheck = false;
       enableExtensionUpdateCheck = false;
@@ -30,11 +30,9 @@
         };
       };
       extensions =
-        with pkgs.unstable.vscode-extensions;
+        with pkgs.vscode-extensions;
         [
           esbenp.prettier-vscode
-          github.copilot
-          github.copilot-chat
           jnoortheen.nix-ide
           ms-azuretools.vscode-bicep
           ms-dotnettools.vscode-dotnet-runtime

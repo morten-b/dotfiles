@@ -22,7 +22,7 @@ stdenv.mkDerivation rec {
 
   src = fetchzip {
     url = "https://github.com/Azure/azure-functions-core-tools/releases/download/${version}/Azure.Functions.Cli.linux-x64.${version}.zip";
-    sha256 = "sha256-ref825yFUeA46ckT0qF/pDw5+cRKcGrV4mFHDkLXqdw=";
+    sha256 = "sha256-8o6vSIcIrRf6FzEvAyHUW5CAoJPVXmxQ34k3+Bv+CEk=";
     stripRoot = false;
   };
 

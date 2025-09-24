@@ -7,8 +7,6 @@
 }:
 {
   home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
     users.morten =
       {
         lib,
@@ -101,17 +99,23 @@
           ".config/autostart/mattermost.desktop".text =
             builtins.readFile "${pkgs.mattermost-desktop}/share/applications/Mattermost.desktop";
         };
+        home.stateVersion = "25.05";
       };
   };
 
   environment.systemPackages = with pkgs; [
+    hugo
+    nodejs
+    dbeaver-bin
+    dotnet-ef
     jq
     azurite
     drawio
     mattermost-desktop
     filezilla
     teams-for-linux
-    azure-artifacts-credprovider
+    claude-code
+    jetbrains.rider
     (
       (azure-cli.withExtensions [
         azure-cli.extensions.account
@@ -144,4 +148,12 @@
       iptables -A OUTPUT -d 169.254.169.254 -j DROP
     '';
   };
+
+  # This value determines the NixOS release from which the default
+  # settings for stateful data, like file locations and database versions
+  # on your system were taken. It‘s perfectly fine and recommended to leave
+  # this value at the release version of the first install of this system.
+  # Before changing this value read the documentation for this option
+  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+  system.stateVersion = "25.05"; # Did you read the comment?
 }

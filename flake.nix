@@ -24,6 +24,7 @@
       machines = [
         "T14s"
         "T490"
+        "X1"
       ];
       overlays = [
         (final: prev: {

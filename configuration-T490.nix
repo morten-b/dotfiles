@@ -6,15 +6,12 @@
   ...
 }:
 {
-  virtualisation.docker.enable = true;
 
-  environment.systemPackages = with pkgs; [
-    hugo
-    nodejs
-    dotnet-sdk
-    dbeaver-bin
-    dotnet-ef
-  ];
+  home-manager = {
+    users.morten = {
+      home.stateVersion = "24.05";
+    };
+  };
 
   networking.firewall = {
     enable = true;
