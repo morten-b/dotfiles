@@ -6,6 +6,10 @@
   ...
 }:
 {
+  imports = [
+    ./mattermost.nix
+  ];
+
   home-manager = {
     users.morten =
       {
@@ -34,7 +38,7 @@
         chromium-redpill-linpro-desktop = pkgs.makeDesktopItem {
           name = "chromium-redpill-linpro";
           desktopName = "Chromium (Redpill-Linpro)";
-          exec = "chromium --profile-directory=Redpill-Linpro %U";
+          exec = "chromium --disable-features=GlobalShortcutsPortal --profile-directory=Redpill-Linpro %U";
           type = "Application";
           icon = ./redpill-linpro-favicon.png;
           categories = [
@@ -46,7 +50,7 @@
         chromium-ascendis-desktop = pkgs.makeDesktopItem {
           name = "chromium-ascendis";
           desktopName = "Chromium (Ascendis)";
-          exec = "chromium --profile-directory=Ascendis %U";
+          exec = "chromium --disable-features=GlobalShortcutsPortal --profile-directory=Ascendis %U";
           type = "Application";
           icon = ./ascendis-favicon.png;
           categories = [
@@ -95,9 +99,6 @@
           ".config/autostart/teams-ascendis.desktop".text = teams-ascendis-desktop.text;
 
           ".config/autostart/teams-redpill-linpro.desktop".text = teams-redpill-linpro-desktop.text;
-
-          ".config/autostart/mattermost.desktop".text =
-            builtins.readFile "${pkgs.mattermost-desktop}/share/applications/Mattermost.desktop";
         };
         home.stateVersion = "25.05";
       };
@@ -111,7 +112,6 @@
     jq
     azurite
     drawio
-    mattermost-desktop
     filezilla
     teams-for-linux
     claude-code
