@@ -6,10 +6,6 @@
   ...
 }:
 {
-  imports = [
-    ./mattermost.nix
-  ];
-
   home-manager = {
     users.morten =
       {
