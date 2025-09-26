@@ -303,6 +303,7 @@
   ];
 
   services.dbus.enable = true;
+  services.fwupd.enable = true;
 
   services.avahi = {
     enable = true;
