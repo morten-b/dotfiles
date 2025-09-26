@@ -101,17 +101,17 @@
   };
 
   environment.systemPackages = with pkgs; [
-    hugo
-    nodejs
+    azurite
+    claude-code
     dbeaver-bin
     dotnet-ef
-    jq
-    azurite
     drawio
     filezilla
-    teams-for-linux
-    claude-code
+    hugo
     jetbrains.rider
+    jq
+    nodejs
+    teams-for-linux
     (
       (azure-cli.withExtensions [
         azure-cli.extensions.account
