@@ -22,7 +22,6 @@
         inherit system;
       };
       machines = [
-        "T14s"
         "T490"
         "X1"
       ];
