@@ -105,7 +105,6 @@
     azurite
     bind
     bitwarden-desktop
-    chromium
     claude-code
     dbeaver-bin
     docker-compose
@@ -151,7 +150,7 @@
   virtualisation.docker.enable = true;
   virtualisation.docker.liveRestore = false;
 
-    programs.nix-ld.enable = true;
+  programs.nix-ld.enable = true;
   programs.nix-ld.package = pkgs.nix-ld-rs;
 
   # systemctl start wg-quick-wg0.service

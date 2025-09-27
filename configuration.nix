@@ -261,6 +261,7 @@
     home-manager
     nixfmt-rfc-style
     wireplumber
+    chromium
   ];
 
   environment.gnome.excludePackages = with pkgs; [
