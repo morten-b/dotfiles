@@ -135,6 +135,12 @@
     '';
   };
 
+  programs.chromium = {
+    extraOpts = {
+      "ProfilePickerOnStartupAvailability" = 2;
+    };
+  };
+
   # Drop request to http://169.254.169.254/metadata/identity/oauth2/token
   # See https://github.com/Azure/azure-sdk-for-net/issues/39532
   networking.firewall = {

@@ -14,7 +14,6 @@
       "LiveTranslateEnabled" = false;
       "MetricsReportingEnabled" = false;
       "PasswordManagerEnabled" = false;
-      "ProfilePickerOnStartupAvailability" = 2;
       "SavingBrowserHistoryDisabled" = true;
       "SearchSuggestEnabled" = false;
       "SyncDisabled" = true;
