@@ -101,16 +101,29 @@
   };
 
   environment.systemPackages = with pkgs; [
+    annotator
     azurite
+    bind
+    bitwarden-desktop
+    chromium
     claude-code
     dbeaver-bin
+    docker-compose
     dotnet-ef
     drawio
     filezilla
+    gzip
     hugo
     jetbrains.rider
     jq
+    junction
     nodejs
+    postman
+    quickemu
+    unzip
+    wget
+    wireguard-tools
+    zip
     teams-for-linux
     (
       (azure-cli.withExtensions [
@@ -133,6 +146,49 @@
     extraFallbackPathCommands = ''
       ln -s ${pkgs.bash}/bin/bash $out/bash
     '';
+  };
+
+  virtualisation.docker.enable = true;
+  virtualisation.docker.liveRestore = false;
+
+    programs.nix-ld.enable = true;
+  programs.nix-ld.package = pkgs.nix-ld-rs;
+
+  # systemctl start wg-quick-wg0.service
+  networking.wg-quick.interfaces = {
+    rp0 = {
+      address = [
+        "100.87.0.190/32"
+        "2a02:c0:4f0:b01::be/128"
+      ];
+      dns = [
+        "87.238.33.1"
+        "2a02:c0::1"
+      ];
+      privateKeyFile = "/etc/wireguard/privatekey";
+      autostart = false;
+      peers = [
+        {
+          publicKey = "cJTr1DOHpz2L8y9zTkgpYyEaV6zDSrLhEBpY5q3tYQw=";
+          presharedKey = "yzCceXj1cFTHfd0g0WTrt1McrmDErPWCTmeUHFbXV8o=";
+          allowedIPs = [
+            "0.0.0.0/0"
+            "::/0"
+          ];
+          endpoint = "vpn.redpill-linpro.com:51820";
+          persistentKeepalive = 25;
+        }
+      ];
+    };
+  };
+
+  # Should be available in NixOS 25.11
+  # services.gnome.gcr-ssh-agent.enable = false;
+  # programs.ssh.startAgent = false;
+
+  environment.sessionVariables = {
+    DOTNET_SYSTEM_GLOBALIZATION_INVARIANT = "1";
+    SSH_AUTH_SOCK = "/home/morten/.bitwarden-ssh-agent.sock";
   };
 
   programs.chromium = {
