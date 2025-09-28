@@ -197,6 +197,8 @@
           };
           "org/gnome/desktop/peripherals/keyboard" = {
             numlock-state = true;
+            delay = uint32 500;
+            repeat = true;
           };
           "org/gnome/nautilus/preferences" = {
             default-folder-viewer = "list-view";
