@@ -197,7 +197,7 @@
           };
           "org/gnome/desktop/peripherals/keyboard" = {
             numlock-state = true;
-            delay = uint32 500;
+            delay = 500;
             repeat = true;
           };
           "org/gnome/nautilus/preferences" = {
