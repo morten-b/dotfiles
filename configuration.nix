@@ -57,7 +57,7 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    wireplumber.extraConfig."97-disable-devices" = {
+/*     wireplumber.extraConfig."97-disable-devices" = {
       "monitor.alsa.rules" = [
         # Disable internal microphones
         {
@@ -138,7 +138,7 @@
           };
         }
       ];
-    };
+    }; */
   };
 
   programs.fish.enable = true;
