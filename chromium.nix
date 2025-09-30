@@ -19,6 +19,9 @@
       "SyncDisabled" = true;
       "TranslateEnabled" = false;
       "URLBlocklist" = [ "reddit.com" ];
+      "BlockThirdPartyCookies" = false;
+      "HomepageLocation" = "about:blank";
+      "NewTabPageLocation" = "about:blank";
     };
     extensions = [
       "ddkjiahejlhfcafbddmgiahcphecmpfh" # uBlock Origin Lite
