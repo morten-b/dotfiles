@@ -16,12 +16,13 @@
         "editor.largeFileOptimizations" = false;
         "git.autofetch" = true;
         "git.confirmSync" = false;
-        "github.copilot.nextEditSuggestions.enabled" = true;
         "nix.formatterPath" = "nixfmt";
         "prettier.printWidth" = 120;
         "security.workspace.trust.untrustedFiles" = "open";
         "workbench.colorTheme" = "Adwaita Dark & default syntax highlighting & colorful status bar";
         "workbench.startupEditor" = "none";
+        "workbench.remoteIndicator.showExtensionRecommendations" = false;
+        "chat.agent.enabled" = false;
         "[nix]" = {
           "editor.defaultFormatter" = "jnoortheen.nix-ide";
         };
