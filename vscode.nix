@@ -11,6 +11,8 @@
       enableUpdateCheck = false;
       enableExtensionUpdateCheck = false;
       userSettings = {
+        "chat.agent.enabled" = false;
+        "chat.disableAIFeatures" = true;
         "dotnetAcquisitionExtension.sharedExistingDotnetPath" = "/run/current-system/sw/bin/dotnet";
         "editor.defaultFormatter" = "esbenp.prettier-vscode";
         "editor.largeFileOptimizations" = false;
@@ -20,9 +22,8 @@
         "prettier.printWidth" = 120;
         "security.workspace.trust.untrustedFiles" = "open";
         "workbench.colorTheme" = "Adwaita Dark & default syntax highlighting & colorful status bar";
-        "workbench.startupEditor" = "none";
         "workbench.remoteIndicator.showExtensionRecommendations" = false;
-        "chat.agent.enabled" = false;
+        "workbench.startupEditor" = "none";
         "[nix]" = {
           "editor.defaultFormatter" = "jnoortheen.nix-ide";
         };
