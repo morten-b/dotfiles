@@ -16,6 +16,7 @@
         "dotnetAcquisitionExtension.sharedExistingDotnetPath" = "/run/current-system/sw/bin/dotnet";
         "editor.defaultFormatter" = "esbenp.prettier-vscode";
         "editor.largeFileOptimizations" = false;
+        "extensions.ignoreRecommendations" = true;
         "git.autofetch" = true;
         "git.confirmSync" = false;
         "nix.formatterPath" = "nixfmt";
