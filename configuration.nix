@@ -184,6 +184,7 @@
             enable-hot-corners = false;
           };
           "org/gnome/shell" = {
+            last-selected-power-profile = "performance";
             disable-user-extensions = false;
             enabled-extensions = [
               pkgs.gnomeExtensions.appindicator.extensionUuid
@@ -225,6 +226,9 @@
           "org/gnome/desktop/session" = {
             idle-delay = lib.gvariant.mkUint32 0;
           };
+          "re/sonny/Junction" = {
+            show-app-names = true
+          }
         };
       };
 
