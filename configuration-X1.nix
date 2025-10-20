@@ -155,13 +155,6 @@
     (callPackage ./azure-functions-cli-bin.nix { })
   ];
 
-/*   services.udev.extraRules = ''
-    # Disable scan code e3 for the built-in keyboard
-    ACTION=="add|change", SUBSYSTEM=="input", KERNEL=="event0", \
-      ATTRS{name}=="AT Translated Set 2 keyboard", \
-      RUN+="${pkgs.bash}/bin/bash -c 'echo 0xe3 > /sys/class/input/event0/device/serio0/force_release'"
-  ''; */
-
   services.envfs = {
     enable = true;
     extraFallbackPathCommands = ''
