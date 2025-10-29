@@ -85,7 +85,10 @@
                 "electronCLIFlags": [
                   ["ozone-platform-hint","wayland"],
                   ["enable-features","WaylandWindowDecorations"]
-                ]
+                ],
+                "cacheManagement": {
+                  "enabled": false
+                }
             }
           '';
 
@@ -99,7 +102,10 @@
                 "electronCLIFlags": [
                   ["ozone-platform-hint","wayland"],
                   ["enable-features","WaylandWindowDecorations"]
-                ]
+                ],
+                "cacheManagement": {
+                  "enabled": false
+                }
             }
           '';
 
@@ -134,6 +140,7 @@
     nodejs
     postman
     quickemu
+    sshfs
     unzip
     wget
     wireguard-tools

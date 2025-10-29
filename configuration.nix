@@ -227,8 +227,8 @@
             idle-delay = lib.gvariant.mkUint32 0;
           };
           "re/sonny/Junction" = {
-            show-app-names = true
-          }
+            show-app-names = true;
+          };
         };
       };
 
