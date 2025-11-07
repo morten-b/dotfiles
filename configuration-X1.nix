@@ -139,6 +139,7 @@
     jq
     junction
     nodejs
+    postgresql
     postman
     quickemu
     sshfs
