@@ -11,14 +11,15 @@
       enableUpdateCheck = false;
       enableExtensionUpdateCheck = false;
       userSettings = {
-        "chat.agent.enabled" = false;
-        "chat.disableAIFeatures" = true;
+        "chat.agent.enabled" = true;
+        "chat.disableAIFeatures" = false;
         "dotnetAcquisitionExtension.sharedExistingDotnetPath" = "/run/current-system/sw/bin/dotnet";
         "editor.defaultFormatter" = "esbenp.prettier-vscode";
         "editor.largeFileOptimizations" = false;
         "extensions.ignoreRecommendations" = true;
         "git.autofetch" = true;
         "git.confirmSync" = false;
+        "github.copilot.nextEditSuggestions.enabled" = true;
         "nix.formatterPath" = "nixfmt";
         "prettier.printWidth" = 120;
         "security.workspace.trust.untrustedFiles" = "open";
@@ -36,6 +37,7 @@
         with pkgs.vscode-extensions;
         [
           esbenp.prettier-vscode
+          github.copilot
           jnoortheen.nix-ide
           ms-azuretools.vscode-bicep
           ms-dotnettools.vscode-dotnet-runtime
@@ -60,6 +62,12 @@
             publisher = "ms-azuretools";
             version = "0.11.0";
             sha256 = "sha256-En9fGuzeLPCliaygZfAgzz4PXBIC9DdSxWUBD2NnLZ0=";
+          }
+          {
+            name = "copilot-chat";
+            publisher = "github";
+            version = "0.32.4";
+            sha256 = "sha256-ltYgZaI8XrQXjcE44DoGVqniN7Aj0hKsLC5TUiaiYpM=";
           }
         ];
     };

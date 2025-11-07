@@ -127,6 +127,7 @@
     bind
     bitwarden-desktop
     claude-code
+    copilot-cli
     dbeaver-bin
     docker-compose
     dotnet-ef
