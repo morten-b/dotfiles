@@ -6,6 +6,10 @@
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -14,6 +18,7 @@
       nixpkgs-unstable,
       nixpkgs,
       self,
+      agenix,
       ...
     }@inputs:
     let
@@ -51,6 +56,7 @@
             ./hardware-configuration-${machine}.nix
             ./configuration-${machine}.nix
             ./configuration.nix
+            agenix.nixosModules.default
             home-manager.nixosModules.home-manager
             {
               home-manager.extraSpecialArgs = { inherit inputs; };
