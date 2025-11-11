@@ -119,13 +119,16 @@
       };
   };
 
+  imports = [
+    ./agenix.nix
+  ];
+
   services.fprintd.enable = true;
 
   environment.systemPackages = with pkgs; [
     annotator
     azurite
     bind
-    bitwarden-desktop
     claude-code
     dbeaver-bin
     docker-compose
@@ -146,7 +149,7 @@
     wget
     wireguard-tools
     zip
-    teams-for-linux
+    unstable.teams-for-linux
     (
       (azure-cli.withExtensions [
         azure-cli.extensions.account
@@ -204,13 +207,8 @@
     };
   };
 
-  # Should be available in NixOS 25.11
-  # services.gnome.gcr-ssh-agent.enable = false;
-  # programs.ssh.startAgent = false;
-
   environment.sessionVariables = {
     DOTNET_SYSTEM_GLOBALIZATION_INVARIANT = "1";
-    SSH_AUTH_SOCK = "/home/morten/.bitwarden-ssh-agent.sock";
   };
 
   programs.chromium = {
