@@ -9,4 +9,10 @@
     owner = "morten";
     group = "users";
   };
+
+  age.secrets.wg-private-key = {
+    file = ./secrets/wg-private-key.age;
+    owner = "morten";
+    group = "users";
+  };
 }

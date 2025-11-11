@@ -190,7 +190,7 @@
         "87.238.33.1"
         "2a02:c0::1"
       ];
-      privateKeyFile = "/etc/wireguard/privatekey";
+      privateKeyFile = "config.age.secrets.wg-private-key.path";
       autostart = false;
       peers = [
         {
