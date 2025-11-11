@@ -179,7 +179,7 @@
   programs.nix-ld.enable = true;
   programs.nix-ld.package = pkgs.nix-ld-rs;
 
-  # systemctl start wg-quick-wg0.service
+  # systemctl start wg-quick-rp0.service
   networking.wg-quick.interfaces = {
     rp0 = {
       address = [
@@ -190,7 +190,7 @@
         "87.238.33.1"
         "2a02:c0::1"
       ];
-      privateKeyFile = "config.age.secrets.wg-private-key.path";
+      privateKeyFile = config.age.secrets.wg-private-key.path;
       autostart = false;
       peers = [
         {
