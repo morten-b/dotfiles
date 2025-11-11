@@ -195,7 +195,7 @@
       peers = [
         {
           publicKey = "cJTr1DOHpz2L8y9zTkgpYyEaV6zDSrLhEBpY5q3tYQw=";
-          presharedKey = "yzCceXj1cFTHfd0g0WTrt1McrmDErPWCTmeUHFbXV8o=";
+          presharedKeyFile = config.age.secrets.wg-preshared-key.path;
           allowedIPs = [
             "0.0.0.0/0"
             "::/0"
