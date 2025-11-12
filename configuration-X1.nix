@@ -140,6 +140,7 @@
     jetbrains.rider
     jq
     junction
+    mockoon
     nodejs
     postgresql
     postman
