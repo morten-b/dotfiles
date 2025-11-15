@@ -26,6 +26,36 @@
     };
   };
 
+  services.shairport-sync = {
+    enable = true;
+    openFirewall = true;
+    settings = {
+      general = {
+        name = "NAD";
+      };
+      sessioncontrol = {
+        volume_range_db = 80;
+      };
+      audio_backend = {
+        backend = "pa";
+      };
+    };
+  };
+
+  systemd.services.shairport-sync.serviceConfig = {
+    User = pkgs.lib.mkForce "morten";
+    Group = pkgs.lib.mkForce "users";
+    Environment = [
+      "XDG_RUNTIME_DIR=/run/user/1000"
+    ];
+    RestartSec = "10s";
+  };
+
+  services.logind = {
+    lidSwitch = "ignore";
+    lidSwitchExternalPower = "ignore";
+  };
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
