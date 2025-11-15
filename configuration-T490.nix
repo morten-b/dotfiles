@@ -32,9 +32,7 @@
     settings = {
       general = {
         name = "NAD";
-      };
-      sessioncontrol = {
-        volume_range_db = 80;
+        ignore_volume_control = "yes";
       };
       audio_backend = {
         backend = "pa";
