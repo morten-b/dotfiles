@@ -131,7 +131,6 @@
     bind
     claude-code
     dbeaver-bin
-    docker-compose
     dotnet-ef
     drawio
     filezilla
@@ -173,9 +172,6 @@
       ln -s ${pkgs.bash}/bin/bash $out/bash
     '';
   };
-
-  virtualisation.docker.enable = true;
-  virtualisation.docker.liveRestore = false;
 
   programs.nix-ld.enable = true;
   programs.nix-ld.package = pkgs.nix-ld-rs;

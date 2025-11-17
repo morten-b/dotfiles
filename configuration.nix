@@ -186,7 +186,11 @@
     nixfmt-rfc-style
     wireplumber
     chromium
+    docker-compose
   ];
+
+  virtualisation.docker.enable = true;
+  virtualisation.docker.liveRestore = false;
 
   environment.gnome.excludePackages = with pkgs; [
     orca
