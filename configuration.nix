@@ -51,13 +51,6 @@
 
   security.rtkit.enable = true;
   security.polkit.enable = true;
-  services.pulseaudio.enable = false;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
 
   programs.fish.enable = true;
 

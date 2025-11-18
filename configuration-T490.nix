@@ -15,45 +15,11 @@
     ./shairport.nix
   ];
 
-  # networking.firewall = {
-  #   enable = true;
-  #   allowedTCPPorts = [
-  #     3000
-  #     3001
-  #   ];
-  # };
-
   programs.chromium = {
     extraOpts = {
       "ProfilePickerOnStartupAvailability" = 1;
     };
   };
-
-  # services.shairport-sync = {
-  #   enable = true;
-  #   openFirewall = true;
-  #   settings = {
-  #     general = {
-  #       name = "NAD";
-  #       ignore_volume_control = "yes";
-  #     };
-  #     audio_backend = {
-  #       backend = "pa";
-  #     };
-  #   };
-  # };
-
-  # systemd.services.shairport-sync.serviceConfig = {
-  #   User = pkgs.lib.mkForce "morten";
-  #   Group = pkgs.lib.mkForce "users";
-  #   Environment = [
-  #     "XDG_RUNTIME_DIR=/run/user/1000"
-  #   ];
-  #   Restart = pkgs.lib.mkForce "always";
-  #   RestartSec = "10s";
-  #   StartLimitBurst = 5;
-  #   StartLimitIntervalSec = 60;
-  # };
 
   services.logind = {
     lidSwitch = "ignore";
