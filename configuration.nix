@@ -20,8 +20,6 @@
     ];
   };
 
-  networking.hostName = "nixos";
-
   services.flatpak.enable = true;
 
   networking.networkmanager.enable = true;
@@ -74,6 +72,9 @@
       "networkmanager"
       "wheel"
       "docker"
+    ];
+    openssh.authorizedKeys.keyFiles = [
+      ./id_rsa.pub
     ];
   };
 
