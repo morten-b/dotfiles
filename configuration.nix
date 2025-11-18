@@ -181,6 +181,7 @@
     wireplumber
     chromium
     docker-compose
+    wl-clipboard
   ];
 
   virtualisation.docker.enable = true;
