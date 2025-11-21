@@ -32,6 +32,10 @@
         "[bicep]" = {
           "editor.defaultFormatter" = "ms-azuretools.vscode-bicep";
         };
+        "chat.tools.terminal.autoApprove" = {
+          "dotnet build" = true;
+          "dotnet run" = true;
+        };
       };
       extensions =
         with pkgs.vscode-extensions;
