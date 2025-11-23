@@ -6,20 +6,6 @@
 }:
 
 {
-  # user and group
-  users = {
-    users.shairport = {
-      description = "Shairport user";
-      isSystemUser = true;
-      createHome = true;
-      home = "/var/lib/shairport-sync";
-      group = "shairport";
-      extraGroups = [ "pulse-access" ];
-    };
-    groups.shairport = { };
-  };
-
-  # packages
   environment = {
     systemPackages = with pkgs; [
       alsa-utils
