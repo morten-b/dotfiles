@@ -30,12 +30,11 @@
 
   networking.networkmanager.wifi.powersave = false;
 
-  # enable pulseaudio (disable pipewire)
-  services.pipewire.enable = lib.mkForce false;
-  services.pulseaudio = {
+  services.pipewire = {
     enable = true;
-    support32Bit = true;
-    systemWide = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
   };
 
   services.avahi = {
@@ -71,10 +70,13 @@
     shairport-sync = {
       description = "NAD speakers shairport-sync instance";
       wantedBy = [ "multi-user.target" ];
-      after = [ "network.target" "avahi-daemon.service" "pulseaudio.service" ];
+      after = [ "network.target" "avahi-daemon.service" "pipewire.service" ];
       serviceConfig = {
-        User = "shairport";
-        Group = "shairport";
+        User = "morten";
+        Group = "users";
+        Environment = [
+          "XDG_RUNTIME_DIR=/run/user/1000"
+        ];
         ExecStart = "${pkgs.shairport-sync-airplay2}/bin/shairport-sync -c /etc/NAD.conf";
         Restart = "on-failure";
         RestartSec = "5s";
