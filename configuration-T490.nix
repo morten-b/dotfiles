@@ -13,7 +13,6 @@
   };
   imports = [
     ./shairport.nix
-    ./jellyfin.nix
   ];
 
   programs.chromium = {

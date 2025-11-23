@@ -139,19 +139,13 @@
     jetbrains.rider
     jq
     junction
-    libva-utils  # Provides vainfo for checking hardware acceleration
-    mockoon
     nodejs
     postgresql
     postman
-    quickemu
     sshfs
     unzip
     wget
     wireguard-tools
-    (callPackage ./handbrake-qsv.nix { })
-    libdvdcss
-    vlc
     zip
     unstable.teams-for-linux
     (
@@ -169,16 +163,6 @@
     )
     (callPackage ./azure-functions-cli-bin.nix { })
   ];
-
-    # Enable hardware acceleration
-  hardware.graphics = {
-    enable = true;
-    extraPackages = with pkgs; [
-      intel-media-driver  # For newer Intel GPUs (Broadwell+)
-      intel-vaapi-driver  # Previously vaapiIntel, for older Intel GPUs
-      vpl-gpu-rt          # Intel VPL GPU runtime (for QSV support)
-    ];
-  };
 
   services.envfs = {
     enable = true;
