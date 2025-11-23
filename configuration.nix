@@ -72,6 +72,7 @@
       "networkmanager"
       "wheel"
       "docker"
+      "video"
     ];
     openssh.authorizedKeys.keyFiles = [
       ./id_rsa.pub
