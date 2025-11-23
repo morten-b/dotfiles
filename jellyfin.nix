@@ -6,7 +6,7 @@
     openFirewall = true;
   };
 
-  users.users.jellyfin.extraGroups = [ "video" "morten" ];
+  users.users.jellyfin.extraGroups = [ "video" "users" ];
 
   hardware.opengl = {
     enable = true;
@@ -17,6 +17,8 @@
   };
 
   systemd.tmpfiles.rules = [
-    "z /home/morten/T490/Media 0750 morten morten -"
+    "d /home/morten 0751 morten users -"
+    "d /home/morten/Media 0775 morten users -"
+    "d /home/morten/Media/Movies 0775 morten users -"
   ];
 }
