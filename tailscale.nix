@@ -26,11 +26,10 @@
 
       # check if we are already authenticated to tailscale
       status="$(${tailscale}/bin/tailscale status -json | ${jq}/bin/jq -r .BackendState)"
-      if [ $status = "Running" ]; then # if so, then do nothing
+      if [ $status = "Running" ];
         exit 0
       fi
 
-      # otherwise authenticate with tailscale
       ${tailscale}/bin/tailscale up -authkey $(cat ${config.age.secrets.tailscale-auth-key.path})
     '';
   };
