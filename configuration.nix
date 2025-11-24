@@ -8,6 +8,8 @@
 {
   imports = [
     ./chromium.nix
+    ./agenix.nix
+    ./tailscale.nix
   ];
 
   boot.loader.systemd-boot.enable = true;

@@ -13,7 +13,6 @@
   };
   imports = [
     ./shairport.nix
-    ./tailscale.nix
   ];
 
   programs.chromium = {
