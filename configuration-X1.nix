@@ -212,10 +212,10 @@
     };
   };
 
+  networking.hostName = "X1";
+
   # Drop request to http://169.254.169.254/metadata/identity/oauth2/token
   # See https://github.com/Azure/azure-sdk-for-net/issues/39532
-
-  networking.hostName = "X1";
 
   networking.firewall = {
     enable = true;
