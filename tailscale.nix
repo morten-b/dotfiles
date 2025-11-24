@@ -31,7 +31,7 @@
       fi
 
       # otherwise authenticate with tailscale
-      ${tailscale}/bin/tailscale up -authkey ${config.age.secrets.tailscale-auth-key}
+      ${tailscale}/bin/tailscale up -authkey $(cat ${config.age.secrets.tailscale-auth-key.path})
     '';
   };
 
@@ -39,7 +39,6 @@
     enable = true;
     trustedInterfaces = [ "tailscale0" ];
     allowedUDPPorts = [ config.services.tailscale.port ];
-    networking.firewall.allowedTCPPorts = [ 22 ];
+    allowedTCPPorts = [ 22 ];
   };
-
 }

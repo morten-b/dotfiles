@@ -121,6 +121,7 @@
 
   imports = [
     ./agenix.nix
+    ./tailscale.nix
   ];
 
   services.fprintd.enable = true;
