@@ -26,13 +26,13 @@
     file = ./secrets/mobilepay-env-prod.age;
     owner = "morten";
     group = "users";
-    path = "/home/morten/repos/.env-prod";
+    path = "/home/morten/repos/Borum/mobilepay/.env-prod";
   };
 
   age.secrets.mobilepay-env-test = {
     file = ./secrets/mobilepay-env-test.age;
     owner = "morten";
     group = "users";
-    path = "/home/morten/repos/.env-test";
+    path = "/home/morten/repos/Borum/mobilepay/.env-test";
   };
 }
