@@ -185,6 +185,7 @@
     chromium
     docker-compose
     wl-clipboard
+    unstable.github-copilot-cli
   ];
 
   virtualisation.docker.enable = true;

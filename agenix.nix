@@ -21,4 +21,18 @@
     owner = "morten";
     group = "users";
   };
+
+  age.secrets.mobilepay-env-prod = {
+    file = ./secrets/mobilepay-env-prod.age;
+    owner = "morten";
+    group = "users";
+    path = "/home/morten/repos/.env-prod";
+  };
+
+  age.secrets.mobilepay-env-test = {
+    file = ./secrets/mobilepay-env-test.age;
+    owner = "morten";
+    group = "users";
+    path = "/home/morten/repos/.env-test";
+  };
 }
