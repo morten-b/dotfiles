@@ -4,6 +4,12 @@
 
   environment.systemPackages = [ pkgs.ragenix ];
 
+  systemd.tmpfiles.rules = [
+    "d /home/morten/repos 0755 morten users -"
+    "d /home/morten/repos/Borum 0755 morten users -"
+    "d /home/morten/repos/Borum/mobilepay 0755 morten users -"
+  ];
+
   age.secrets.wg-preshared-key = {
     file = ./secrets/wg-preshared-key.age;
     owner = "morten";
