@@ -99,9 +99,11 @@
         ./vscode.nix
       ];
 
-      # dconf dump / > old-conf.txt
-      # dconf dump / > new-conf.txt
-      # Use the above commands to capture GNOME settings changes
+      # GNOME desktop settings managed via dconf
+      # Tip: Use these commands to capture GNOME settings changes:
+      #   dconf dump / > old-conf.txt
+      #   dconf dump / > new-conf.txt
+      #   diff old-conf.txt new-conf.txt
       dconf = {
         enable = true;
         settings = {
@@ -168,6 +170,8 @@
           set fish_color_autosuggestion A0A0A0
         '';
         functions = {
+          # Custom fish function for WireGuard VPN management
+          # Usage: wg start|stop|status
           wg = ''
             systemctl $argv wg-quick-rp0.service
           '';

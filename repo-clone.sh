@@ -4,20 +4,27 @@
 # This script clones all repositories from an Azure DevOps organization
 # 
 # Usage:
-#   1. Set the ORG variable to your Azure DevOps organization name
-#   2. Set the PAT variable to your Personal Access Token
-#   3. Run: ./repo-clone.sh
+#   1. Set environment variables (recommended):
+#      export AZURE_DEVOPS_ORG="your-org"
+#      export AZURE_DEVOPS_PAT="your-token"
+#      ./repo-clone.sh
+#
+#   2. OR set variables in the script (NOT recommended for security):
+#      Edit ORG and PAT variables below
+#
+# Security Note: 
+#   - NEVER commit PAT tokens to git
+#   - Use environment variables or secure credential stores
+#   - Consider using Azure CLI with `az repos list` instead
 #
 # Requirements:
 #   - curl
 #   - jq
 #   - git
-#
-# Note: This is a template script. Configure ORG and PAT before use.
 
 set -euo pipefail
 
-# Configuration - Set these before running
+# Configuration - Prefer environment variables over hardcoded values
 ORG="${AZURE_DEVOPS_ORG:-}"
 PAT="${AZURE_DEVOPS_PAT:-}"
 

@@ -18,7 +18,7 @@
 - Avoid running untrusted code with this SDK
 - Keep other system packages up to date
 
-**Configuration Location**: `flake.nix` line 60-62
+**Configuration Location**: `flake.nix` - search for `permittedInsecurePackages`
 
 ```nix
 nixpkgs.config.permittedInsecurePackages = [
@@ -35,7 +35,7 @@ nixpkgs.config.permittedInsecurePackages = [
 
 ### Azure IMDS Endpoint Block (X1)
 
-**Configuration**: `configuration-X1.nix` lines 223-226
+**Configuration**: `configuration-X1.nix` - search for "Drop request to http://169.254.169.254"
 
 Drops requests to `169.254.169.254` to prevent Azure SDK from attempting to access Instance Metadata Service locally.
 

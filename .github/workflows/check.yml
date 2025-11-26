@@ -26,10 +26,10 @@ jobs:
         run: |
           # Format files to a temporary directory to check
           nix fmt
-          if ! git diff --quiet '*.nix'; then
+          if ! git diff --quiet -- '*.nix'; then
             echo "❌ Nix files are not formatted correctly"
             echo "Run 'nix fmt' or 'just format' locally to fix formatting"
-            git diff '*.nix'
+            git diff -- '*.nix'
             exit 1
           else
             echo "✅ All Nix files are properly formatted"
