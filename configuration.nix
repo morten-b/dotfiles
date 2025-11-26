@@ -6,15 +6,18 @@
   ...
 }:
 {
+  # Import shared configuration modules
   imports = [
     ./chromium.nix
     ./agenix.nix
     ./tailscale.nix
   ];
 
+  # Boot configuration
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # Enable Nix flakes and new command-line interface
   nix.settings = {
     experimental-features = [
       "nix-command"
@@ -22,10 +25,13 @@
     ];
   };
 
+  # Enable Flatpak for additional application support
   services.flatpak.enable = true;
 
+  # Networking
   networking.networkmanager.enable = true;
 
+  # Localization
   time.timeZone = "Europe/Copenhagen";
 
   i18n.defaultLocale = "en_DK.UTF-8";
@@ -49,9 +55,11 @@
 
   console.keyMap = "dk-latin1";
 
+  # Security and system services
   security.rtkit.enable = true;
   security.polkit.enable = true;
 
+  # Shell configuration
   programs.fish.enable = true;
 
   # Setting up the fish shell as the default shell https://nixos.wiki/wiki/Fish
@@ -67,6 +75,7 @@
 
   services.udev.packages = [ pkgs.gnome-settings-daemon ];
 
+  # User configuration
   users.users.morten = {
     isNormalUser = true;
     description = "morten";
@@ -81,6 +90,7 @@
     ];
   };
 
+  # Home Manager configuration for user-level packages and settings
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
@@ -91,6 +101,7 @@
 
       # dconf dump / > old-conf.txt
       # dconf dump / > new-conf.txt
+      # Use the above commands to capture GNOME settings changes
       dconf = {
         enable = true;
         settings = {
@@ -177,6 +188,7 @@
     };
   };
 
+  # System-wide packages
   environment.systemPackages = with pkgs; [
     gnomeExtensions.appindicator
     home-manager
@@ -188,9 +200,11 @@
     unstable.github-copilot-cli
   ];
 
+  # Docker configuration
   virtualisation.docker.enable = true;
   virtualisation.docker.liveRestore = false;
 
+  # Exclude unwanted GNOME packages to reduce system bloat
   environment.gnome.excludePackages = with pkgs; [
     orca
     baobab
@@ -215,15 +229,18 @@
     geary
   ];
 
+  # System services
   services.dbus.enable = true;
   services.fwupd.enable = true;
 
+  # Avahi for mDNS/DNS-SD (network device discovery)
   services.avahi = {
     enable = true;
     nssmdns4 = true;
     openFirewall = true;
   };
 
+  # X11 and desktop environment
   services.xserver.enable = true;
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;

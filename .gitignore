@@ -1,1 +1,17 @@
+# IDE
 .idea/
+.vscode/
+
+# Nix build artifacts
+result
+result-*
+
+# direnv
+.direnv/
+.envrc
+
+# Temporary files
+*.swp
+*.swo
+*~
+.DS_Store

@@ -1,0 +1,30 @@
+name: NixOS Configuration Check
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@main
+
+      - name: Setup Nix cache
+        uses: DeterminateSystems/magic-nix-cache-action@main
+
+      - name: Check flake
+        run: nix flake check
+
+      - name: Check formatting
+        run: |
+          nix develop --command nixfmt --check *.nix || {
+            echo "Files are not formatted. Run 'nixfmt *.nix' to fix."
+            exit 1
+          }
