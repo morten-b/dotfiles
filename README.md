@@ -2,6 +2,14 @@
 
 Personal NixOS configuration managed with flakes and home-manager.
 
+## 📚 Documentation
+
+- **[Quick Reference](QUICKREF.md)** - Common commands and quick tips
+- **[Architecture](ARCHITECTURE.md)** - System architecture and design
+- **[Contributing Guide](CONTRIBUTING.md)** - How to maintain and extend
+- **[Security Notes](SECURITY.md)** - Security considerations and practices
+- **[Changelog](CHANGELOG.md)** - Track changes and updates
+
 ## 📋 Overview
 
 This repository contains declarative NixOS configurations for multiple machines:

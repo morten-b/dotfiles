@@ -22,9 +22,15 @@ jobs:
       - name: Check flake
         run: nix flake check
 
-      - name: Check formatting
+      - name: Verify Nix formatting
         run: |
-          nix develop --command nixfmt --check *.nix || {
-            echo "Files are not formatted. Run 'nixfmt *.nix' to fix."
+          # Format files to a temporary directory to check
+          nix fmt
+          if ! git diff --quiet '*.nix'; then
+            echo "❌ Nix files are not formatted correctly"
+            echo "Run 'nix fmt' or 'just format' locally to fix formatting"
+            git diff '*.nix'
             exit 1
-          }
+          else
+            echo "✅ All Nix files are properly formatted"
+          fi
