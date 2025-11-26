@@ -1,0 +1,20 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Nix files should always use LF
+*.nix text eol=lf
+
+# Shell scripts should use LF
+*.sh text eol=lf
+
+# Images are binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.ico binary
+
+# Encrypted files (agenix)
+*.age binary
+
+# SSH keys
+*.pub text eol=lf

@@ -67,5 +67,24 @@
     in
     {
       nixosConfigurations = builtins.listToAttrs (map mkConfig machines);
+
+      # Formatter for 'nix fmt'
+      formatter.${system} = pkgs.nixfmt-rfc-style;
+
+      # Checks for 'nix flake check'
+      checks.${system} = {
+        # Check that all configurations build
+        X1 = self.nixosConfigurations.X1.config.system.build.toplevel;
+        T490 = self.nixosConfigurations.T490.config.system.build.toplevel;
+      };
+
+      # Development shell
+      devShells.${system}.default = pkgs.mkShell {
+        buildInputs = with pkgs; [
+          nixfmt-rfc-style
+          ragenix
+          just
+        ];
+      };
     };
 }

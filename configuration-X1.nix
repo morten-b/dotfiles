@@ -6,6 +6,7 @@
   ...
 }:
 {
+  # Home Manager configuration with custom desktop entries
   home-manager = {
     users.morten =
       {
@@ -68,6 +69,7 @@
         };
       in
       {
+        # Install custom desktop launchers for multiple work profiles
         home.packages = [
           teams-ascendis-desktop
           teams-redpill-linpro-desktop
@@ -76,6 +78,7 @@
           chromium-ascendis-desktop
         ];
 
+        # Configuration files for Teams profiles and autostart
         home.file = {
           ".config/teams-for-linux/Redpill-Linpro/config.json".text = ''
             {
@@ -119,13 +122,16 @@
       };
   };
 
+  # Import additional modules
   imports = [
     ./agenix.nix
     ./tailscale.nix
   ];
 
+  # Fingerprint reader support
   services.fprintd.enable = true;
 
+  # Development and work packages
   environment.systemPackages = with pkgs; [
     annotator
     azurite
@@ -165,6 +171,7 @@
     (callPackage ./azure-functions-cli-bin.nix { })
   ];
 
+  # Enable /usr/bin/bash symlink for shell scripts expecting standard path
   services.envfs = {
     enable = true;
     extraFallbackPathCommands = ''
@@ -172,10 +179,12 @@
     '';
   };
 
+  # Dynamic linker for unpatched binaries (e.g., VS Code remote)
   programs.nix-ld.enable = true;
   programs.nix-ld.package = pkgs.nix-ld-rs;
 
-  # systemctl start wg-quick-rp0.service
+  # WireGuard VPN for Redpill-Linpro
+  # Usage: systemctl start wg-quick-rp0.service
   networking.wg-quick.interfaces = {
     rp0 = {
       address = [
@@ -203,10 +212,12 @@
     };
   };
 
+  # .NET globalization settings for compatibility
   environment.sessionVariables = {
     DOTNET_SYSTEM_GLOBALIZATION_INVARIANT = "1";
   };
 
+  # Force Chromium to start without profile picker
   programs.chromium = {
     extraOpts = {
       "ProfilePickerOnStartupAvailability" = 2;
