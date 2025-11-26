@@ -89,8 +89,10 @@ ragenix -r
 
 | Date | Change | Reason |
 |------|--------|--------|
-| 2024 | Added dotnet-sdk-6.0.428 exception | Required for legacy projects |
-| 2024 | Added Azure IMDS block | Prevent SDK metadata requests |
+| (To be updated) | Added dotnet-sdk-6.0.428 exception | Required for legacy projects |
+| (To be updated) | Added Azure IMDS block | Prevent SDK metadata requests |
+
+*Note: Update dates when changes are made in YYYY-MM-DD format*
 
 ## Reporting Security Issues
 

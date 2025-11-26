@@ -49,11 +49,16 @@ done
 
 echo "Fetching repositories from Azure DevOps organization: $ORG"
 
-# Fetch repositories
-REPOS=$(curl -s -u ":$PAT" "https://dev.azure.com/$ORG/_apis/git/repositories?api-version=7.1-preview.1" | jq -r '.value[].sshUrl')
+# Fetch repositories with error handling
+REPOS=$(curl -s -u ":$PAT" "https://dev.azure.com/$ORG/_apis/git/repositories?api-version=7.1-preview.1" 2>&1 | jq -r '.value[].sshUrl' 2>&1)
 
-if [[ -z "$REPOS" ]]; then
-  echo "Error: No repositories found or authentication failed"
+if [ $? -ne 0 ] || [[ -z "$REPOS" ]]; then
+  echo "Error: Failed to fetch repositories from Azure DevOps"
+  echo "This could be due to:"
+  echo "  - Network connectivity issues"
+  echo "  - Invalid organization name"
+  echo "  - Invalid or expired PAT"
+  echo "  - Insufficient permissions"
   exit 1
 fi
 
