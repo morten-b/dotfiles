@@ -148,7 +148,7 @@
     wget
     wireguard-tools
     zip
-    unstable.teams-for-linux
+    teams-for-linux
     (
       (azure-cli.withExtensions [
         azure-cli.extensions.account
@@ -173,7 +173,6 @@
   };
 
   programs.nix-ld.enable = true;
-  programs.nix-ld.package = pkgs.nix-ld-rs;
 
   # systemctl start wg-quick-rp0.service
   networking.wg-quick.interfaces = {

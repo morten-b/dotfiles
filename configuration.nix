@@ -166,9 +166,11 @@
       programs.git = {
         enable = true;
         package = pkgs.gitFull;
-        userName = "Morten Skov Bendtsen";
-        userEmail = "mosb@ascendispharma.com";
-        extraConfig = {
+        settings = {
+          user = {
+            name = "Morten Skov Bendtsen";
+            email = "mosb@ascendispharma.com";
+          };
           fetch = {
             prune = true;
           };
@@ -185,7 +187,7 @@
     chromium
     docker-compose
     wl-clipboard
-    unstable.github-copilot-cli
+    github-copilot-cli
   ];
 
   virtualisation.docker.enable = true;
@@ -225,6 +227,6 @@
   };
 
   services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  services.displayManager.gdm.enable = true;
+  services.desktopManager.gnome.enable = true;
 }
