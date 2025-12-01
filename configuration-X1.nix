@@ -111,9 +111,9 @@
 
           ".config/teams-for-linux/Ascendis/favicon.png".source = ./ascendis-favicon.png;
 
-          ".config/autostart/teams-ascendis.desktop".text = teams-ascendis-desktop.text;
+          #".config/autostart/teams-ascendis.desktop".text = teams-ascendis-desktop.text;
 
-          ".config/autostart/teams-redpill-linpro.desktop".text = teams-redpill-linpro-desktop.text;
+          #".config/autostart/teams-redpill-linpro.desktop".text = teams-redpill-linpro-desktop.text;
         };
         home.stateVersion = "25.05";
       };
