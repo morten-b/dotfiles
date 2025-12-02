@@ -123,7 +123,6 @@
     ./agenix.nix
     ./tailscale.nix
     ./handbrake.nix
-    ./jellyfin.nix
   ];
 
   services.fprintd.enable = true;
