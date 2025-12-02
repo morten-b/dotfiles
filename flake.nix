@@ -37,7 +37,6 @@
             config.allowUnfree = true;
           };
         })
-        (import ./handbrake-overlay.nix)
       ];
       mkConfig = machine: {
         name = machine;
