@@ -8,17 +8,16 @@
 
   users.users.jellyfin.extraGroups = [ "video" "users" ];
 
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
       intel-media-driver
-      vaapiVdpau
+      libva-vdpau-driver
     ];
   };
 
   systemd.tmpfiles.rules = [
     "d /home/morten 0751 morten users -"
-    "d /home/morten/Media 0775 morten users -"
-    "d /home/morten/Media/Movies 0775 morten users -"
+    "d /home/morten/Videos 0775 morten users -"
   ];
 }
