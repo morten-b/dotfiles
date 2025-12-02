@@ -122,21 +122,16 @@
   imports = [
     ./agenix.nix
     ./tailscale.nix
-    ./dvd.nix
+    ./handbrake.nix
     ./jellyfin.nix
   ];
 
   services.fprintd.enable = true;
 
-  nixpkgs.overlays = [
-    (import ./handbrake-overlay.nix)
-  ];
-
   environment.systemPackages = with pkgs; [
     annotator
     azurite
     bind
-    claude-code
     dbeaver-bin
     dotnet-ef
     drawio
