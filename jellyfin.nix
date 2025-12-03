@@ -6,6 +6,10 @@
     openFirewall = true;
   };
 
+  environment.systemPackages = with pkgs; [
+    libva-utils
+  ];
+
   users.users.jellyfin.extraGroups = [ "video" "users" ];
 
   hardware.graphics = {
