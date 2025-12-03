@@ -8,6 +8,7 @@
 
   environment.systemPackages = with pkgs; [
     libva-utils
+    jellyfin-ffmpeg
   ];
 
   users.users.jellyfin.extraGroups = [ "video" "users" ];
