@@ -6,6 +6,11 @@
     openFirewall = true;
   };
 
+  # Use jellyfin-ffmpeg which has hardware acceleration support
+  environment.systemPackages = with pkgs; [
+    jellyfin-ffmpeg
+  ];
+
   users.users.jellyfin.extraGroups = [ "video" "render" "users" ];
 
   hardware.graphics = {
