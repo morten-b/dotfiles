@@ -6,26 +6,14 @@
     openFirewall = true;
   };
 
-  # Use jellyfin-ffmpeg which has hardware acceleration support
-  environment.systemPackages = with pkgs; [
-    jellyfin-ffmpeg
-  ];
-
-  users.users.jellyfin.extraGroups = [ "video" "render" "users" ];
+  users.users.jellyfin.extraGroups = [ "video" "users" ];
 
   hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
       intel-media-driver
-      intel-vaapi-driver # Legacy driver for better HEVC support on 8th gen
-      vpl-gpu-rt
-      libva
+      libva-vdpau-driver
     ];
-  };
-
-  # Ensure VAAPI uses the right driver
-  environment.sessionVariables = {
-    LIBVA_DRIVER_NAME = "iHD";
   };
 
   systemd.tmpfiles.rules = [
