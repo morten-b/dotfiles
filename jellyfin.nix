@@ -6,13 +6,13 @@
     openFirewall = true;
   };
 
-  users.users.jellyfin.extraGroups = [ "video" "users" ];
+  users.users.jellyfin.extraGroups = [ "video" "render" "users" ];
 
   hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
       intel-media-driver
-      libva-vdpau-driver
+      vpl-gpu-rt
     ];
   };
 
