@@ -17,8 +17,15 @@
     enable = true;
     extraPackages = with pkgs; [
       intel-media-driver
+      intel-vaapi-driver # Legacy driver for better HEVC support on 8th gen
       vpl-gpu-rt
+      libva
     ];
+  };
+
+  # Ensure VAAPI uses the right driver
+  environment.sessionVariables = {
+    LIBVA_DRIVER_NAME = "iHD";
   };
 
   systemd.tmpfiles.rules = [
