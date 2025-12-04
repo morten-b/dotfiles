@@ -4,14 +4,13 @@
   services.jellyfin = {
     enable = true;
     openFirewall = true;
+    user = "morten";
   };
 
   environment.systemPackages = with pkgs; [
     libva-utils
     jellyfin-ffmpeg
   ];
-
-  users.users.jellyfin.extraGroups = [ "video" "users" ];
 
   hardware.graphics = {
     enable = true;
@@ -20,9 +19,4 @@
       libva-vdpau-driver
     ];
   };
-
-  systemd.tmpfiles.rules = [
-    "d /home/morten 0751 morten users -"
-    "d /home/morten/Videos 0775 morten users -"
-  ];
 }
