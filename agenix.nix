@@ -41,4 +41,16 @@
     group = "users";
     path = "/home/morten/repos/Borum/mobilepay/.env-test";
   };
+
+  age.secrets.jellyfin-admin = {
+    file = ./secrets/jellyfin-admin.age;
+    owner = "morten";
+    group = "users";
+  };
+
+  age.secrets.jellyfin-jellyfin = {
+    file = ./secrets/jellyfin-jellyfin.age;
+    owner = "morten";
+    group = "users";
+  };
 }

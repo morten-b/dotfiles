@@ -10,6 +10,7 @@
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    declarative-jellyfin.url = "github:Sveske-Juice/declarative-jellyfin";
   };
 
   outputs =
@@ -19,6 +20,7 @@
       nixpkgs,
       self,
       agenix,
+      declarative-jellyfin,
       ...
     }@inputs:
     let
@@ -50,6 +52,7 @@
             ./configuration-${machine}.nix
             ./configuration.nix
             agenix.nixosModules.default
+            declarative-jellyfin.nixosModules.default
             home-manager.nixosModules.home-manager
             {
               home-manager.extraSpecialArgs = { inherit inputs; };

@@ -7,4 +7,6 @@ in
   "secrets/tailscale-auth-key.age".publicKeys = [ morten ];
   "secrets/mobilepay-env-prod.age".publicKeys = [ morten ];
   "secrets/mobilepay-env-test.age".publicKeys = [ morten ];
+  "secrets/jellyfin-admin.age".publicKeys = [ morten ];
+  "secrets/jellyfin-jellyfin.age".publicKeys = [ morten ];
 }
