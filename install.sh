@@ -12,8 +12,7 @@ cd dotfiles
 echo ""
 echo "Setting up swap on /dev/sda3..."
 sudo mkdir -p /mnt/swap
-sudo mount /dev/sda3 /mnt/swap
-sudo dd if=/dev/zero of=/mnt/swap/swapfile bs=1M count=4096 status=progress
+sudo fallocate -l 4G /mnt/swap/swapfile
 sudo chmod 600 /mnt/swap/swapfile
 sudo mkswap /mnt/swap/swapfile
 sudo swapon /mnt/swap/swapfile
