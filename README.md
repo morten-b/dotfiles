@@ -14,4 +14,4 @@ sudo nix --experimental-features "nix-command flakes" run github:nix-community/d
 sudo nixos-install --flake .#T490
 
 # Fix home directory ownership (nixos-install creates it as root)
-sudo chown -R morten:users /mnt/home/morten
+sudo chown -R 1000:100 /mnt/home/morten
