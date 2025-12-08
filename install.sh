@@ -9,12 +9,8 @@ git clone --branch disko https://github.com/morten-b/dotfiles.git
 cd dotfiles
 
 # Run disko
-echo ""
-echo "Running disko (will destroy /dev/nvme0n1)..."
-read -p "Press Enter to continue or Ctrl+C to abort..."
 sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko/latest -- --mode destroy,format,mount /tmp/dotfiles/disk-config-T490-ext4.nix
 
 # Install NixOS
-echo ""
-echo "Installing NixOS..."
-sudo nixos-install --flake /tmp/dotfiles#T490
+cd /tmp/dotfiles
+sudo nixos-install --flake .#T490
