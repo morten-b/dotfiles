@@ -2,8 +2,13 @@ sudo loadkeys dk
 
 nmcli device wifi connect "<SSID>" password "<password>"
 
-sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko/latest -- --mode destroy,format,mount /tmp/disk-config.nix
+cd /tmp
 
+git clone --branch main https://github.com/morten-b/dotfiles.git
+
+sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko/latest -- --mode destroy,format,mount disk-config-T490.nix
+
+sudo nixos-install --flake .#T490
 
 sudo mkdir -p /mnt/usb
 
