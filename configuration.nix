@@ -8,9 +8,8 @@
 {
   imports = [
     ./chromium.nix
-    ./agenix.nix
     ./tailscale.nix
-  ];
+  ] ++ lib.optional (builtins.pathExists /home/morten) ./agenix.nix;
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
