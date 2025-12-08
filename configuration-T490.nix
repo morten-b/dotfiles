@@ -14,7 +14,7 @@
   imports = [
     ./shairport.nix
     ./jellyfin.nix
-    ./disk-config-T490-ext4.nix
+    ./disk-config-T490.nix
   ];
 
   programs.chromium = {

@@ -4,11 +4,11 @@
 
   environment.systemPackages = [ pkgs.ragenix ];
 
-  # systemd.tmpfiles.rules = [
-  #   "d /home/morten/repos 0755 morten users -"
-  #   "d /home/morten/repos/Borum 0755 morten users -"
-  #   "d /home/morten/repos/Borum/mobilepay 0755 morten users -"
-  # ];
+  systemd.tmpfiles.rules = [
+    "d /home/morten/repos 0755 morten users -"
+    "d /home/morten/repos/Borum 0755 morten users -"
+    "d /home/morten/repos/Borum/mobilepay 0755 morten users -"
+  ];
 
   age.secrets = {
     wg-preshared-key = {
@@ -40,18 +40,18 @@
       owner = "morten";
       group = "users";
     };
-    # mobilepay-env-prod = {
-    #   file = ./secrets/mobilepay-env-prod.age;
-    #   owner = "morten";
-    #   group = "users";
-    #   path = "/home/morten/repos/Borum/mobilepay/.env-prod";
-    # };
+    mobilepay-env-prod = {
+      file = ./secrets/mobilepay-env-prod.age;
+      owner = "morten";
+      group = "users";
+      path = "/home/morten/repos/Borum/mobilepay/.env-prod";
+    };
 
-    # mobilepay-env-test = {
-    #   file = ./secrets/mobilepay-env-test.age;
-    #   owner = "morten";
-    #   group = "users";
-    #   path = "/home/morten/repos/Borum/mobilepay/.env-test";
-    # };
+    mobilepay-env-test = {
+      file = ./secrets/mobilepay-env-test.age;
+      owner = "morten";
+      group = "users";
+      path = "/home/morten/repos/Borum/mobilepay/.env-test";
+    };
   };
 }
