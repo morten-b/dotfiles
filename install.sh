@@ -9,17 +9,14 @@ git clone --branch disko https://github.com/morten-b/dotfiles.git
 cd dotfiles
 
 # Create swap on /dev/sda3
-echo ""
-echo "Setting up swap on /dev/sda3..."
-sudo mkswap /dev/sda3
-sudo swapon /dev/sda3
-echo "Swap enabled on /dev/sda3"
+# echo ""
+# echo "Setting up swap on /dev/sda3..."
+# sudo mkswap /dev/sda3
+# sudo swapon /dev/sda3
+# echo "Swap enabled on /dev/sda3"
 
 # Run disko
-echo ""
-echo "WARNING: This will destroy all data on /dev/nvme0n1"
-read -p "Press Enter to continue or Ctrl+C to abort..."
-sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko/latest -- --mode destroy,format,mount disk-config-T490-ext4.nix
+sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko/latest -- --mode destroy,format,mount disk-config-T490-ext4.nix --yes-wipe-all-disks
 
 # Install NixOS
 cd /tmp/dotfiles
