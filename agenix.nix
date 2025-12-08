@@ -40,13 +40,18 @@
       owner = "morten";
       group = "users";
     };
+    blog-env = {
+      file = ./secrets/hjemmeside-env.age;
+      owner = "morten";
+      group = "users";
+      path = "/home/morten/repos/Borum/hjemmeside/.env";
+    };
     mobilepay-env-prod = {
       file = ./secrets/mobilepay-env-prod.age;
       owner = "morten";
       group = "users";
       path = "/home/morten/repos/Borum/mobilepay/.env-prod";
     };
-
     mobilepay-env-test = {
       file = ./secrets/mobilepay-env-test.age;
       owner = "morten";
