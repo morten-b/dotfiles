@@ -8,7 +8,7 @@ sudo rm -rf dotfiles
 git clone --branch disko https://github.com/morten-b/dotfiles.git
 cd dotfiles
 
-Create swap on /dev/sda3
+# Create swap on /dev/sda3
 echo ""
 echo "Setting up swap on /dev/sda3..."
 sudo mkswap /dev/sda3
