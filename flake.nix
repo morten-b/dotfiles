@@ -10,6 +10,10 @@
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     declarative-jellyfin.url = "github:Sveske-Juice/declarative-jellyfin";
   };
 
@@ -20,6 +24,7 @@
       nixpkgs,
       self,
       agenix,
+      disko,
       declarative-jellyfin,
       ...
     }@inputs:
@@ -64,6 +69,7 @@
                 "dotnet-sdk-6.0.428"
               ];
             }
+            disko.nixosModules.default
           ];
         };
       };
