@@ -79,7 +79,7 @@
     openssh.authorizedKeys.keyFiles = [
       ./id_rsa.pub
     ];
-    initialHashedPassword = "$6$xBKuKRcHgrj/aZKl$8STVIQ7yeWq02EY6/2gj8MQo5RCVCo5b0Hqyz7casIbkQDJgopQi0KHym4F89UHAr3gXQBoEFMzxDRQbloJwB/";
+    hashedPassword = "$6$l8Vro8szCC2QbITS$NESZwYTSVk6IjLCitgpESKOuNjzSOd5dG.3oWP4OzmFJpWVtd6ARoAPU9Bbr2EbCZkjPNcXxaZHXsjo8swqSq.";
   };
 
   home-manager = {
