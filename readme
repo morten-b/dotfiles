@@ -13,3 +13,5 @@ sudo nixos-install --flake .#T490
 sudo mkdir -p /mnt/usb
 
 sudo mount /dev/sdb1 /mnt/usb
+
+curl -sSL https://raw.githubusercontent.com/morten-b/dotfiles/disko/install.sh | sudo bash
