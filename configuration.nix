@@ -8,8 +8,8 @@
 {
   imports = [
     ./chromium.nix
-    ./agenix.nix
     ./tailscale.nix
+    ./agenix.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -79,6 +79,7 @@
     openssh.authorizedKeys.keyFiles = [
       ./id_rsa.pub
     ];
+    hashedPassword = "$6$l8Vro8szCC2QbITS$NESZwYTSVk6IjLCitgpESKOuNjzSOd5dG.3oWP4OzmFJpWVtd6ARoAPU9Bbr2EbCZkjPNcXxaZHXsjo8swqSq.";
   };
 
   home-manager = {
