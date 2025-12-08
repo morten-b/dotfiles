@@ -70,6 +70,8 @@
   users.users.morten = {
     isNormalUser = true;
     description = "morten";
+    createHome = true;
+    home = "/home/morten";
     extraGroups = [
       "networkmanager"
       "wheel"
