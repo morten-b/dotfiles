@@ -8,12 +8,12 @@ sudo rm -rf dotfiles
 git clone --branch disko https://github.com/morten-b/dotfiles.git
 cd dotfiles
 
-# Create swap on /dev/sda3
-# echo ""
-# echo "Setting up swap on /dev/sda3..."
-# sudo mkswap /dev/sda3
-# sudo swapon /dev/sda3
-# echo "Swap enabled on /dev/sda3"
+Create swap on /dev/sda3
+echo ""
+echo "Setting up swap on /dev/sda3..."
+sudo mkswap /dev/sda3
+sudo swapon /dev/sda3
+echo "Swap enabled on /dev/sda3"
 
 # Run disko
 sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko/latest -- --mode destroy,format,mount disk-config-T490-ext4.nix --yes-wipe-all-disks
