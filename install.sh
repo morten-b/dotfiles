@@ -4,7 +4,7 @@ set -euo pipefail
 # Clone dotfiles
 echo "Cloning dotfiles..."
 cd /tmp
-rm -rf dotfiles
+sudo rm -rf dotfiles
 git clone --branch disko https://github.com/morten-b/dotfiles.git
 cd dotfiles
 
