@@ -8,15 +8,12 @@ sudo rm -rf dotfiles
 git clone --branch disko https://github.com/morten-b/dotfiles.git
 cd dotfiles
 
-# Create swap file on /dev/sda3
+# Create swap on /dev/sda3
 echo ""
 echo "Setting up swap on /dev/sda3..."
-sudo mkdir -p /mnt/swap
-sudo dd if=/dev/zero of=/mnt/swap/swapfile bs=1M count=4096 status=progress
-sudo chmod 600 /mnt/swap/swapfile
-sudo mkswap /mnt/swap/swapfile
-sudo swapon /mnt/swap/swapfile
-echo "Swap enabled (4GB on /dev/sda3)"
+sudo mkswap /dev/sda3
+sudo swapon /dev/sda3
+echo "Swap enabled on /dev/sda3"
 
 # Run disko
 echo ""
