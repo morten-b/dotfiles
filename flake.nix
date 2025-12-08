@@ -69,8 +69,7 @@
                 "dotnet-sdk-6.0.428"
               ];
             }
-            disko.nixosModules.default
-          ];
+          ] ++ nixpkgs.lib.optional (machine == "T490") disko.nixosModules.default;
         };
       };
     in
