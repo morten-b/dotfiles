@@ -70,8 +70,6 @@
   users.users.morten = {
     isNormalUser = true;
     description = "morten";
-    createHome = true;
-    home = "/home/morten";
     extraGroups = [
       "networkmanager"
       "wheel"
@@ -83,6 +81,10 @@
     ];
     initialHashedPassword = "$6$xBKuKRcHgrj/aZKl$8STVIQ7yeWq02EY6/2gj8MQo5RCVCo5b0Hqyz7casIbkQDJgopQi0KHym4F89UHAr3gXQBoEFMzxDRQbloJwB/";
   };
+
+  systemd.tmpfiles.rules = [
+    "d /home/morten 0755 morten users -"
+  ];
 
   home-manager = {
     useGlobalPkgs = true;
