@@ -7,15 +7,17 @@
 }:
 {
   home-manager = {
-    users.morten = { config, ... }: {
-      home = {
-        file = {
-          Videos.source = config.lib.file.mkOutOfStoreSymlink "/srv/videos";
-          Data.source = config.lib.file.mkOutOfStoreSymlink "/srv/data";
+    users.morten =
+      { config, ... }:
+      {
+        home = {
+          file = {
+            Videos.source = config.lib.file.mkOutOfStoreSymlink "/srv/videos";
+            Data.source = config.lib.file.mkOutOfStoreSymlink "/srv/data";
+          };
+          stateVersion = "25.11";
         };
-        stateVersion = "25.11";
       };
-    };
   };
 
   imports = [

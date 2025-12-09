@@ -189,6 +189,7 @@
     docker-compose
     wl-clipboard
     github-copilot-cli
+    btrfs-progs
   ];
 
   virtualisation.docker.enable = true;
