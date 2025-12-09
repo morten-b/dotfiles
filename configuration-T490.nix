@@ -24,6 +24,7 @@
     ./shairport.nix
     ./jellyfin.nix
     ./disk-config-T490.nix
+    ./snapper.nix
   ];
 
   programs.chromium = {
