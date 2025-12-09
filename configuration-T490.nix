@@ -7,10 +7,17 @@
 }:
 {
   home-manager = {
-    users.morten = {
-      home.stateVersion = "25.11";
+    users.morten = { config, ... }: {
+      home = {
+        file = {
+          Videos.source = config.lib.file.mkOutOfStoreSymlink "/srv/videos";
+          Data.source = config.lib.file.mkOutOfStoreSymlink "/srv/data";
+        };
+        stateVersion = "25.11";
+      };
     };
   };
+
   imports = [
     ./shairport.nix
     ./jellyfin.nix
@@ -37,6 +44,11 @@
       PasswordAuthentication = false;
     };
   };
+
+  systemd.tmpfiles.rules = [
+    "d /srv/videos 0755 morten users -"
+    "d /srv/data 0755 morten users -"
+  ];
 
   system.stateVersion = "25.11";
 }

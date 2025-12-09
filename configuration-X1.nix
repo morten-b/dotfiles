@@ -68,54 +68,56 @@
         };
       in
       {
-        home.packages = [
-          teams-ascendis-desktop
-          teams-redpill-linpro-desktop
-          chromium-private-desktop
-          chromium-redpill-linpro-desktop
-          chromium-ascendis-desktop
-        ];
+        home = {
+          packages = [
+            teams-ascendis-desktop
+            teams-redpill-linpro-desktop
+            chromium-private-desktop
+            chromium-redpill-linpro-desktop
+            chromium-ascendis-desktop
+          ];
 
-        home.file = {
-          ".config/teams-for-linux/Redpill-Linpro/config.json".text = ''
-            {
-                "appTitle": "Teams-Redpill-Linpro",
-                "appIcon": "/home/morten/.config/teams-for-linux/Redpill-Linpro/favicon.png",
-                "minimized": "true",
-                "electronCLIFlags": [
-                  ["ozone-platform-hint","wayland"],
-                  ["enable-features","WaylandWindowDecorations"]
-                ],
-                "cacheManagement": {
-                  "enabled": false
-                }
-            }
-          '';
+          file = {
+            ".config/teams-for-linux/Redpill-Linpro/config.json".text = ''
+              {
+                  "appTitle": "Teams-Redpill-Linpro",
+                  "appIcon": "/home/morten/.config/teams-for-linux/Redpill-Linpro/favicon.png",
+                  "minimized": "true",
+                  "electronCLIFlags": [
+                    ["ozone-platform-hint","wayland"],
+                    ["enable-features","WaylandWindowDecorations"]
+                  ],
+                  "cacheManagement": {
+                    "enabled": false
+                  }
+              }
+            '';
 
-          ".config/teams-for-linux/Redpill-Linpro/favicon.png".source = ./redpill-linpro-favicon.png;
+            ".config/teams-for-linux/Redpill-Linpro/favicon.png".source = ./redpill-linpro-favicon.png;
 
-          ".config/teams-for-linux/Ascendis/config.json".text = ''
-            {
-                "appTitle": "Teams-Ascendis",
-                "appIcon": "/home/morten/.config/teams-for-linux/Ascendis/favicon.png",
-                "minimized": "true",
-                "electronCLIFlags": [
-                  ["ozone-platform-hint","wayland"],
-                  ["enable-features","WaylandWindowDecorations"]
-                ],
-                "cacheManagement": {
-                  "enabled": false
-                }
-            }
-          '';
+            ".config/teams-for-linux/Ascendis/config.json".text = ''
+              {
+                  "appTitle": "Teams-Ascendis",
+                  "appIcon": "/home/morten/.config/teams-for-linux/Ascendis/favicon.png",
+                  "minimized": "true",
+                  "electronCLIFlags": [
+                    ["ozone-platform-hint","wayland"],
+                    ["enable-features","WaylandWindowDecorations"]
+                  ],
+                  "cacheManagement": {
+                    "enabled": false
+                  }
+              }
+            '';
 
-          ".config/teams-for-linux/Ascendis/favicon.png".source = ./ascendis-favicon.png;
+            ".config/teams-for-linux/Ascendis/favicon.png".source = ./ascendis-favicon.png;
 
-          #".config/autostart/teams-ascendis.desktop".text = teams-ascendis-desktop.text;
+            #".config/autostart/teams-ascendis.desktop".text = teams-ascendis-desktop.text;
 
-          #".config/autostart/teams-redpill-linpro.desktop".text = teams-redpill-linpro-desktop.text;
+            #".config/autostart/teams-redpill-linpro.desktop".text = teams-redpill-linpro-desktop.text;
+          };
+          stateVersion = "25.05";
         };
-        home.stateVersion = "25.05";
       };
   };
 
